@@ -7191,6 +7191,7 @@ article.post-micro {
 body {
 position: relative;
 padding-top: 0px;
+}
 
 /*background-color: #ddd;*/
 pre.literal-block, pre.doctest-block, pre.math, pre.code {
@@ -7200,7 +7201,6 @@ pre.literal-block, pre.doctest-block, pre.math, pre.code {
 
 tt.literal { background-color: #eeeeee !important }
 
-}
 .container-fluid {
     padding-right: 15px;
     padding-left: 15px;
