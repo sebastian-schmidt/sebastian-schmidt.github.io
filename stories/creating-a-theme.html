@@ -3,43 +3,26 @@
 og: http://ogp.me/ns#
 article: http://ogp.me/ns/article#
 " lang="en">
-    <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Creating a Theme | actin.io</title>
-
-                <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href="../assets/css/rst.css" rel="stylesheet" type="text/css">
-        <link href="../assets/css/code.css" rel="stylesheet" type="text/css">
-        <link href="../assets/css/colorbox.css" rel="stylesheet" type="text/css">
-        <link href="../assets/css/theme.css" rel="stylesheet" type="text/css">
-            <link href="../assets/css/custom.css" rel="stylesheet" type="text/css">
-
-                <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
-
-      <link rel="canonical" href="http://actin.io/stories/creating-a-theme.html">
-
-
-
-
-    
-        <!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
-
-    
-
-    
-    <meta name="author" content="Sebastian Schmidt">
-        <meta property="og:site_name" content="actin.io">
-    <meta property="og:title" content="Creating a Theme">
-    <meta property="og:url" content="http://actin.io/stories/creating-a-theme.html">
-    <meta property="og:description" content="There is some documentation about creating themes for Nikola, but maybe a tutorial is also a useful way
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Creating a Theme | actin.io</title>
+<link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/code.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/colorbox.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/theme.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/custom.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="http://actin.io/stories/creating-a-theme.html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="Sebastian Schmidt">
+<meta property="og:site_name" content="actin.io">
+<meta property="og:title" content="Creating a Theme">
+<meta property="og:url" content="http://actin.io/stories/creating-a-theme.html">
+<meta property="og:description" content="There is some documentation about creating themes for Nikola, but maybe a tutorial is also a useful way
 to explain it. So, here it is. I'll explain how to create a theme (almost) from scratch. All the">
-    <meta property="og:type" content="article">
-    <meta property="article:published_time" content="2012-03-13T12:00:00-03:00">
-
-    
-    
-
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2012-03-13T12:00:00-03:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -48,8 +31,7 @@ to explain it. So, here it is. I'll explain how to create a theme (almost) from 
 <div class="bgwrapper">
 </div>
 
-<nav class="navbar navbar-default navbar-inverse navbar-static-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default navbar-inverse navbar-static-top" role="navigation"><div class="container">
 <!-- This keeps the margins nice -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -66,7 +48,7 @@ to explain it. So, here it is. I'll explain how to create a theme (almost) from 
 <!-- /.navbar-header -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                                <li>
+<li>
 <a href="../archive.html">Archive</a>
                 </li>
 <li>
@@ -78,31 +60,18 @@ to explain it. So, here it is. I'll explain how to create a theme (almost) from 
                 
             </li>
 </ul>
-                
-<!-- Custom search -->
-<form method="get" id="search" action="//duckduckgo.com/" class="navbar-form pull-right">
-<input type="hidden" name="sites" value="http://actin.io/">
-<input type="hidden" name="k8" value="#444444">
-<input type="hidden" name="k9" value="#D51920">
-<input type="hidden" name="kt" value="h">
-<input type="text" name="q" maxlength="255" placeholder="Search…" class="span" style="margin-top: 4px;width:100px;">
-<input type="submit" value="Go">
+<!-- Custom search --><form method="get" id="search" action="//duckduckgo.com/" class="navbar-form pull-right">
+<input type="hidden" name="sites" value="http://actin.io/"><input type="hidden" name="k8" value="#444444"><input type="hidden" name="k9" value="#D51920"><input type="hidden" name="kt" value="h"><input type="text" name="q" maxlength="255" placeholder="Search…" class="span" style="margin-top: 4px;width:100px;"><input type="submit" value="Go">
 </form>
 <!-- End of custom search -->
 
 
-            <ul class="nav navbar-nav navbar-right">
-                
-            </ul>
-        </div>
+            <ul class="nav navbar-nav navbar-right"></ul>
+</div>
 <!-- /.navbar-collapse -->
     </div>
 <!-- /.container -->
-</nav>
-
-<!-- End of Menubar -->
-
-<div class="container" id="content" role="main">
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
     <div class="body-content">
         <!--Body content-->
         <div class="row">
@@ -110,13 +79,10 @@ to explain it. So, here it is. I'll explain how to create a theme (almost) from 
           </div>
           <div class="col-md-7 middle">
             
-<article class="storypage" itemscope="itemscope" itemtype="http://schema.org/Article">
-    <header>
-            <h1 class="p-name entry-title" itemprop="headline name">Creating a Theme</h1>
+<article class="storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name">Creating a Theme</h1>
 
         
-    </header>
-    <div class="e-content entry-content" itemprop="articleBody text">
+    </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <p class="lead">There is some documentation about creating themes for Nikola, but maybe a tutorial is also a useful way
 to explain it. So, here it is. I'll explain how to create a theme (almost) from scratch. All themes
@@ -155,8 +121,7 @@ THEME = 'monospace'
 $ nikola build &amp;&amp; nikola serve
 </pre>
 <div class="figure">
-<img alt="http://ralsina.me/galleries/monospace-tut/monospace-1.png" src="http://ralsina.me/galleries/monospace-tut/monospace-1.png" style="height: 400px;">
-<p class="caption">This is the default "bootstrap" theme.</p>
+<img alt="http://ralsina.me/galleries/monospace-tut/monospace-1.png" src="http://ralsina.me/galleries/monospace-tut/monospace-1.png" style="height: 400px;"><p class="caption">This is the default "bootstrap" theme.</p>
 </div>
 <p>Of course, the page layout is completely different from what we want. To fix that, we need to
 get into templates.</p>
@@ -165,138 +130,137 @@ get into templates.</p>
 <h2>Templates: Page Layout</h2>
 <p>The general page layout for the theme is done by the <tt class="docutils literal">base.tmpl</tt> template, which is done using
 <a class="reference external" href="http://www.makotemplates.org/">Mako</a>. This is bootstrap's <tt class="docutils literal">base.tmpl</tt>, it's not very big:</p>
-<pre class="code mako"><a name="rest_code_b2fd201a663549b689056e36743b6475-1"></a><span class="cp">## -*- coding: utf-8 -*-</span><span class="x"></span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-2"></a><span class="cp">&lt;%</span><span class="nb">namespace</span> <span class="na">name=</span><span class="s">"base"</span> <span class="na">file=</span><span class="s">"base_helper.tmpl"</span> <span class="na">import=</span><span class="s">"*"</span> <span class="cp">/&gt;</span><span class="x"></span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-3"></a><span class="cp">&lt;%</span><span class="nb">namespace</span> <span class="na">name=</span><span class="s">"bootstrap"</span> <span class="na">file=</span><span class="s">"bootstrap_helper.tmpl"</span> <span class="na">import=</span><span class="s">"*"</span> <span class="cp">/&gt;</span><span class="x"></span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-4"></a><span class="cp">${</span><span class="n">set_locale</span><span class="p">(</span><span class="n">lang</span><span class="p">)</span><span class="cp">}</span><span class="x"></span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-5"></a><span class="x">&lt;!DOCTYPE html&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-6"></a><span class="x">&lt;html% if comment_system == 'facebook': xmlns:fb="http://ogp.me/ns/fb#" %endif lang="</span><span class="cp">${</span><span class="n">lang</span><span class="cp">}</span><span class="x">"&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-7"></a><span class="x">&lt;head&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-8"></a><span class="x">    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-9"></a><span class="x">    </span><span class="cp">${</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">html_head</span><span class="p">()</span><span class="cp">}</span><span class="x"></span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-10"></a><span class="x">    </span><span class="cp">&lt;%</span><span class="nb">block</span> <span class="na">name=</span><span class="s">"extra_head"</span><span class="cp">&gt;</span><span class="x"></span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-11"></a><span class="x">    </span><span class="cp">&lt;/%</span><span class="nb">block</span><span class="cp">&gt;</span><span class="x"></span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-12"></a><span class="x">    </span><span class="cp">${</span><span class="n">extra_head_data</span><span class="cp">}</span><span class="x"></span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-13"></a><span class="x">&lt;/head&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-14"></a><span class="x">&lt;body&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-15"></a><span class="x">&lt;!-- Menubar --&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-16"></a><span class="x">&lt;div class="navbar navbar-fixed-top" id="navbar"&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-17"></a><span class="x">    &lt;div class="navbar-inner"&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-18"></a><span class="x">        &lt;div class="container"&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-19"></a>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-20"></a><span class="x">        &lt;!-- .btn-navbar is used as the toggle for collapsed navbar content --&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-21"></a><span class="x">        &lt;a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-22"></a><span class="x">            &lt;span class="icon-bar"&gt;&lt;/span&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-23"></a><span class="x">            &lt;span class="icon-bar"&gt;&lt;/span&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-24"></a><span class="x">            &lt;span class="icon-bar"&gt;&lt;/span&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-25"></a><span class="x">        &lt;/a&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-26"></a>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-27"></a><span class="x">            &lt;a class="brand" href="</span><span class="cp">${</span><span class="n">abs_link</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span><span class="cp">}</span><span class="x">"&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-28"></a><span class="x">            </span><span class="cp">${</span><span class="n">blog_title</span><span class="cp">}</span><span class="x"></span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-29"></a><span class="x">            &lt;/a&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-30"></a><span class="x">            &lt;!-- Everything you want hidden at 940px or less, place within here --&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-31"></a><span class="x">            &lt;div class="nav-collapse collapse"&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-32"></a><span class="x">                &lt;ul class="nav"&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-33"></a><span class="x">                    </span><span class="cp">${</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">html_navigation_links</span><span class="p">()</span><span class="cp">}</span><span class="x"></span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-34"></a><span class="x">                &lt;/ul&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-35"></a>                <span class="cp">%</span><span class="k">if</span> <span class="n">search_form</span><span class="p">:</span><span class="x"></span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-36"></a><span class="x">                    </span><span class="cp">${</span><span class="n">search_form</span><span class="cp">}</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-37"></a>                <span class="cp">%</span><span class="k">endif</span><span class="x"></span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-38"></a><span class="x">                &lt;ul class="nav pull-right"&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-39"></a><span class="x">                </span><span class="cp">&lt;%</span><span class="nb">block</span> <span class="na">name=</span><span class="s">"belowtitle"</span><span class="cp">&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-40"></a>                <span class="cp">%</span><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">translations</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span><span class="x"></span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-41"></a><span class="x">                    &lt;li&gt;</span><span class="cp">${</span><span class="n">base</span><span class="o">.</span><span class="n">html_translations</span><span class="p">()</span><span class="cp">}</span><span class="x">&lt;/li&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-42"></a>                <span class="cp">%</span><span class="k">endif</span><span class="x"></span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-43"></a><span class="x">                </span><span class="cp">&lt;/%</span><span class="nb">block</span><span class="cp">&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-44"></a>                <span class="cp">%</span> <span class="k">if</span> <span class="n">show_sourcelink</span><span class="p">:</span><span class="x"></span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-45"></a><span class="x">                    &lt;li&gt;</span><span class="cp">&lt;%</span><span class="nb">block</span> <span class="na">name=</span><span class="s">"sourcelink"</span><span class="cp">&gt;&lt;/%</span><span class="nb">block</span><span class="cp">&gt;</span><span class="x">&lt;/li&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-46"></a>                <span class="cp">%</span><span class="k">endif</span><span class="x"></span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-47"></a><span class="x">                &lt;/ul&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-48"></a><span class="x">            &lt;/div&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-49"></a><span class="x">        &lt;/div&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-50"></a><span class="x">    &lt;/div&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-51"></a><span class="x">&lt;/div&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-52"></a><span class="x">&lt;!-- End of Menubar --&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-53"></a><span class="x">&lt;div class="container-fluid" id="container-fluid"&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-54"></a><span class="x">    &lt;!--Body content--&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-55"></a><span class="x">    &lt;div class="row-fluid"&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-56"></a><span class="x">    &lt;div class="span2"&gt;&lt;/div&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-57"></a><span class="x">    &lt;div class="span8"&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-58"></a><span class="x">    </span><span class="cp">&lt;%</span><span class="nb">block</span> <span class="na">name=</span><span class="s">"content"</span><span class="cp">&gt;&lt;/%</span><span class="nb">block</span><span class="cp">&gt;</span><span class="x"></span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-59"></a><span class="x">    &lt;/div&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-60"></a><span class="x">    &lt;/div&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-61"></a><span class="x">    &lt;!--End of body content--&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-62"></a><span class="x">&lt;/div&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-63"></a><span class="x">&lt;div class="footerbox"&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-64"></a><span class="x">    </span><span class="cp">${</span><span class="n">content_footer</span><span class="cp">}</span><span class="x"></span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-65"></a><span class="x">&lt;/div&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-66"></a><span class="cp">${</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">late_load_js</span><span class="p">()</span><span class="cp">}</span><span class="x"></span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-67"></a><span class="cp">${</span><span class="n">base</span><span class="o">.</span><span class="n">html_social</span><span class="p">()</span><span class="cp">}</span><span class="x"></span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-68"></a><span class="x">    &lt;script&gt;jQuery("a.image-reference").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-69"></a><span class="x">    $(window).on('hashchange', function(){</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-70"></a><span class="x">        if (location.hash &amp;&amp; $(location.hash)[0]) {</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-71"></a><span class="x">            $('body').animate({scrollTop: $(location.hash).offset().top - $('#navbar').outerHeight(true)*1.2 }, 1);</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-72"></a><span class="x">        }</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-73"></a><span class="x">    });</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-74"></a><span class="x">    $(document).ready(function(){$(window).trigger('hashchange')});</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-75"></a><span class="x">    &lt;/script&gt;</span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-76"></a><span class="cp">&lt;%</span><span class="nb">block</span> <span class="na">name=</span><span class="s">"extra_js"</span><span class="cp">&gt;&lt;/%</span><span class="nb">block</span><span class="cp">&gt;</span><span class="x"></span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-77"></a><span class="cp">${</span><span class="n">body_end</span><span class="cp">}</span><span class="x"></span>
-<a name="rest_code_b2fd201a663549b689056e36743b6475-78"></a><span class="x">&lt;/body&gt;</span>
+<pre class="code mako"><a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-1"></a><span class="cp">## -*- coding: utf-8 -*-</span><span class="x"></span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-2"></a><span class="cp">&lt;%</span><span class="nb">namespace</span> <span class="na">name=</span><span class="s">"base"</span> <span class="na">file=</span><span class="s">"base_helper.tmpl"</span> <span class="na">import=</span><span class="s">"*"</span> <span class="cp">/&gt;</span><span class="x"></span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-3"></a><span class="cp">&lt;%</span><span class="nb">namespace</span> <span class="na">name=</span><span class="s">"bootstrap"</span> <span class="na">file=</span><span class="s">"bootstrap_helper.tmpl"</span> <span class="na">import=</span><span class="s">"*"</span> <span class="cp">/&gt;</span><span class="x"></span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-4"></a><span class="cp">${</span><span class="n">set_locale</span><span class="p">(</span><span class="n">lang</span><span class="p">)</span><span class="cp">}</span><span class="x"></span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-5"></a><span class="x">&lt;!DOCTYPE html&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-6"></a><span class="x">&lt;html% if comment_system == 'facebook': xmlns:fb="http://ogp.me/ns/fb#" %endif lang="</span><span class="cp">${</span><span class="n">lang</span><span class="cp">}</span><span class="x">"&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-7"></a><span class="x">&lt;head&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-8"></a><span class="x">    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-9"></a><span class="x">    </span><span class="cp">${</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">html_head</span><span class="p">()</span><span class="cp">}</span><span class="x"></span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-10"></a><span class="x">    </span><span class="cp">&lt;%</span><span class="nb">block</span> <span class="na">name=</span><span class="s">"extra_head"</span><span class="cp">&gt;</span><span class="x"></span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-11"></a><span class="x">    </span><span class="cp">&lt;/%</span><span class="nb">block</span><span class="cp">&gt;</span><span class="x"></span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-12"></a><span class="x">    </span><span class="cp">${</span><span class="n">extra_head_data</span><span class="cp">}</span><span class="x"></span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-13"></a><span class="x">&lt;/head&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-14"></a><span class="x">&lt;body&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-15"></a><span class="x">&lt;!-- Menubar --&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-16"></a><span class="x">&lt;div class="navbar navbar-fixed-top" id="navbar"&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-17"></a><span class="x">    &lt;div class="navbar-inner"&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-18"></a><span class="x">        &lt;div class="container"&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-19"></a>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-20"></a><span class="x">        &lt;!-- .btn-navbar is used as the toggle for collapsed navbar content --&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-21"></a><span class="x">        &lt;a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-22"></a><span class="x">            &lt;span class="icon-bar"&gt;&lt;/span&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-23"></a><span class="x">            &lt;span class="icon-bar"&gt;&lt;/span&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-24"></a><span class="x">            &lt;span class="icon-bar"&gt;&lt;/span&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-25"></a><span class="x">        &lt;/a&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-26"></a>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-27"></a><span class="x">            &lt;a class="brand" href="</span><span class="cp">${</span><span class="n">abs_link</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span><span class="cp">}</span><span class="x">"&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-28"></a><span class="x">            </span><span class="cp">${</span><span class="n">blog_title</span><span class="cp">}</span><span class="x"></span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-29"></a><span class="x">            &lt;/a&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-30"></a><span class="x">            &lt;!-- Everything you want hidden at 940px or less, place within here --&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-31"></a><span class="x">            &lt;div class="nav-collapse collapse"&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-32"></a><span class="x">                &lt;ul class="nav"&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-33"></a><span class="x">                    </span><span class="cp">${</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">html_navigation_links</span><span class="p">()</span><span class="cp">}</span><span class="x"></span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-34"></a><span class="x">                &lt;/ul&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-35"></a>                <span class="cp">%</span><span class="k">if</span> <span class="n">search_form</span><span class="p">:</span><span class="x"></span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-36"></a><span class="x">                    </span><span class="cp">${</span><span class="n">search_form</span><span class="cp">}</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-37"></a>                <span class="cp">%</span><span class="k">endif</span><span class="x"></span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-38"></a><span class="x">                &lt;ul class="nav pull-right"&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-39"></a><span class="x">                </span><span class="cp">&lt;%</span><span class="nb">block</span> <span class="na">name=</span><span class="s">"belowtitle"</span><span class="cp">&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-40"></a>                <span class="cp">%</span><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">translations</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span><span class="x"></span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-41"></a><span class="x">                    &lt;li&gt;</span><span class="cp">${</span><span class="n">base</span><span class="o">.</span><span class="n">html_translations</span><span class="p">()</span><span class="cp">}</span><span class="x">&lt;/li&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-42"></a>                <span class="cp">%</span><span class="k">endif</span><span class="x"></span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-43"></a><span class="x">                </span><span class="cp">&lt;/%</span><span class="nb">block</span><span class="cp">&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-44"></a>                <span class="cp">%</span> <span class="k">if</span> <span class="n">show_sourcelink</span><span class="p">:</span><span class="x"></span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-45"></a><span class="x">                    &lt;li&gt;</span><span class="cp">&lt;%</span><span class="nb">block</span> <span class="na">name=</span><span class="s">"sourcelink"</span><span class="cp">&gt;&lt;/%</span><span class="nb">block</span><span class="cp">&gt;</span><span class="x">&lt;/li&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-46"></a>                <span class="cp">%</span><span class="k">endif</span><span class="x"></span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-47"></a><span class="x">                &lt;/ul&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-48"></a><span class="x">            &lt;/div&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-49"></a><span class="x">        &lt;/div&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-50"></a><span class="x">    &lt;/div&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-51"></a><span class="x">&lt;/div&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-52"></a><span class="x">&lt;!-- End of Menubar --&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-53"></a><span class="x">&lt;div class="container-fluid" id="container-fluid"&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-54"></a><span class="x">    &lt;!--Body content--&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-55"></a><span class="x">    &lt;div class="row-fluid"&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-56"></a><span class="x">    &lt;div class="span2"&gt;&lt;/div&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-57"></a><span class="x">    &lt;div class="span8"&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-58"></a><span class="x">    </span><span class="cp">&lt;%</span><span class="nb">block</span> <span class="na">name=</span><span class="s">"content"</span><span class="cp">&gt;&lt;/%</span><span class="nb">block</span><span class="cp">&gt;</span><span class="x"></span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-59"></a><span class="x">    &lt;/div&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-60"></a><span class="x">    &lt;/div&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-61"></a><span class="x">    &lt;!--End of body content--&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-62"></a><span class="x">&lt;/div&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-63"></a><span class="x">&lt;div class="footerbox"&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-64"></a><span class="x">    </span><span class="cp">${</span><span class="n">content_footer</span><span class="cp">}</span><span class="x"></span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-65"></a><span class="x">&lt;/div&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-66"></a><span class="cp">${</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">late_load_js</span><span class="p">()</span><span class="cp">}</span><span class="x"></span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-67"></a><span class="cp">${</span><span class="n">base</span><span class="o">.</span><span class="n">html_social</span><span class="p">()</span><span class="cp">}</span><span class="x"></span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-68"></a><span class="x">    &lt;script&gt;jQuery("a.image-reference").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-69"></a><span class="x">    $(window).on('hashchange', function(){</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-70"></a><span class="x">        if (location.hash &amp;&amp; $(location.hash)[0]) {</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-71"></a><span class="x">            $('body').animate({scrollTop: $(location.hash).offset().top - $('#navbar').outerHeight(true)*1.2 }, 1);</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-72"></a><span class="x">        }</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-73"></a><span class="x">    });</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-74"></a><span class="x">    $(document).ready(function(){$(window).trigger('hashchange')});</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-75"></a><span class="x">    &lt;/script&gt;</span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-76"></a><span class="cp">&lt;%</span><span class="nb">block</span> <span class="na">name=</span><span class="s">"extra_js"</span><span class="cp">&gt;&lt;/%</span><span class="nb">block</span><span class="cp">&gt;</span><span class="x"></span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-77"></a><span class="cp">${</span><span class="n">body_end</span><span class="cp">}</span><span class="x"></span>
+<a name="rest_code_86d60110c72446689ed7c42d1dc0ef62-78"></a><span class="x">&lt;/body&gt;</span>
 </pre>
 <p>It's basically a HTML document with some placeholders to be replaced with actual content, configuration options, and some helper functions.
 For example, the <tt class="docutils literal">html_head</tt> helper can be used to add CSS or JS files in all document's <tt class="docutils literal">head</tt> tags.</p>
 <p>Monospace is a two-column-with-footer layout, so let's copy the basics from its HTML and see what happens:</p>
-<pre class="code mako"><a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-1"></a><span class="cp">## -*- coding: utf-8 -*-</span><span class="x"></span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-2"></a><span class="cp">&lt;%</span><span class="nb">namespace</span> <span class="na">name=</span><span class="s">"base"</span> <span class="na">file=</span><span class="s">"base_helper.tmpl"</span> <span class="na">import=</span><span class="s">"*"</span><span class="cp">/&gt;</span><span class="x"></span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-3"></a><span class="cp">&lt;%</span><span class="nb">namespace</span> <span class="na">name=</span><span class="s">"bootstrap"</span> <span class="na">file=</span><span class="s">"bootstrap_helper.tmpl"</span> <span class="na">import=</span><span class="s">"*"</span> <span class="cp">/&gt;</span><span class="x"></span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-4"></a><span class="cp">${</span><span class="n">set_locale</span><span class="p">(</span><span class="n">lang</span><span class="p">)</span><span class="cp">}</span><span class="x"></span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-5"></a><span class="x">&lt;!DOCTYPE html&gt;</span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-6"></a><span class="x">&lt;html lang="</span><span class="cp">${</span><span class="n">lang</span><span class="cp">}</span><span class="x">"&gt;</span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-7"></a><span class="x">&lt;head&gt;</span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-8"></a><span class="x">    </span><span class="cp">${</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">html_head</span><span class="p">()</span><span class="cp">}</span><span class="x"></span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-9"></a><span class="x">    </span><span class="cp">&lt;%</span><span class="nb">block</span> <span class="na">name=</span><span class="s">"extra_head"</span><span class="cp">&gt;</span><span class="x"></span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-10"></a><span class="x">    </span><span class="cp">&lt;/%</span><span class="nb">block</span><span class="cp">&gt;</span><span class="x"></span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-11"></a><span class="x">    </span><span class="cp">${</span><span class="n">extra_head_data</span><span class="cp">}</span><span class="x"></span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-12"></a><span class="x">&lt;/head&gt;</span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-13"></a><span class="x">&lt;body class="home blog"&gt;</span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-14"></a><span class="x">    &lt;div id="wrap" style="width:850px"&gt;</span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-15"></a><span class="x">        &lt;div id="container" style="width:560px"&gt;</span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-16"></a><span class="x">            </span><span class="cp">&lt;%</span><span class="nb">block</span> <span class="na">name=</span><span class="s">"content"</span><span class="cp">&gt;&lt;/%</span><span class="nb">block</span><span class="cp">&gt;</span><span class="x"></span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-17"></a><span class="x">        &lt;/div&gt;</span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-18"></a><span class="x">        &lt;div id="sidebar"&gt;</span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-19"></a><span class="x">            &lt;!--Sidebar content--&gt;</span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-20"></a><span class="x">            &lt;h1 id="blog-title"&gt;</span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-21"></a><span class="x">                &lt;a href="</span><span class="cp">${</span><span class="n">abs_link</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span><span class="cp">}</span><span class="x">" title="</span><span class="cp">${</span><span class="n">blog_title</span><span class="cp">}</span><span class="x">"&gt;</span><span class="cp">${</span><span class="n">blog_title</span><span class="cp">}</span><span class="x">&lt;/a&gt;</span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-22"></a><span class="x">            &lt;/h1&gt;</span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-23"></a><span class="x">            </span><span class="cp">&lt;%</span><span class="nb">block</span> <span class="na">name=</span><span class="s">"belowtitle"</span><span class="cp">&gt;</span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-24"></a>            <span class="cp">%</span><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">translations</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span><span class="x"></span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-25"></a><span class="x">            &lt;small&gt;</span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-26"></a><span class="x">                </span><span class="cp">${</span><span class="p">(</span><span class="n">messages</span><span class="p">(</span><span class="s">"Also available in"</span><span class="p">))</span><span class="cp">}</span><span class="x">:&amp;nbsp;</span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-27"></a><span class="x">                </span><span class="cp">${</span><span class="n">base</span><span class="o">.</span><span class="n">html_translations</span><span class="p">()</span><span class="cp">}</span><span class="x"></span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-28"></a><span class="x">            &lt;/small&gt;</span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-29"></a>            <span class="cp">%</span><span class="k">endif</span><span class="x"></span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-30"></a><span class="x">            </span><span class="cp">&lt;/%</span><span class="nb">block</span><span class="cp">&gt;</span><span class="x"></span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-31"></a><span class="x">            &lt;ul class="unstyled"&gt;</span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-32"></a><span class="x">            &lt;li&gt;</span><span class="cp">${</span><span class="n">license</span><span class="cp">}</span><span class="x"></span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-33"></a><span class="x">            </span><span class="cp">${</span><span class="n">base</span><span class="o">.</span><span class="n">html_social</span><span class="p">()</span><span class="cp">}</span><span class="x"></span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-34"></a><span class="x">            </span><span class="cp">${</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">html_navigation_links</span><span class="p">()</span><span class="cp">}</span><span class="x"></span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-35"></a><span class="x">            &lt;li&gt;</span><span class="cp">${</span><span class="n">search_form</span><span class="cp">}</span><span class="x"></span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-36"></a><span class="x">            &lt;/ul&gt;</span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-37"></a><span class="x">        &lt;/div&gt;</span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-38"></a><span class="x">        &lt;div id="footer"&gt;</span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-39"></a><span class="x">            </span><span class="cp">${</span><span class="n">content_footer</span><span class="cp">}</span><span class="x"></span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-40"></a><span class="x">        &lt;/div&gt;</span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-41"></a><span class="x">    &lt;/div&gt;</span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-42"></a><span class="x">    </span><span class="cp">${</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">late_load_js</span><span class="p">()</span><span class="cp">}</span><span class="x"></span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-43"></a><span class="x">    &lt;script&gt;jQuery("a.image-reference").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});&lt;/script&gt;</span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-44"></a><span class="x">    </span><span class="cp">&lt;%</span><span class="nb">block</span> <span class="na">name=</span><span class="s">"extra_js"</span><span class="cp">&gt;&lt;/%</span><span class="nb">block</span><span class="cp">&gt;</span><span class="x"></span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-45"></a><span class="x">    </span><span class="cp">${</span><span class="n">body_end</span><span class="cp">}</span><span class="x"></span>
-<a name="rest_code_6812ca9d42cf49bc9e2794db3a8fcd9d-46"></a><span class="x">&lt;/body&gt;</span>
+<pre class="code mako"><a name="rest_code_3685f2cc32d443c68c17595b2866a23d-1"></a><span class="cp">## -*- coding: utf-8 -*-</span><span class="x"></span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-2"></a><span class="cp">&lt;%</span><span class="nb">namespace</span> <span class="na">name=</span><span class="s">"base"</span> <span class="na">file=</span><span class="s">"base_helper.tmpl"</span> <span class="na">import=</span><span class="s">"*"</span><span class="cp">/&gt;</span><span class="x"></span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-3"></a><span class="cp">&lt;%</span><span class="nb">namespace</span> <span class="na">name=</span><span class="s">"bootstrap"</span> <span class="na">file=</span><span class="s">"bootstrap_helper.tmpl"</span> <span class="na">import=</span><span class="s">"*"</span> <span class="cp">/&gt;</span><span class="x"></span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-4"></a><span class="cp">${</span><span class="n">set_locale</span><span class="p">(</span><span class="n">lang</span><span class="p">)</span><span class="cp">}</span><span class="x"></span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-5"></a><span class="x">&lt;!DOCTYPE html&gt;</span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-6"></a><span class="x">&lt;html lang="</span><span class="cp">${</span><span class="n">lang</span><span class="cp">}</span><span class="x">"&gt;</span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-7"></a><span class="x">&lt;head&gt;</span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-8"></a><span class="x">    </span><span class="cp">${</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">html_head</span><span class="p">()</span><span class="cp">}</span><span class="x"></span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-9"></a><span class="x">    </span><span class="cp">&lt;%</span><span class="nb">block</span> <span class="na">name=</span><span class="s">"extra_head"</span><span class="cp">&gt;</span><span class="x"></span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-10"></a><span class="x">    </span><span class="cp">&lt;/%</span><span class="nb">block</span><span class="cp">&gt;</span><span class="x"></span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-11"></a><span class="x">    </span><span class="cp">${</span><span class="n">extra_head_data</span><span class="cp">}</span><span class="x"></span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-12"></a><span class="x">&lt;/head&gt;</span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-13"></a><span class="x">&lt;body class="home blog"&gt;</span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-14"></a><span class="x">    &lt;div id="wrap" style="width:850px"&gt;</span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-15"></a><span class="x">        &lt;div id="container" style="width:560px"&gt;</span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-16"></a><span class="x">            </span><span class="cp">&lt;%</span><span class="nb">block</span> <span class="na">name=</span><span class="s">"content"</span><span class="cp">&gt;&lt;/%</span><span class="nb">block</span><span class="cp">&gt;</span><span class="x"></span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-17"></a><span class="x">        &lt;/div&gt;</span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-18"></a><span class="x">        &lt;div id="sidebar"&gt;</span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-19"></a><span class="x">            &lt;!--Sidebar content--&gt;</span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-20"></a><span class="x">            &lt;h1 id="blog-title"&gt;</span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-21"></a><span class="x">                &lt;a href="</span><span class="cp">${</span><span class="n">abs_link</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span><span class="cp">}</span><span class="x">" title="</span><span class="cp">${</span><span class="n">blog_title</span><span class="cp">}</span><span class="x">"&gt;</span><span class="cp">${</span><span class="n">blog_title</span><span class="cp">}</span><span class="x">&lt;/a&gt;</span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-22"></a><span class="x">            &lt;/h1&gt;</span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-23"></a><span class="x">            </span><span class="cp">&lt;%</span><span class="nb">block</span> <span class="na">name=</span><span class="s">"belowtitle"</span><span class="cp">&gt;</span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-24"></a>            <span class="cp">%</span><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">translations</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span><span class="x"></span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-25"></a><span class="x">            &lt;small&gt;</span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-26"></a><span class="x">                </span><span class="cp">${</span><span class="p">(</span><span class="n">messages</span><span class="p">(</span><span class="s">"Also available in"</span><span class="p">))</span><span class="cp">}</span><span class="x">:&amp;nbsp;</span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-27"></a><span class="x">                </span><span class="cp">${</span><span class="n">base</span><span class="o">.</span><span class="n">html_translations</span><span class="p">()</span><span class="cp">}</span><span class="x"></span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-28"></a><span class="x">            &lt;/small&gt;</span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-29"></a>            <span class="cp">%</span><span class="k">endif</span><span class="x"></span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-30"></a><span class="x">            </span><span class="cp">&lt;/%</span><span class="nb">block</span><span class="cp">&gt;</span><span class="x"></span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-31"></a><span class="x">            &lt;ul class="unstyled"&gt;</span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-32"></a><span class="x">            &lt;li&gt;</span><span class="cp">${</span><span class="n">license</span><span class="cp">}</span><span class="x"></span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-33"></a><span class="x">            </span><span class="cp">${</span><span class="n">base</span><span class="o">.</span><span class="n">html_social</span><span class="p">()</span><span class="cp">}</span><span class="x"></span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-34"></a><span class="x">            </span><span class="cp">${</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">html_navigation_links</span><span class="p">()</span><span class="cp">}</span><span class="x"></span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-35"></a><span class="x">            &lt;li&gt;</span><span class="cp">${</span><span class="n">search_form</span><span class="cp">}</span><span class="x"></span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-36"></a><span class="x">            &lt;/ul&gt;</span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-37"></a><span class="x">        &lt;/div&gt;</span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-38"></a><span class="x">        &lt;div id="footer"&gt;</span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-39"></a><span class="x">            </span><span class="cp">${</span><span class="n">content_footer</span><span class="cp">}</span><span class="x"></span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-40"></a><span class="x">        &lt;/div&gt;</span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-41"></a><span class="x">    &lt;/div&gt;</span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-42"></a><span class="x">    </span><span class="cp">${</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">late_load_js</span><span class="p">()</span><span class="cp">}</span><span class="x"></span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-43"></a><span class="x">    &lt;script&gt;jQuery("a.image-reference").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});&lt;/script&gt;</span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-44"></a><span class="x">    </span><span class="cp">&lt;%</span><span class="nb">block</span> <span class="na">name=</span><span class="s">"extra_js"</span><span class="cp">&gt;&lt;/%</span><span class="nb">block</span><span class="cp">&gt;</span><span class="x"></span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-45"></a><span class="x">    </span><span class="cp">${</span><span class="n">body_end</span><span class="cp">}</span><span class="x"></span>
+<a name="rest_code_3685f2cc32d443c68c17595b2866a23d-46"></a><span class="x">&lt;/body&gt;</span>
 </pre>
 <div class="figure">
-<img alt="http://ralsina.me/galleries/monospace-tut/monospace-2.png" src="http://ralsina.me/galleries/monospace-tut/monospace-2.png">
-<p class="caption">Yikes!</p>
+<img alt="http://ralsina.me/galleries/monospace-tut/monospace-2.png" src="http://ralsina.me/galleries/monospace-tut/monospace-2.png"><p class="caption">Yikes!</p>
 </div>
 <p>This will get better quickly once we add some CSS</p>
 </div>
@@ -307,35 +271,34 @@ the reStructuredText output looks reasonable, and <tt class="docutils literal">c
 <p>It also includes an empty <tt class="docutils literal">assets/css/theme.css</tt> where you can add your own CSS.
 For example, this is taken from the original monospace theme, except for the last
 few selectors:</p>
-<pre class="code css"><a name="rest_code_674a7eb02beb4bf3b3c21a3016467a4c-1"></a><span class="nt">body</span> <span class="p">{</span> <span class="k">margin</span><span class="o">:</span><span class="m">0px</span><span class="p">;</span> <span class="k">padding</span><span class="o">:</span><span class="m">20px</span> <span class="m">0px</span><span class="p">;</span> <span class="k">text-align</span><span class="o">:</span><span class="k">center</span><span class="p">;</span> <span class="k">font-family</span><span class="o">:</span><span class="n">Monospace</span><span class="p">;</span> <span class="k">color</span><span class="o">:</span><span class="m">#585858</span><span class="p">;</span> <span class="p">}</span>
-<a name="rest_code_674a7eb02beb4bf3b3c21a3016467a4c-2"></a><span class="nc">.post</span> <span class="p">{</span> <span class="k">margin</span><span class="o">:</span><span class="m">0px</span> <span class="m">0px</span> <span class="m">30px</span> <span class="m">0px</span><span class="p">;</span> <span class="k">padding</span><span class="o">:</span><span class="m">0px</span> <span class="m">0px</span> <span class="m">30px</span> <span class="m">0px</span><span class="p">;</span> <span class="k">border-bottom</span><span class="o">:</span><span class="m">1px</span> <span class="k">dotted</span> <span class="m">#C8C8C8</span><span class="p">;</span> <span class="p">}</span>
-<a name="rest_code_674a7eb02beb4bf3b3c21a3016467a4c-3"></a><span class="nc">.meta</span> <span class="p">{</span> <span class="k">margin</span><span class="o">:</span><span class="m">10px</span><span class="p">;</span> <span class="k">padding</span><span class="o">:</span><span class="m">15px</span><span class="p">;</span> <span class="k">background</span><span class="o">:</span><span class="m">#EAEAEA</span><span class="p">;</span> <span class="k">clear</span><span class="o">:</span><span class="k">both</span><span class="p">;</span> <span class="p">}</span>
-<a name="rest_code_674a7eb02beb4bf3b3c21a3016467a4c-4"></a><span class="nf">#footer</span> <span class="p">{</span> <span class="k">text-align</span><span class="o">:</span><span class="k">center</span><span class="p">;</span> <span class="k">clear</span><span class="o">:</span><span class="k">both</span><span class="p">;</span> <span class="k">margin</span><span class="o">:</span><span class="m">30px</span> <span class="m">0px</span> <span class="m">0px</span> <span class="m">0px</span><span class="p">;</span> <span class="k">padding</span><span class="o">:</span><span class="m">30px</span> <span class="m">0px</span> <span class="m">0px</span> <span class="m">0px</span><span class="p">;</span> <span class="k">border-top</span><span class="o">:</span><span class="m">1px</span> <span class="k">dotted</span> <span class="m">#C8C8C8</span><span class="p">;</span> <span class="p">}</span>
-<a name="rest_code_674a7eb02beb4bf3b3c21a3016467a4c-5"></a><span class="nf">#wrap</span> <span class="p">{</span> <span class="k">margin</span><span class="o">:</span><span class="m">0px</span> <span class="k">auto</span><span class="p">;</span> <span class="k">text-align</span><span class="o">:</span><span class="k">left</span><span class="p">;</span> <span class="k">font-size</span><span class="o">:</span> <span class="m">13px</span><span class="p">;</span> <span class="k">line-height</span><span class="o">:</span> <span class="m">1</span><span class="o">.</span><span class="m">4</span><span class="p">;</span> <span class="p">}</span>
-<a name="rest_code_674a7eb02beb4bf3b3c21a3016467a4c-6"></a><span class="nf">#container</span> <span class="p">{</span> <span class="k">float</span><span class="o">:</span><span class="k">right</span><span class="p">;</span> <span class="p">}</span>
-<a name="rest_code_674a7eb02beb4bf3b3c21a3016467a4c-7"></a><span class="nf">#sidebar</span> <span class="p">{</span> <span class="k">overflow</span><span class="o">:</span><span class="k">hidden</span><span class="p">;</span> <span class="k">clear</span><span class="o">:</span><span class="k">left</span><span class="p">;</span> <span class="k">text-align</span><span class="o">:</span><span class="k">right</span><span class="p">;</span> <span class="k">width</span><span class="o">:</span><span class="m">250px</span><span class="p">;</span> <span class="k">height</span><span class="o">:</span><span class="k">auto</span><span class="p">;</span> <span class="k">padding</span><span class="o">:</span><span class="m">0px</span> <span class="m">15px</span> <span class="m">0px</span> <span class="m">0px</span><span class="p">;</span> <span class="k">border-right</span><span class="o">:</span><span class="m">1px</span> <span class="k">dotted</span> <span class="m">#C8C8C8</span><span class="p">;</span> <span class="p">}</span>
-<a name="rest_code_674a7eb02beb4bf3b3c21a3016467a4c-8"></a><span class="nf">#sidebar</span> <span class="nt">li</span> <span class="p">{</span> <span class="k">list-style-type</span><span class="o">:</span><span class="k">none</span><span class="p">;</span> <span class="p">}</span>
-<a name="rest_code_674a7eb02beb4bf3b3c21a3016467a4c-9"></a><span class="nf">#sidebar</span> <span class="o">&gt;</span> <span class="nt">li</span> <span class="p">{</span> <span class="k">margin</span><span class="o">:</span><span class="m">20px</span> <span class="m">0px</span><span class="p">;</span> <span class="p">}</span>
-<a name="rest_code_674a7eb02beb4bf3b3c21a3016467a4c-10"></a><span class="nf">#sidebar</span> <span class="nt">h1</span> <span class="p">{</span> <span class="k">border-bottom</span><span class="o">:</span><span class="m">1px</span> <span class="k">dotted</span> <span class="m">#C8C8C8</span><span class="p">;</span> <span class="p">}</span>
-<a name="rest_code_674a7eb02beb4bf3b3c21a3016467a4c-11"></a><span class="nf">#sidebar</span> <span class="nc">.description</span> <span class="p">{</span> <span class="k">display</span><span class="o">:</span><span class="k">block</span><span class="p">;</span> <span class="k">width</span><span class="o">:</span><span class="m">100%</span><span class="p">;</span> <span class="k">height</span><span class="o">:</span><span class="k">auto</span><span class="p">;</span> <span class="k">margin</span><span class="o">:</span><span class="m">0px</span> <span class="m">0px</span> <span class="m">10px</span> <span class="m">0px</span><span class="p">;</span> <span class="p">}</span>
-<a name="rest_code_674a7eb02beb4bf3b3c21a3016467a4c-12"></a><span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span><span class="o">,</span> <span class="nt">h3</span><span class="o">,</span> <span class="nt">h4</span><span class="o">,</span> <span class="nt">h5</span><span class="o">,</span> <span class="nt">h6</span><span class="o">,</span> <span class="nt">h7</span> <span class="p">{</span> <span class="k">margin</span><span class="o">:</span><span class="m">0px</span><span class="p">;</span> <span class="k">text-transform</span><span class="o">:</span><span class="k">uppercase</span><span class="p">;</span> <span class="p">}</span>
-<a name="rest_code_674a7eb02beb4bf3b3c21a3016467a4c-13"></a><span class="nt">h4</span><span class="o">,</span> <span class="nt">h5</span><span class="o">,</span> <span class="nt">h6</span> <span class="p">{</span> <span class="k">font-size</span><span class="o">:</span><span class="m">14px</span><span class="p">;</span> <span class="p">}</span>
-<a name="rest_code_674a7eb02beb4bf3b3c21a3016467a4c-14"></a><span class="nf">#blog-title</span> <span class="p">{</span> <span class="k">margin-top</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span> <span class="k">line-height</span><span class="o">:</span><span class="m">48px</span><span class="p">;}</span>
-<a name="rest_code_674a7eb02beb4bf3b3c21a3016467a4c-15"></a><span class="nc">.literal-block</span> <span class="p">{</span><span class="k">padding</span><span class="o">:</span> <span class="m">.5em</span><span class="p">;}</span>
-<a name="rest_code_674a7eb02beb4bf3b3c21a3016467a4c-16"></a><span class="nt">div</span><span class="nc">.sidebar</span><span class="o">,</span> <span class="nt">div</span><span class="nc">.admonition</span><span class="o">,</span> <span class="nt">div</span><span class="nc">.attention</span><span class="o">,</span> <span class="nt">div</span><span class="nc">.caution</span><span class="o">,</span> <span class="nt">div</span><span class="nc">.danger</span><span class="o">,</span> <span class="nt">div</span><span class="nc">.error</span><span class="o">,</span> <span class="nt">div</span><span class="nc">.hint</span><span class="o">,</span> <span class="nt">div</span><span class="nc">.important</span><span class="o">,</span> <span class="nt">div</span><span class="nc">.note</span><span class="o">,</span> <span class="nt">div</span><span class="nc">.tip</span><span class="o">,</span> <span class="nt">div</span><span class="nc">.warning</span> <span class="p">{</span>
-<a name="rest_code_674a7eb02beb4bf3b3c21a3016467a4c-17"></a>    <span class="c">/* Issue 277 */</span>
-<a name="rest_code_674a7eb02beb4bf3b3c21a3016467a4c-18"></a>    <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#aaa</span><span class="p">;</span>
-<a name="rest_code_674a7eb02beb4bf3b3c21a3016467a4c-19"></a>    <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
-<a name="rest_code_674a7eb02beb4bf3b3c21a3016467a4c-20"></a>    <span class="k">width</span><span class="o">:</span> <span class="m">100%</span><span class="p">;</span>
-<a name="rest_code_674a7eb02beb4bf3b3c21a3016467a4c-21"></a><span class="p">}</span>
-<a name="rest_code_674a7eb02beb4bf3b3c21a3016467a4c-22"></a><span class="nt">ul</span><span class="nc">.breadcrumb</span> <span class="o">&gt;</span> <span class="nt">li</span><span class="nd">:before</span> <span class="p">{</span>
-<a name="rest_code_674a7eb02beb4bf3b3c21a3016467a4c-23"></a>    <span class="k">content</span><span class="o">:</span> <span class="s2">" / "</span><span class="p">;</span>
-<a name="rest_code_674a7eb02beb4bf3b3c21a3016467a4c-24"></a><span class="p">}</span>
+<pre class="code css"><a name="rest_code_5e5f096054f54a73b9e0c91cf662ebdd-1"></a><span class="nt">body</span> <span class="p">{</span> <span class="k">margin</span><span class="o">:</span><span class="m">0px</span><span class="p">;</span> <span class="k">padding</span><span class="o">:</span><span class="m">20px</span> <span class="m">0px</span><span class="p">;</span> <span class="k">text-align</span><span class="o">:</span><span class="k">center</span><span class="p">;</span> <span class="k">font-family</span><span class="o">:</span><span class="n">Monospace</span><span class="p">;</span> <span class="k">color</span><span class="o">:</span><span class="m">#585858</span><span class="p">;</span> <span class="p">}</span>
+<a name="rest_code_5e5f096054f54a73b9e0c91cf662ebdd-2"></a><span class="nc">.post</span> <span class="p">{</span> <span class="k">margin</span><span class="o">:</span><span class="m">0px</span> <span class="m">0px</span> <span class="m">30px</span> <span class="m">0px</span><span class="p">;</span> <span class="k">padding</span><span class="o">:</span><span class="m">0px</span> <span class="m">0px</span> <span class="m">30px</span> <span class="m">0px</span><span class="p">;</span> <span class="k">border-bottom</span><span class="o">:</span><span class="m">1px</span> <span class="k">dotted</span> <span class="m">#C8C8C8</span><span class="p">;</span> <span class="p">}</span>
+<a name="rest_code_5e5f096054f54a73b9e0c91cf662ebdd-3"></a><span class="nc">.meta</span> <span class="p">{</span> <span class="k">margin</span><span class="o">:</span><span class="m">10px</span><span class="p">;</span> <span class="k">padding</span><span class="o">:</span><span class="m">15px</span><span class="p">;</span> <span class="k">background</span><span class="o">:</span><span class="m">#EAEAEA</span><span class="p">;</span> <span class="k">clear</span><span class="o">:</span><span class="k">both</span><span class="p">;</span> <span class="p">}</span>
+<a name="rest_code_5e5f096054f54a73b9e0c91cf662ebdd-4"></a><span class="nf">#footer</span> <span class="p">{</span> <span class="k">text-align</span><span class="o">:</span><span class="k">center</span><span class="p">;</span> <span class="k">clear</span><span class="o">:</span><span class="k">both</span><span class="p">;</span> <span class="k">margin</span><span class="o">:</span><span class="m">30px</span> <span class="m">0px</span> <span class="m">0px</span> <span class="m">0px</span><span class="p">;</span> <span class="k">padding</span><span class="o">:</span><span class="m">30px</span> <span class="m">0px</span> <span class="m">0px</span> <span class="m">0px</span><span class="p">;</span> <span class="k">border-top</span><span class="o">:</span><span class="m">1px</span> <span class="k">dotted</span> <span class="m">#C8C8C8</span><span class="p">;</span> <span class="p">}</span>
+<a name="rest_code_5e5f096054f54a73b9e0c91cf662ebdd-5"></a><span class="nf">#wrap</span> <span class="p">{</span> <span class="k">margin</span><span class="o">:</span><span class="m">0px</span> <span class="k">auto</span><span class="p">;</span> <span class="k">text-align</span><span class="o">:</span><span class="k">left</span><span class="p">;</span> <span class="k">font-size</span><span class="o">:</span> <span class="m">13px</span><span class="p">;</span> <span class="k">line-height</span><span class="o">:</span> <span class="m">1</span><span class="o">.</span><span class="m">4</span><span class="p">;</span> <span class="p">}</span>
+<a name="rest_code_5e5f096054f54a73b9e0c91cf662ebdd-6"></a><span class="nf">#container</span> <span class="p">{</span> <span class="k">float</span><span class="o">:</span><span class="k">right</span><span class="p">;</span> <span class="p">}</span>
+<a name="rest_code_5e5f096054f54a73b9e0c91cf662ebdd-7"></a><span class="nf">#sidebar</span> <span class="p">{</span> <span class="k">overflow</span><span class="o">:</span><span class="k">hidden</span><span class="p">;</span> <span class="k">clear</span><span class="o">:</span><span class="k">left</span><span class="p">;</span> <span class="k">text-align</span><span class="o">:</span><span class="k">right</span><span class="p">;</span> <span class="k">width</span><span class="o">:</span><span class="m">250px</span><span class="p">;</span> <span class="k">height</span><span class="o">:</span><span class="k">auto</span><span class="p">;</span> <span class="k">padding</span><span class="o">:</span><span class="m">0px</span> <span class="m">15px</span> <span class="m">0px</span> <span class="m">0px</span><span class="p">;</span> <span class="k">border-right</span><span class="o">:</span><span class="m">1px</span> <span class="k">dotted</span> <span class="m">#C8C8C8</span><span class="p">;</span> <span class="p">}</span>
+<a name="rest_code_5e5f096054f54a73b9e0c91cf662ebdd-8"></a><span class="nf">#sidebar</span> <span class="nt">li</span> <span class="p">{</span> <span class="k">list-style-type</span><span class="o">:</span><span class="k">none</span><span class="p">;</span> <span class="p">}</span>
+<a name="rest_code_5e5f096054f54a73b9e0c91cf662ebdd-9"></a><span class="nf">#sidebar</span> <span class="o">&gt;</span> <span class="nt">li</span> <span class="p">{</span> <span class="k">margin</span><span class="o">:</span><span class="m">20px</span> <span class="m">0px</span><span class="p">;</span> <span class="p">}</span>
+<a name="rest_code_5e5f096054f54a73b9e0c91cf662ebdd-10"></a><span class="nf">#sidebar</span> <span class="nt">h1</span> <span class="p">{</span> <span class="k">border-bottom</span><span class="o">:</span><span class="m">1px</span> <span class="k">dotted</span> <span class="m">#C8C8C8</span><span class="p">;</span> <span class="p">}</span>
+<a name="rest_code_5e5f096054f54a73b9e0c91cf662ebdd-11"></a><span class="nf">#sidebar</span> <span class="nc">.description</span> <span class="p">{</span> <span class="k">display</span><span class="o">:</span><span class="k">block</span><span class="p">;</span> <span class="k">width</span><span class="o">:</span><span class="m">100%</span><span class="p">;</span> <span class="k">height</span><span class="o">:</span><span class="k">auto</span><span class="p">;</span> <span class="k">margin</span><span class="o">:</span><span class="m">0px</span> <span class="m">0px</span> <span class="m">10px</span> <span class="m">0px</span><span class="p">;</span> <span class="p">}</span>
+<a name="rest_code_5e5f096054f54a73b9e0c91cf662ebdd-12"></a><span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span><span class="o">,</span> <span class="nt">h3</span><span class="o">,</span> <span class="nt">h4</span><span class="o">,</span> <span class="nt">h5</span><span class="o">,</span> <span class="nt">h6</span><span class="o">,</span> <span class="nt">h7</span> <span class="p">{</span> <span class="k">margin</span><span class="o">:</span><span class="m">0px</span><span class="p">;</span> <span class="k">text-transform</span><span class="o">:</span><span class="k">uppercase</span><span class="p">;</span> <span class="p">}</span>
+<a name="rest_code_5e5f096054f54a73b9e0c91cf662ebdd-13"></a><span class="nt">h4</span><span class="o">,</span> <span class="nt">h5</span><span class="o">,</span> <span class="nt">h6</span> <span class="p">{</span> <span class="k">font-size</span><span class="o">:</span><span class="m">14px</span><span class="p">;</span> <span class="p">}</span>
+<a name="rest_code_5e5f096054f54a73b9e0c91cf662ebdd-14"></a><span class="nf">#blog-title</span> <span class="p">{</span> <span class="k">margin-top</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span> <span class="k">line-height</span><span class="o">:</span><span class="m">48px</span><span class="p">;}</span>
+<a name="rest_code_5e5f096054f54a73b9e0c91cf662ebdd-15"></a><span class="nc">.literal-block</span> <span class="p">{</span><span class="k">padding</span><span class="o">:</span> <span class="m">.5em</span><span class="p">;}</span>
+<a name="rest_code_5e5f096054f54a73b9e0c91cf662ebdd-16"></a><span class="nt">div</span><span class="nc">.sidebar</span><span class="o">,</span> <span class="nt">div</span><span class="nc">.admonition</span><span class="o">,</span> <span class="nt">div</span><span class="nc">.attention</span><span class="o">,</span> <span class="nt">div</span><span class="nc">.caution</span><span class="o">,</span> <span class="nt">div</span><span class="nc">.danger</span><span class="o">,</span> <span class="nt">div</span><span class="nc">.error</span><span class="o">,</span> <span class="nt">div</span><span class="nc">.hint</span><span class="o">,</span> <span class="nt">div</span><span class="nc">.important</span><span class="o">,</span> <span class="nt">div</span><span class="nc">.note</span><span class="o">,</span> <span class="nt">div</span><span class="nc">.tip</span><span class="o">,</span> <span class="nt">div</span><span class="nc">.warning</span> <span class="p">{</span>
+<a name="rest_code_5e5f096054f54a73b9e0c91cf662ebdd-17"></a>    <span class="c">/* Issue 277 */</span>
+<a name="rest_code_5e5f096054f54a73b9e0c91cf662ebdd-18"></a>    <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#aaa</span><span class="p">;</span>
+<a name="rest_code_5e5f096054f54a73b9e0c91cf662ebdd-19"></a>    <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+<a name="rest_code_5e5f096054f54a73b9e0c91cf662ebdd-20"></a>    <span class="k">width</span><span class="o">:</span> <span class="m">100%</span><span class="p">;</span>
+<a name="rest_code_5e5f096054f54a73b9e0c91cf662ebdd-21"></a><span class="p">}</span>
+<a name="rest_code_5e5f096054f54a73b9e0c91cf662ebdd-22"></a><span class="nt">ul</span><span class="nc">.breadcrumb</span> <span class="o">&gt;</span> <span class="nt">li</span><span class="nd">:before</span> <span class="p">{</span>
+<a name="rest_code_5e5f096054f54a73b9e0c91cf662ebdd-23"></a>    <span class="k">content</span><span class="o">:</span> <span class="s2">" / "</span><span class="p">;</span>
+<a name="rest_code_5e5f096054f54a73b9e0c91cf662ebdd-24"></a><span class="p">}</span>
 </pre>
 <p>This will (after we rebuild it) make the site looks different of course, and getting closer to our goal:</p>
 <div class="figure">
-<img alt="http://ralsina.me/galleries/monospace-tut/monospace-3.png" src="http://ralsina.me/galleries/monospace-tut/monospace-3.png" style="height: 400px;">
-<p class="caption">Monospaced allright.</p>
+<img alt="http://ralsina.me/galleries/monospace-tut/monospace-3.png" src="http://ralsina.me/galleries/monospace-tut/monospace-3.png" style="height: 400px;"><p class="caption">Monospaced allright.</p>
 </div>
 <p>If you compare it to <a class="reference external" href="http://wp-themes.com/monospace/">the original</a>, however, you will see that the layout of
 the posts themselves is different, and that was not described in <tt class="docutils literal">base.tmpl</tt> at all. But if you look, you'll see that
@@ -343,111 +306,109 @@ there is a placeholder called content: <tt class="docutils literal">&lt;%block <
 <p>That's because <tt class="docutils literal">base.tmpl</tt> defines the <em>base</em> layout. The layout of more specific pages, like "the page that shows
 a list of posts" is defined in the other templates. Specifically, this is defined in <tt class="docutils literal">index.tmpl</tt>.
 It turns out <tt class="docutils literal">bootstrap</tt> doesn' have one of those! That's because it inherits that template from <tt class="docutils literal">base</tt>:</p>
-<pre class="code mako"><a name="rest_code_f8536e8fe375411d989b5ce901af36a0-1"></a><span class="cp">## -*- coding: utf-8 -*-</span><span class="x"></span>
-<a name="rest_code_f8536e8fe375411d989b5ce901af36a0-2"></a><span class="cp">&lt;%</span><span class="nb">namespace</span> <span class="na">name=</span><span class="s">"helper"</span> <span class="na">file=</span><span class="s">"index_helper.tmpl"</span><span class="cp">/&gt;</span><span class="x"></span>
-<a name="rest_code_f8536e8fe375411d989b5ce901af36a0-3"></a><span class="cp">&lt;%</span><span class="nb">namespace</span> <span class="na">name=</span><span class="s">"comments"</span> <span class="na">file=</span><span class="s">"comments_helper.tmpl"</span><span class="cp">/&gt;</span><span class="x"></span>
-<a name="rest_code_f8536e8fe375411d989b5ce901af36a0-4"></a><span class="cp">&lt;%</span><span class="nb">inherit</span> <span class="na">file=</span><span class="s">"base.tmpl"</span><span class="cp">/&gt;</span><span class="x"></span>
-<a name="rest_code_f8536e8fe375411d989b5ce901af36a0-5"></a><span class="cp">&lt;%</span><span class="nb">block</span> <span class="na">name=</span><span class="s">"content"</span><span class="cp">&gt;</span>
-<a name="rest_code_f8536e8fe375411d989b5ce901af36a0-6"></a>    <span class="cp">%</span> <span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">posts</span><span class="p">:</span><span class="x"></span>
-<a name="rest_code_f8536e8fe375411d989b5ce901af36a0-7"></a><span class="x">        &lt;div class="postbox post-</span><span class="cp">${</span><span class="n">post</span><span class="o">.</span><span class="n">meta</span><span class="p">(</span><span class="s">'type'</span><span class="p">)</span><span class="cp">}</span><span class="x">"&gt;</span>
-<a name="rest_code_f8536e8fe375411d989b5ce901af36a0-8"></a><span class="x">        &lt;h1&gt;&lt;a href="</span><span class="cp">${</span><span class="n">post</span><span class="o">.</span><span class="n">permalink</span><span class="p">()</span><span class="cp">}</span><span class="x">"&gt;</span><span class="cp">${</span><span class="n">post</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="cp">}</span><span class="x">&lt;/a&gt;</span>
-<a name="rest_code_f8536e8fe375411d989b5ce901af36a0-9"></a><span class="x">        &lt;small&gt;&amp;nbsp;&amp;nbsp;</span>
-<a name="rest_code_f8536e8fe375411d989b5ce901af36a0-10"></a><span class="x">            </span><span class="cp">${</span><span class="n">messages</span><span class="p">(</span><span class="s">"Posted"</span><span class="p">)</span><span class="cp">}</span><span class="x">: &lt;time class="published" datetime="</span><span class="cp">${</span><span class="n">post</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span><span class="cp">}</span><span class="x">"&gt;</span><span class="cp">${</span><span class="n">post</span><span class="o">.</span><span class="n">formatted_date</span><span class="p">(</span><span class="n">date_format</span><span class="p">)</span><span class="cp">}</span><span class="x">&lt;/time&gt;</span>
-<a name="rest_code_f8536e8fe375411d989b5ce901af36a0-11"></a><span class="x">        &lt;/small&gt;&lt;/h1&gt;</span>
-<a name="rest_code_f8536e8fe375411d989b5ce901af36a0-12"></a><span class="x">        &lt;hr&gt;</span>
-<a name="rest_code_f8536e8fe375411d989b5ce901af36a0-13"></a><span class="x">        </span><span class="cp">${</span><span class="n">post</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">teaser_only</span><span class="o">=</span><span class="n">index_teasers</span><span class="p">)</span><span class="cp">}</span>
-<a name="rest_code_f8536e8fe375411d989b5ce901af36a0-14"></a>        <span class="cp">%</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">post</span><span class="o">.</span><span class="n">meta</span><span class="p">(</span><span class="s">'nocomments'</span><span class="p">):</span><span class="x"></span>
-<a name="rest_code_f8536e8fe375411d989b5ce901af36a0-15"></a><span class="x">            </span><span class="cp">${</span><span class="n">comments</span><span class="o">.</span><span class="n">comment_link</span><span class="p">(</span><span class="n">post</span><span class="o">.</span><span class="n">permalink</span><span class="p">(),</span> <span class="n">post</span><span class="o">.</span><span class="n">base_path</span><span class="p">)</span><span class="cp">}</span>
-<a name="rest_code_f8536e8fe375411d989b5ce901af36a0-16"></a>        <span class="cp">%</span><span class="k"> endif</span><span class="x"></span>
-<a name="rest_code_f8536e8fe375411d989b5ce901af36a0-17"></a><span class="x">        &lt;/div&gt;</span>
-<a name="rest_code_f8536e8fe375411d989b5ce901af36a0-18"></a>    <span class="cp">%</span><span class="k"> endfor</span><span class="x"></span>
-<a name="rest_code_f8536e8fe375411d989b5ce901af36a0-19"></a><span class="x">    </span><span class="cp">${</span><span class="n">helper</span><span class="o">.</span><span class="n">html_pager</span><span class="p">()</span><span class="cp">}</span><span class="x"></span>
-<a name="rest_code_f8536e8fe375411d989b5ce901af36a0-20"></a><span class="x">    </span><span class="cp">${</span><span class="n">comments</span><span class="o">.</span><span class="n">comment_link_script</span><span class="p">()</span><span class="cp">}</span><span class="x"></span>
-<a name="rest_code_f8536e8fe375411d989b5ce901af36a0-21"></a><span class="x">    </span><span class="cp">${</span><span class="n">helper</span><span class="o">.</span><span class="n">mathjax_script</span><span class="p">(</span><span class="n">posts</span><span class="p">)</span><span class="cp">}</span><span class="x"></span>
-<a name="rest_code_f8536e8fe375411d989b5ce901af36a0-22"></a><span class="cp">&lt;/%</span><span class="nb">block</span><span class="cp">&gt;</span><span class="x"></span>
+<pre class="code mako"><a name="rest_code_da684cea18914ed6ab9a531ff9d5dac9-1"></a><span class="cp">## -*- coding: utf-8 -*-</span><span class="x"></span>
+<a name="rest_code_da684cea18914ed6ab9a531ff9d5dac9-2"></a><span class="cp">&lt;%</span><span class="nb">namespace</span> <span class="na">name=</span><span class="s">"helper"</span> <span class="na">file=</span><span class="s">"index_helper.tmpl"</span><span class="cp">/&gt;</span><span class="x"></span>
+<a name="rest_code_da684cea18914ed6ab9a531ff9d5dac9-3"></a><span class="cp">&lt;%</span><span class="nb">namespace</span> <span class="na">name=</span><span class="s">"comments"</span> <span class="na">file=</span><span class="s">"comments_helper.tmpl"</span><span class="cp">/&gt;</span><span class="x"></span>
+<a name="rest_code_da684cea18914ed6ab9a531ff9d5dac9-4"></a><span class="cp">&lt;%</span><span class="nb">inherit</span> <span class="na">file=</span><span class="s">"base.tmpl"</span><span class="cp">/&gt;</span><span class="x"></span>
+<a name="rest_code_da684cea18914ed6ab9a531ff9d5dac9-5"></a><span class="cp">&lt;%</span><span class="nb">block</span> <span class="na">name=</span><span class="s">"content"</span><span class="cp">&gt;</span>
+<a name="rest_code_da684cea18914ed6ab9a531ff9d5dac9-6"></a>    <span class="cp">%</span> <span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">posts</span><span class="p">:</span><span class="x"></span>
+<a name="rest_code_da684cea18914ed6ab9a531ff9d5dac9-7"></a><span class="x">        &lt;div class="postbox post-</span><span class="cp">${</span><span class="n">post</span><span class="o">.</span><span class="n">meta</span><span class="p">(</span><span class="s">'type'</span><span class="p">)</span><span class="cp">}</span><span class="x">"&gt;</span>
+<a name="rest_code_da684cea18914ed6ab9a531ff9d5dac9-8"></a><span class="x">        &lt;h1&gt;&lt;a href="</span><span class="cp">${</span><span class="n">post</span><span class="o">.</span><span class="n">permalink</span><span class="p">()</span><span class="cp">}</span><span class="x">"&gt;</span><span class="cp">${</span><span class="n">post</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="cp">}</span><span class="x">&lt;/a&gt;</span>
+<a name="rest_code_da684cea18914ed6ab9a531ff9d5dac9-9"></a><span class="x">        &lt;small&gt;&amp;nbsp;&amp;nbsp;</span>
+<a name="rest_code_da684cea18914ed6ab9a531ff9d5dac9-10"></a><span class="x">            </span><span class="cp">${</span><span class="n">messages</span><span class="p">(</span><span class="s">"Posted"</span><span class="p">)</span><span class="cp">}</span><span class="x">: &lt;time class="published" datetime="</span><span class="cp">${</span><span class="n">post</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span><span class="cp">}</span><span class="x">"&gt;</span><span class="cp">${</span><span class="n">post</span><span class="o">.</span><span class="n">formatted_date</span><span class="p">(</span><span class="n">date_format</span><span class="p">)</span><span class="cp">}</span><span class="x">&lt;/time&gt;</span>
+<a name="rest_code_da684cea18914ed6ab9a531ff9d5dac9-11"></a><span class="x">        &lt;/small&gt;&lt;/h1&gt;</span>
+<a name="rest_code_da684cea18914ed6ab9a531ff9d5dac9-12"></a><span class="x">        &lt;hr&gt;</span>
+<a name="rest_code_da684cea18914ed6ab9a531ff9d5dac9-13"></a><span class="x">        </span><span class="cp">${</span><span class="n">post</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">teaser_only</span><span class="o">=</span><span class="n">index_teasers</span><span class="p">)</span><span class="cp">}</span>
+<a name="rest_code_da684cea18914ed6ab9a531ff9d5dac9-14"></a>        <span class="cp">%</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">post</span><span class="o">.</span><span class="n">meta</span><span class="p">(</span><span class="s">'nocomments'</span><span class="p">):</span><span class="x"></span>
+<a name="rest_code_da684cea18914ed6ab9a531ff9d5dac9-15"></a><span class="x">            </span><span class="cp">${</span><span class="n">comments</span><span class="o">.</span><span class="n">comment_link</span><span class="p">(</span><span class="n">post</span><span class="o">.</span><span class="n">permalink</span><span class="p">(),</span> <span class="n">post</span><span class="o">.</span><span class="n">base_path</span><span class="p">)</span><span class="cp">}</span>
+<a name="rest_code_da684cea18914ed6ab9a531ff9d5dac9-16"></a>        <span class="cp">%</span><span class="k"> endif</span><span class="x"></span>
+<a name="rest_code_da684cea18914ed6ab9a531ff9d5dac9-17"></a><span class="x">        &lt;/div&gt;</span>
+<a name="rest_code_da684cea18914ed6ab9a531ff9d5dac9-18"></a>    <span class="cp">%</span><span class="k"> endfor</span><span class="x"></span>
+<a name="rest_code_da684cea18914ed6ab9a531ff9d5dac9-19"></a><span class="x">    </span><span class="cp">${</span><span class="n">helper</span><span class="o">.</span><span class="n">html_pager</span><span class="p">()</span><span class="cp">}</span><span class="x"></span>
+<a name="rest_code_da684cea18914ed6ab9a531ff9d5dac9-20"></a><span class="x">    </span><span class="cp">${</span><span class="n">comments</span><span class="o">.</span><span class="n">comment_link_script</span><span class="p">()</span><span class="cp">}</span><span class="x"></span>
+<a name="rest_code_da684cea18914ed6ab9a531ff9d5dac9-21"></a><span class="x">    </span><span class="cp">${</span><span class="n">helper</span><span class="o">.</span><span class="n">mathjax_script</span><span class="p">(</span><span class="n">posts</span><span class="p">)</span><span class="cp">}</span><span class="x"></span>
+<a name="rest_code_da684cea18914ed6ab9a531ff9d5dac9-22"></a><span class="cp">&lt;/%</span><span class="nb">block</span><span class="cp">&gt;</span><span class="x"></span>
 </pre>
 <p>So, let's tweak that to be closer to the original. We put the post's metadata in a
 box, add links for the posts tags, move the date there, etc.</p>
-<pre class="code mako"><a name="rest_code_361b2a849b5f45cfa6a87f8ee8b878b2-1"></a><span class="cp">## -*- coding: utf-8 -*-</span><span class="x"></span>
-<a name="rest_code_361b2a849b5f45cfa6a87f8ee8b878b2-2"></a><span class="cp">&lt;%</span><span class="nb">namespace</span> <span class="na">name=</span><span class="s">"helper"</span> <span class="na">file=</span><span class="s">"index_helper.tmpl"</span><span class="cp">/&gt;</span><span class="x"></span>
-<a name="rest_code_361b2a849b5f45cfa6a87f8ee8b878b2-3"></a><span class="cp">&lt;%</span><span class="nb">namespace</span> <span class="na">name=</span><span class="s">"disqus"</span> <span class="na">file=</span><span class="s">"disqus_helper.tmpl"</span><span class="cp">/&gt;</span><span class="x"></span>
-<a name="rest_code_361b2a849b5f45cfa6a87f8ee8b878b2-4"></a><span class="cp">&lt;%</span><span class="nb">inherit</span> <span class="na">file=</span><span class="s">"base.tmpl"</span><span class="cp">/&gt;</span><span class="x"></span>
-<a name="rest_code_361b2a849b5f45cfa6a87f8ee8b878b2-5"></a><span class="cp">&lt;%</span><span class="nb">block</span> <span class="na">name=</span><span class="s">"content"</span><span class="cp">&gt;</span>
-<a name="rest_code_361b2a849b5f45cfa6a87f8ee8b878b2-6"></a>    <span class="cp">%</span> <span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">posts</span><span class="p">:</span><span class="x"></span>
-<a name="rest_code_361b2a849b5f45cfa6a87f8ee8b878b2-7"></a><span class="x">        &lt;div class="postbox post-</span><span class="cp">${</span><span class="n">post</span><span class="o">.</span><span class="n">meta</span><span class="p">(</span><span class="s">'type'</span><span class="p">)</span><span class="cp">}</span><span class="x">"&gt;</span>
-<a name="rest_code_361b2a849b5f45cfa6a87f8ee8b878b2-8"></a><span class="x">        &lt;h1&gt;&lt;a href="</span><span class="cp">${</span><span class="n">post</span><span class="o">.</span><span class="n">permalink</span><span class="p">()</span><span class="cp">}</span><span class="x">"&gt;</span><span class="cp">${</span><span class="n">post</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="cp">}</span><span class="x">&lt;/a&gt;&lt;/h1&gt;</span>
-<a name="rest_code_361b2a849b5f45cfa6a87f8ee8b878b2-9"></a><span class="x">            &lt;div class="meta" style="background-color: rgb(234, 234, 234); "&gt;</span>
-<a name="rest_code_361b2a849b5f45cfa6a87f8ee8b878b2-10"></a><span class="x">                &lt;span class="authordate"&gt;</span>
-<a name="rest_code_361b2a849b5f45cfa6a87f8ee8b878b2-11"></a><span class="x">                    </span><span class="cp">${</span><span class="n">messages</span><span class="p">(</span><span class="s">"Posted"</span><span class="p">)</span><span class="cp">}</span><span class="x">: </span><span class="cp">${</span><span class="n">post</span><span class="o">.</span><span class="n">formatted_date</span><span class="p">(</span><span class="n">date_format</span><span class="p">)</span><span class="cp">}</span><span class="x"></span>
-<a name="rest_code_361b2a849b5f45cfa6a87f8ee8b878b2-12"></a><span class="x">                &lt;/span&gt;</span>
-<a name="rest_code_361b2a849b5f45cfa6a87f8ee8b878b2-13"></a><span class="x">                &lt;br&gt;</span>
-<a name="rest_code_361b2a849b5f45cfa6a87f8ee8b878b2-14"></a><span class="x">                &lt;span class="tags"&gt;Tags:&amp;nbsp;</span>
-<a name="rest_code_361b2a849b5f45cfa6a87f8ee8b878b2-15"></a>                    <span class="cp">%</span><span class="k">if</span> <span class="n">post</span><span class="o">.</span><span class="n">tags</span><span class="p">:</span><span class="x"></span>
-<a name="rest_code_361b2a849b5f45cfa6a87f8ee8b878b2-16"></a>                        <span class="cp">%</span><span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">post</span><span class="o">.</span><span class="n">tags</span><span class="p">:</span><span class="x"></span>
-<a name="rest_code_361b2a849b5f45cfa6a87f8ee8b878b2-17"></a><span class="x">                            &lt;a class="tag" href="</span><span class="cp">${</span><span class="n">_link</span><span class="p">(</span><span class="s">'tag'</span><span class="p">,</span> <span class="n">tag</span><span class="p">)</span><span class="cp">}</span><span class="x">"&gt;&lt;span&gt;</span><span class="cp">${</span><span class="n">tag</span><span class="cp">}</span><span class="x">&lt;/span&gt;&lt;/a&gt;</span>
-<a name="rest_code_361b2a849b5f45cfa6a87f8ee8b878b2-18"></a>                        <span class="cp">%</span><span class="k">endfor</span><span class="x"></span>
-<a name="rest_code_361b2a849b5f45cfa6a87f8ee8b878b2-19"></a>                    <span class="cp">%</span><span class="k">endif</span><span class="x"></span>
-<a name="rest_code_361b2a849b5f45cfa6a87f8ee8b878b2-20"></a><span class="x">                &lt;/span&gt;</span>
-<a name="rest_code_361b2a849b5f45cfa6a87f8ee8b878b2-21"></a><span class="x">            &lt;/div&gt;</span>
-<a name="rest_code_361b2a849b5f45cfa6a87f8ee8b878b2-22"></a><span class="x">        </span><span class="cp">${</span><span class="n">post</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">teaser_only</span><span class="o">=</span><span class="n">index_teasers</span><span class="p">)</span><span class="cp">}</span>
-<a name="rest_code_361b2a849b5f45cfa6a87f8ee8b878b2-23"></a>        <span class="cp">%</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">post</span><span class="o">.</span><span class="n">meta</span><span class="p">(</span><span class="s">'nocomments'</span><span class="p">):</span><span class="x"></span>
-<a name="rest_code_361b2a849b5f45cfa6a87f8ee8b878b2-24"></a><span class="x">            </span><span class="cp">${</span><span class="n">disqus</span><span class="o">.</span><span class="n">html_disqus_link</span><span class="p">(</span><span class="n">post</span><span class="o">.</span><span class="n">permalink</span><span class="p">()</span><span class="o">+</span><span class="s">"#disqus_thread"</span><span class="p">,</span> <span class="n">post</span><span class="o">.</span><span class="n">base_path</span><span class="p">)</span><span class="cp">}</span>
-<a name="rest_code_361b2a849b5f45cfa6a87f8ee8b878b2-25"></a>        <span class="cp">%</span><span class="k"> endif</span><span class="x"></span>
-<a name="rest_code_361b2a849b5f45cfa6a87f8ee8b878b2-26"></a><span class="x">        &lt;/div&gt;</span>
-<a name="rest_code_361b2a849b5f45cfa6a87f8ee8b878b2-27"></a>    <span class="cp">%</span><span class="k"> endfor</span><span class="x"></span>
-<a name="rest_code_361b2a849b5f45cfa6a87f8ee8b878b2-28"></a><span class="x">    </span><span class="cp">${</span><span class="n">helper</span><span class="o">.</span><span class="n">html_pager</span><span class="p">()</span><span class="cp">}</span><span class="x"></span>
-<a name="rest_code_361b2a849b5f45cfa6a87f8ee8b878b2-29"></a><span class="x">    </span><span class="cp">${</span><span class="n">disqus</span><span class="o">.</span><span class="n">html_disqus_script</span><span class="p">()</span><span class="cp">}</span><span class="x"></span>
-<a name="rest_code_361b2a849b5f45cfa6a87f8ee8b878b2-30"></a><span class="cp">&lt;/%</span><span class="nb">block</span><span class="cp">&gt;</span><span class="x"></span>
+<pre class="code mako"><a name="rest_code_27ff8637919d441aa502b9260f5949f6-1"></a><span class="cp">## -*- coding: utf-8 -*-</span><span class="x"></span>
+<a name="rest_code_27ff8637919d441aa502b9260f5949f6-2"></a><span class="cp">&lt;%</span><span class="nb">namespace</span> <span class="na">name=</span><span class="s">"helper"</span> <span class="na">file=</span><span class="s">"index_helper.tmpl"</span><span class="cp">/&gt;</span><span class="x"></span>
+<a name="rest_code_27ff8637919d441aa502b9260f5949f6-3"></a><span class="cp">&lt;%</span><span class="nb">namespace</span> <span class="na">name=</span><span class="s">"disqus"</span> <span class="na">file=</span><span class="s">"disqus_helper.tmpl"</span><span class="cp">/&gt;</span><span class="x"></span>
+<a name="rest_code_27ff8637919d441aa502b9260f5949f6-4"></a><span class="cp">&lt;%</span><span class="nb">inherit</span> <span class="na">file=</span><span class="s">"base.tmpl"</span><span class="cp">/&gt;</span><span class="x"></span>
+<a name="rest_code_27ff8637919d441aa502b9260f5949f6-5"></a><span class="cp">&lt;%</span><span class="nb">block</span> <span class="na">name=</span><span class="s">"content"</span><span class="cp">&gt;</span>
+<a name="rest_code_27ff8637919d441aa502b9260f5949f6-6"></a>    <span class="cp">%</span> <span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">posts</span><span class="p">:</span><span class="x"></span>
+<a name="rest_code_27ff8637919d441aa502b9260f5949f6-7"></a><span class="x">        &lt;div class="postbox post-</span><span class="cp">${</span><span class="n">post</span><span class="o">.</span><span class="n">meta</span><span class="p">(</span><span class="s">'type'</span><span class="p">)</span><span class="cp">}</span><span class="x">"&gt;</span>
+<a name="rest_code_27ff8637919d441aa502b9260f5949f6-8"></a><span class="x">        &lt;h1&gt;&lt;a href="</span><span class="cp">${</span><span class="n">post</span><span class="o">.</span><span class="n">permalink</span><span class="p">()</span><span class="cp">}</span><span class="x">"&gt;</span><span class="cp">${</span><span class="n">post</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="cp">}</span><span class="x">&lt;/a&gt;&lt;/h1&gt;</span>
+<a name="rest_code_27ff8637919d441aa502b9260f5949f6-9"></a><span class="x">            &lt;div class="meta" style="background-color: rgb(234, 234, 234); "&gt;</span>
+<a name="rest_code_27ff8637919d441aa502b9260f5949f6-10"></a><span class="x">                &lt;span class="authordate"&gt;</span>
+<a name="rest_code_27ff8637919d441aa502b9260f5949f6-11"></a><span class="x">                    </span><span class="cp">${</span><span class="n">messages</span><span class="p">(</span><span class="s">"Posted"</span><span class="p">)</span><span class="cp">}</span><span class="x">: </span><span class="cp">${</span><span class="n">post</span><span class="o">.</span><span class="n">formatted_date</span><span class="p">(</span><span class="n">date_format</span><span class="p">)</span><span class="cp">}</span><span class="x"></span>
+<a name="rest_code_27ff8637919d441aa502b9260f5949f6-12"></a><span class="x">                &lt;/span&gt;</span>
+<a name="rest_code_27ff8637919d441aa502b9260f5949f6-13"></a><span class="x">                &lt;br&gt;</span>
+<a name="rest_code_27ff8637919d441aa502b9260f5949f6-14"></a><span class="x">                &lt;span class="tags"&gt;Tags:&amp;nbsp;</span>
+<a name="rest_code_27ff8637919d441aa502b9260f5949f6-15"></a>                    <span class="cp">%</span><span class="k">if</span> <span class="n">post</span><span class="o">.</span><span class="n">tags</span><span class="p">:</span><span class="x"></span>
+<a name="rest_code_27ff8637919d441aa502b9260f5949f6-16"></a>                        <span class="cp">%</span><span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">post</span><span class="o">.</span><span class="n">tags</span><span class="p">:</span><span class="x"></span>
+<a name="rest_code_27ff8637919d441aa502b9260f5949f6-17"></a><span class="x">                            &lt;a class="tag" href="</span><span class="cp">${</span><span class="n">_link</span><span class="p">(</span><span class="s">'tag'</span><span class="p">,</span> <span class="n">tag</span><span class="p">)</span><span class="cp">}</span><span class="x">"&gt;&lt;span&gt;</span><span class="cp">${</span><span class="n">tag</span><span class="cp">}</span><span class="x">&lt;/span&gt;&lt;/a&gt;</span>
+<a name="rest_code_27ff8637919d441aa502b9260f5949f6-18"></a>                        <span class="cp">%</span><span class="k">endfor</span><span class="x"></span>
+<a name="rest_code_27ff8637919d441aa502b9260f5949f6-19"></a>                    <span class="cp">%</span><span class="k">endif</span><span class="x"></span>
+<a name="rest_code_27ff8637919d441aa502b9260f5949f6-20"></a><span class="x">                &lt;/span&gt;</span>
+<a name="rest_code_27ff8637919d441aa502b9260f5949f6-21"></a><span class="x">            &lt;/div&gt;</span>
+<a name="rest_code_27ff8637919d441aa502b9260f5949f6-22"></a><span class="x">        </span><span class="cp">${</span><span class="n">post</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">teaser_only</span><span class="o">=</span><span class="n">index_teasers</span><span class="p">)</span><span class="cp">}</span>
+<a name="rest_code_27ff8637919d441aa502b9260f5949f6-23"></a>        <span class="cp">%</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">post</span><span class="o">.</span><span class="n">meta</span><span class="p">(</span><span class="s">'nocomments'</span><span class="p">):</span><span class="x"></span>
+<a name="rest_code_27ff8637919d441aa502b9260f5949f6-24"></a><span class="x">            </span><span class="cp">${</span><span class="n">disqus</span><span class="o">.</span><span class="n">html_disqus_link</span><span class="p">(</span><span class="n">post</span><span class="o">.</span><span class="n">permalink</span><span class="p">()</span><span class="o">+</span><span class="s">"#disqus_thread"</span><span class="p">,</span> <span class="n">post</span><span class="o">.</span><span class="n">base_path</span><span class="p">)</span><span class="cp">}</span>
+<a name="rest_code_27ff8637919d441aa502b9260f5949f6-25"></a>        <span class="cp">%</span><span class="k"> endif</span><span class="x"></span>
+<a name="rest_code_27ff8637919d441aa502b9260f5949f6-26"></a><span class="x">        &lt;/div&gt;</span>
+<a name="rest_code_27ff8637919d441aa502b9260f5949f6-27"></a>    <span class="cp">%</span><span class="k"> endfor</span><span class="x"></span>
+<a name="rest_code_27ff8637919d441aa502b9260f5949f6-28"></a><span class="x">    </span><span class="cp">${</span><span class="n">helper</span><span class="o">.</span><span class="n">html_pager</span><span class="p">()</span><span class="cp">}</span><span class="x"></span>
+<a name="rest_code_27ff8637919d441aa502b9260f5949f6-29"></a><span class="x">    </span><span class="cp">${</span><span class="n">disqus</span><span class="o">.</span><span class="n">html_disqus_script</span><span class="p">()</span><span class="cp">}</span><span class="x"></span>
+<a name="rest_code_27ff8637919d441aa502b9260f5949f6-30"></a><span class="cp">&lt;/%</span><span class="nb">block</span><span class="cp">&gt;</span><span class="x"></span>
 </pre>
 <div class="figure">
-<img alt="http://ralsina.me/galleries/monospace-tut/monospace-4.png" src="http://ralsina.me/galleries/monospace-tut/monospace-4.png" style="height: 400px;">
-<p class="caption">Close enough!</p>
+<img alt="http://ralsina.me/galleries/monospace-tut/monospace-4.png" src="http://ralsina.me/galleries/monospace-tut/monospace-4.png" style="height: 400px;"><p class="caption">Close enough!</p>
 </div>
 <p>Then if we click on the post title, we will see some broken details in the metadata that can be fixed in <tt class="docutils literal">post.tmpl</tt>, and so on.</p>
-<pre class="code mako"><a name="rest_code_c2498e75cdf34b99834b29f95bad0839-1"></a><span class="cp">## -*- coding: utf-8 -*-</span><span class="x"></span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-2"></a><span class="cp">&lt;%</span><span class="nb">namespace</span> <span class="na">name=</span><span class="s">"helper"</span> <span class="na">file=</span><span class="s">"post_helper.tmpl"</span><span class="cp">/&gt;</span><span class="x"></span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-3"></a><span class="cp">&lt;%</span><span class="nb">namespace</span> <span class="na">name=</span><span class="s">"disqus"</span> <span class="na">file=</span><span class="s">"disqus_helper.tmpl"</span><span class="cp">/&gt;</span><span class="x"></span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-4"></a><span class="cp">&lt;%</span><span class="nb">inherit</span> <span class="na">file=</span><span class="s">"base.tmpl"</span><span class="cp">/&gt;</span><span class="x"></span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-5"></a><span class="cp">&lt;%</span><span class="nb">block</span> <span class="na">name=</span><span class="s">"extra_head"</span><span class="cp">&gt;</span><span class="x"></span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-6"></a><span class="cp">${</span><span class="n">helper</span><span class="o">.</span><span class="n">twitter_card_information</span><span class="p">(</span><span class="n">post</span><span class="p">)</span><span class="cp">}</span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-7"></a><span class="cp">%</span> <span class="k">if</span> <span class="n">post</span><span class="o">.</span><span class="n">meta</span><span class="p">(</span><span class="s">'keywords'</span><span class="p">):</span><span class="x"></span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-8"></a><span class="x">    &lt;meta name="keywords" content="</span><span class="cp">${</span><span class="n">post</span><span class="o">.</span><span class="n">meta</span><span class="p">(</span><span class="s">'keywords'</span><span class="p">)</span><span class="o">|</span><span class="n">h</span><span class="cp">}</span><span class="x">"/&gt;</span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-9"></a><span class="cp">%</span><span class="k"> endif</span><span class="x"></span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-10"></a><span class="cp">&lt;/%</span><span class="nb">block</span><span class="cp">&gt;</span><span class="x"></span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-11"></a><span class="cp">&lt;%</span><span class="nb">block</span> <span class="na">name=</span><span class="s">"content"</span><span class="cp">&gt;</span><span class="x"></span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-12"></a><span class="x">    &lt;div class="post"&gt;</span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-13"></a><span class="x">    </span><span class="cp">${</span><span class="n">helper</span><span class="o">.</span><span class="n">html_title</span><span class="p">()</span><span class="cp">}</span><span class="x"></span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-14"></a><span class="x">        &lt;div class="meta" style="background-color: rgb(234, 234, 234); "&gt;</span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-15"></a><span class="x">        &lt;span class="authordate"&gt;</span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-16"></a><span class="x">            </span><span class="cp">${</span><span class="n">messages</span><span class="p">(</span><span class="s">"Posted"</span><span class="p">)</span><span class="cp">}</span><span class="x">: </span><span class="cp">${</span><span class="n">post</span><span class="o">.</span><span class="n">formatted_date</span><span class="p">(</span><span class="n">date_format</span><span class="p">)</span><span class="cp">}</span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-17"></a>            <span class="cp">%</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">post</span><span class="o">.</span><span class="n">meta</span><span class="p">(</span><span class="s">'password'</span><span class="p">):</span><span class="x"></span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-18"></a><span class="x">            [&lt;a href="</span><span class="cp">${</span><span class="n">post</span><span class="o">.</span><span class="n">source_link</span><span class="p">()</span><span class="cp">}</span><span class="x">" id="sourcelink"&gt;</span><span class="cp">${</span><span class="n">messages</span><span class="p">(</span><span class="s">"Source"</span><span class="p">)</span><span class="cp">}</span><span class="x">&lt;/a&gt;]</span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-19"></a>            <span class="cp">%</span><span class="k"> endif</span><span class="x"></span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-20"></a><span class="x">        &lt;/span&gt;</span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-21"></a><span class="x">        &lt;br&gt;</span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-22"></a>            <span class="cp">%</span><span class="k">if</span> <span class="n">post</span><span class="o">.</span><span class="n">tags</span><span class="p">:</span><span class="x"></span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-23"></a><span class="x">                &lt;span class="tags"&gt;</span><span class="cp">${</span><span class="n">messages</span><span class="p">(</span><span class="s">"Tags"</span><span class="p">)</span><span class="cp">}</span><span class="x">:&amp;nbsp;</span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-24"></a>                <span class="cp">%</span><span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">post</span><span class="o">.</span><span class="n">tags</span><span class="p">:</span><span class="x"></span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-25"></a><span class="x">                    &lt;a class="tag" href="</span><span class="cp">${</span><span class="n">_link</span><span class="p">(</span><span class="s">'tag'</span><span class="p">,</span> <span class="n">tag</span><span class="p">)</span><span class="cp">}</span><span class="x">"&gt;&lt;span&gt;</span><span class="cp">${</span><span class="n">tag</span><span class="cp">}</span><span class="x">&lt;/span&gt;&lt;/a&gt;</span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-26"></a>                <span class="cp">%</span><span class="k">endfor</span><span class="x"></span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-27"></a><span class="x">                &lt;/span&gt;</span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-28"></a><span class="x">                &lt;br&gt;</span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-29"></a>            <span class="cp">%</span><span class="k">endif</span><span class="x"></span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-30"></a><span class="x">        &lt;span class="authordate"&gt;</span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-31"></a><span class="x">            </span><span class="cp">${</span><span class="n">helper</span><span class="o">.</span><span class="n">html_translations</span><span class="p">(</span><span class="n">post</span><span class="p">)</span><span class="cp">}</span><span class="x"></span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-32"></a><span class="x">        &lt;/span&gt;</span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-33"></a><span class="x">        &lt;/div&gt;</span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-34"></a><span class="x">    </span><span class="cp">${</span><span class="n">post</span><span class="o">.</span><span class="n">text</span><span class="p">()</span><span class="cp">}</span><span class="x"></span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-35"></a><span class="x">    </span><span class="cp">${</span><span class="n">helper</span><span class="o">.</span><span class="n">html_pager</span><span class="p">(</span><span class="n">post</span><span class="p">)</span><span class="cp">}</span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-36"></a>    <span class="cp">%</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">post</span><span class="o">.</span><span class="n">meta</span><span class="p">(</span><span class="s">'nocomments'</span><span class="p">):</span><span class="x"></span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-37"></a><span class="x">        </span><span class="cp">${</span><span class="n">disqus</span><span class="o">.</span><span class="n">html_disqus</span><span class="p">(</span><span class="n">post</span><span class="o">.</span><span class="n">permalink</span><span class="p">(</span><span class="n">absolute</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span> <span class="n">post</span><span class="o">.</span><span class="n">title</span><span class="p">(),</span> <span class="n">post</span><span class="o">.</span><span class="n">base_path</span><span class="p">)</span><span class="cp">}</span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-38"></a>    <span class="cp">%</span><span class="k"> endif</span><span class="x"></span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-39"></a><span class="x">    &lt;/div&gt;</span>
-<a name="rest_code_c2498e75cdf34b99834b29f95bad0839-40"></a><span class="cp">&lt;/%</span><span class="nb">block</span><span class="cp">&gt;</span><span class="x"></span>
+<pre class="code mako"><a name="rest_code_57c8f849cb8348ccaa464c63791a6773-1"></a><span class="cp">## -*- coding: utf-8 -*-</span><span class="x"></span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-2"></a><span class="cp">&lt;%</span><span class="nb">namespace</span> <span class="na">name=</span><span class="s">"helper"</span> <span class="na">file=</span><span class="s">"post_helper.tmpl"</span><span class="cp">/&gt;</span><span class="x"></span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-3"></a><span class="cp">&lt;%</span><span class="nb">namespace</span> <span class="na">name=</span><span class="s">"disqus"</span> <span class="na">file=</span><span class="s">"disqus_helper.tmpl"</span><span class="cp">/&gt;</span><span class="x"></span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-4"></a><span class="cp">&lt;%</span><span class="nb">inherit</span> <span class="na">file=</span><span class="s">"base.tmpl"</span><span class="cp">/&gt;</span><span class="x"></span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-5"></a><span class="cp">&lt;%</span><span class="nb">block</span> <span class="na">name=</span><span class="s">"extra_head"</span><span class="cp">&gt;</span><span class="x"></span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-6"></a><span class="cp">${</span><span class="n">helper</span><span class="o">.</span><span class="n">twitter_card_information</span><span class="p">(</span><span class="n">post</span><span class="p">)</span><span class="cp">}</span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-7"></a><span class="cp">%</span> <span class="k">if</span> <span class="n">post</span><span class="o">.</span><span class="n">meta</span><span class="p">(</span><span class="s">'keywords'</span><span class="p">):</span><span class="x"></span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-8"></a><span class="x">    &lt;meta name="keywords" content="</span><span class="cp">${</span><span class="n">post</span><span class="o">.</span><span class="n">meta</span><span class="p">(</span><span class="s">'keywords'</span><span class="p">)</span><span class="o">|</span><span class="n">h</span><span class="cp">}</span><span class="x">"/&gt;</span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-9"></a><span class="cp">%</span><span class="k"> endif</span><span class="x"></span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-10"></a><span class="cp">&lt;/%</span><span class="nb">block</span><span class="cp">&gt;</span><span class="x"></span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-11"></a><span class="cp">&lt;%</span><span class="nb">block</span> <span class="na">name=</span><span class="s">"content"</span><span class="cp">&gt;</span><span class="x"></span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-12"></a><span class="x">    &lt;div class="post"&gt;</span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-13"></a><span class="x">    </span><span class="cp">${</span><span class="n">helper</span><span class="o">.</span><span class="n">html_title</span><span class="p">()</span><span class="cp">}</span><span class="x"></span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-14"></a><span class="x">        &lt;div class="meta" style="background-color: rgb(234, 234, 234); "&gt;</span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-15"></a><span class="x">        &lt;span class="authordate"&gt;</span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-16"></a><span class="x">            </span><span class="cp">${</span><span class="n">messages</span><span class="p">(</span><span class="s">"Posted"</span><span class="p">)</span><span class="cp">}</span><span class="x">: </span><span class="cp">${</span><span class="n">post</span><span class="o">.</span><span class="n">formatted_date</span><span class="p">(</span><span class="n">date_format</span><span class="p">)</span><span class="cp">}</span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-17"></a>            <span class="cp">%</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">post</span><span class="o">.</span><span class="n">meta</span><span class="p">(</span><span class="s">'password'</span><span class="p">):</span><span class="x"></span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-18"></a><span class="x">            [&lt;a href="</span><span class="cp">${</span><span class="n">post</span><span class="o">.</span><span class="n">source_link</span><span class="p">()</span><span class="cp">}</span><span class="x">" id="sourcelink"&gt;</span><span class="cp">${</span><span class="n">messages</span><span class="p">(</span><span class="s">"Source"</span><span class="p">)</span><span class="cp">}</span><span class="x">&lt;/a&gt;]</span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-19"></a>            <span class="cp">%</span><span class="k"> endif</span><span class="x"></span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-20"></a><span class="x">        &lt;/span&gt;</span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-21"></a><span class="x">        &lt;br&gt;</span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-22"></a>            <span class="cp">%</span><span class="k">if</span> <span class="n">post</span><span class="o">.</span><span class="n">tags</span><span class="p">:</span><span class="x"></span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-23"></a><span class="x">                &lt;span class="tags"&gt;</span><span class="cp">${</span><span class="n">messages</span><span class="p">(</span><span class="s">"Tags"</span><span class="p">)</span><span class="cp">}</span><span class="x">:&amp;nbsp;</span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-24"></a>                <span class="cp">%</span><span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">post</span><span class="o">.</span><span class="n">tags</span><span class="p">:</span><span class="x"></span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-25"></a><span class="x">                    &lt;a class="tag" href="</span><span class="cp">${</span><span class="n">_link</span><span class="p">(</span><span class="s">'tag'</span><span class="p">,</span> <span class="n">tag</span><span class="p">)</span><span class="cp">}</span><span class="x">"&gt;&lt;span&gt;</span><span class="cp">${</span><span class="n">tag</span><span class="cp">}</span><span class="x">&lt;/span&gt;&lt;/a&gt;</span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-26"></a>                <span class="cp">%</span><span class="k">endfor</span><span class="x"></span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-27"></a><span class="x">                &lt;/span&gt;</span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-28"></a><span class="x">                &lt;br&gt;</span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-29"></a>            <span class="cp">%</span><span class="k">endif</span><span class="x"></span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-30"></a><span class="x">        &lt;span class="authordate"&gt;</span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-31"></a><span class="x">            </span><span class="cp">${</span><span class="n">helper</span><span class="o">.</span><span class="n">html_translations</span><span class="p">(</span><span class="n">post</span><span class="p">)</span><span class="cp">}</span><span class="x"></span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-32"></a><span class="x">        &lt;/span&gt;</span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-33"></a><span class="x">        &lt;/div&gt;</span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-34"></a><span class="x">    </span><span class="cp">${</span><span class="n">post</span><span class="o">.</span><span class="n">text</span><span class="p">()</span><span class="cp">}</span><span class="x"></span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-35"></a><span class="x">    </span><span class="cp">${</span><span class="n">helper</span><span class="o">.</span><span class="n">html_pager</span><span class="p">(</span><span class="n">post</span><span class="p">)</span><span class="cp">}</span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-36"></a>    <span class="cp">%</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">post</span><span class="o">.</span><span class="n">meta</span><span class="p">(</span><span class="s">'nocomments'</span><span class="p">):</span><span class="x"></span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-37"></a><span class="x">        </span><span class="cp">${</span><span class="n">disqus</span><span class="o">.</span><span class="n">html_disqus</span><span class="p">(</span><span class="n">post</span><span class="o">.</span><span class="n">permalink</span><span class="p">(</span><span class="n">absolute</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span> <span class="n">post</span><span class="o">.</span><span class="n">title</span><span class="p">(),</span> <span class="n">post</span><span class="o">.</span><span class="n">base_path</span><span class="p">)</span><span class="cp">}</span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-38"></a>    <span class="cp">%</span><span class="k"> endif</span><span class="x"></span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-39"></a><span class="x">    &lt;/div&gt;</span>
+<a name="rest_code_57c8f849cb8348ccaa464c63791a6773-40"></a><span class="cp">&lt;/%</span><span class="nb">block</span><span class="cp">&gt;</span><span class="x"></span>
 </pre>
 <div class="figure">
-<img alt="http://ralsina.me/galleries/monospace-tut/monospace-5.png" src="http://ralsina.me/galleries/monospace-tut/monospace-5.png" style="height: 400px;">
-<p class="caption">Details, details.</p>
+<img alt="http://ralsina.me/galleries/monospace-tut/monospace-5.png" src="http://ralsina.me/galleries/monospace-tut/monospace-5.png" style="height: 400px;"><p class="caption">Details, details.</p>
 </div>
 <p>The demo site exercises most of the features in Nikola, so if you make it look good, your site probably will look good too.
 This monospace theme is included with nikola, if you want to use it or play with it.</p>
@@ -456,7 +417,7 @@ This monospace theme is included with nikola, if you want to use it or play with
     </div>
     
 </article>
-          </div>
+</div>
           <div class="col-md-4 right">
           </div>
         </div>
@@ -466,24 +427,12 @@ This monospace theme is included with nikola, if you want to use it or play with
             Contents © 2015         <a href="mailto:schmidt.sebi@gmail.com">Sebastian Schmidt</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         
             
         </footer>
-    </div>
+</div>
 </div>
 
-            <script src="../assets/js/jquery.min.js"></script>
-            <script src="../assets/js/bootstrap.min.js"></script>
-            <script src="../assets/js/moment-with-locales.min.js"></script>
-            <script src="../assets/js/fancydates.js"></script>
-        <script src="../assets/js/jquery.colorbox-min.js"></script>
-    
-
-    <script>$('a.image-reference:not(.islink)').colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
-    <!-- fancy dates -->
-    <script>
+            <script src="../assets/js/jquery.min.js"></script><script src="../assets/js/bootstrap.min.js"></script><script src="../assets/js/moment-with-locales.min.js"></script><script src="../assets/js/fancydates.js"></script><script src="../assets/js/jquery.colorbox-min.js"></script><script>$('a.image-reference:not(.islink)').colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
     moment.locale("");
     fancydates(0, "YYYY-MM-DD HH:mm");
-    </script>
-    <!-- end fancy dates -->
-
-
+    </script><!-- end fancy dates -->
 </body>
 </html>
