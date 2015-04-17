@@ -1104,28 +1104,28 @@ really put anything there. See <cite>social_buttons.html</cite> for more details
 </dl>
 <p>In order to use fancy dates, your theme must support them.  The built-in Bootstrap family supports it, but other themes might not by default.</p>
 <p>For Mako:</p>
-<pre class="code html"><a name="rest_code_55f82994c71746a8aa42843497c6aeca-1"></a><span class="c">&lt;!-- required scripts -- best handled with bundles --&gt;</span>
-<a name="rest_code_55f82994c71746a8aa42843497c6aeca-2"></a><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/assets/js/moment-with-locales.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-<a name="rest_code_55f82994c71746a8aa42843497c6aeca-3"></a><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/assets/js/fancydates.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-<a name="rest_code_55f82994c71746a8aa42843497c6aeca-4"></a>
-<a name="rest_code_55f82994c71746a8aa42843497c6aeca-5"></a><span class="c">&lt;!-- fancy dates code --&gt;</span>
-<a name="rest_code_55f82994c71746a8aa42843497c6aeca-6"></a><span class="nt">&lt;script&gt;</span>
-<a name="rest_code_55f82994c71746a8aa42843497c6aeca-7"></a><span class="nx">moment</span><span class="p">.</span><span class="nx">locale</span><span class="p">(</span><span class="s2">"${momentjs_locales[lang]}"</span><span class="p">);</span>
-<a name="rest_code_55f82994c71746a8aa42843497c6aeca-8"></a><span class="nx">fancydates</span><span class="p">(</span><span class="nx">$</span><span class="p">{</span><span class="nx">date_fanciness</span><span class="p">},</span> <span class="nx">$</span><span class="p">{</span><span class="nx">js_date_format</span><span class="p">});</span>
-<a name="rest_code_55f82994c71746a8aa42843497c6aeca-9"></a><span class="nt">&lt;/script&gt;</span>
-<a name="rest_code_55f82994c71746a8aa42843497c6aeca-10"></a><span class="c">&lt;!-- end fancy dates code --&gt;</span>
+<pre class="code html"><a name="rest_code_5162231604b34062a9961a3caa70b626-1"></a><span class="c">&lt;!-- required scripts -- best handled with bundles --&gt;</span>
+<a name="rest_code_5162231604b34062a9961a3caa70b626-2"></a><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/assets/js/moment-with-locales.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<a name="rest_code_5162231604b34062a9961a3caa70b626-3"></a><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/assets/js/fancydates.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<a name="rest_code_5162231604b34062a9961a3caa70b626-4"></a>
+<a name="rest_code_5162231604b34062a9961a3caa70b626-5"></a><span class="c">&lt;!-- fancy dates code --&gt;</span>
+<a name="rest_code_5162231604b34062a9961a3caa70b626-6"></a><span class="nt">&lt;script&gt;</span>
+<a name="rest_code_5162231604b34062a9961a3caa70b626-7"></a><span class="nx">moment</span><span class="p">.</span><span class="nx">locale</span><span class="p">(</span><span class="s2">"${momentjs_locales[lang]}"</span><span class="p">);</span>
+<a name="rest_code_5162231604b34062a9961a3caa70b626-8"></a><span class="nx">fancydates</span><span class="p">(</span><span class="nx">$</span><span class="p">{</span><span class="nx">date_fanciness</span><span class="p">},</span> <span class="nx">$</span><span class="p">{</span><span class="nx">js_date_format</span><span class="p">});</span>
+<a name="rest_code_5162231604b34062a9961a3caa70b626-9"></a><span class="nt">&lt;/script&gt;</span>
+<a name="rest_code_5162231604b34062a9961a3caa70b626-10"></a><span class="c">&lt;!-- end fancy dates code --&gt;</span>
 </pre>
 <p>For Jinja2:</p>
-<pre class="code html"><a name="rest_code_4e648fb4165d4ce0be5ab76a2955b5ef-1"></a><span class="c">&lt;!-- required scripts -- best handled with bundles --&gt;</span>
-<a name="rest_code_4e648fb4165d4ce0be5ab76a2955b5ef-2"></a><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/assets/js/moment-with-locales.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-<a name="rest_code_4e648fb4165d4ce0be5ab76a2955b5ef-3"></a><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/assets/js/fancydates.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-<a name="rest_code_4e648fb4165d4ce0be5ab76a2955b5ef-4"></a>
-<a name="rest_code_4e648fb4165d4ce0be5ab76a2955b5ef-5"></a><span class="c">&lt;!-- fancy dates code --&gt;</span>
-<a name="rest_code_4e648fb4165d4ce0be5ab76a2955b5ef-6"></a><span class="nt">&lt;script&gt;</span>
-<a name="rest_code_4e648fb4165d4ce0be5ab76a2955b5ef-7"></a><span class="nx">moment</span><span class="p">.</span><span class="nx">locale</span><span class="p">(</span><span class="s2">"{{ momentjs_locales[lang] }}"</span><span class="p">);</span>
-<a name="rest_code_4e648fb4165d4ce0be5ab76a2955b5ef-8"></a><span class="nx">fancydates</span><span class="p">({{</span> <span class="nx">date_fanciness</span> <span class="p">}},</span> <span class="p">{{</span> <span class="nx">js_date_format</span> <span class="p">}});</span>
-<a name="rest_code_4e648fb4165d4ce0be5ab76a2955b5ef-9"></a><span class="nt">&lt;/script&gt;</span>
-<a name="rest_code_4e648fb4165d4ce0be5ab76a2955b5ef-10"></a><span class="c">&lt;!-- end fancy dates code --&gt;</span>
+<pre class="code html"><a name="rest_code_1199ada90bda4f109496e7be1b826b6a-1"></a><span class="c">&lt;!-- required scripts -- best handled with bundles --&gt;</span>
+<a name="rest_code_1199ada90bda4f109496e7be1b826b6a-2"></a><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/assets/js/moment-with-locales.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<a name="rest_code_1199ada90bda4f109496e7be1b826b6a-3"></a><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/assets/js/fancydates.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<a name="rest_code_1199ada90bda4f109496e7be1b826b6a-4"></a>
+<a name="rest_code_1199ada90bda4f109496e7be1b826b6a-5"></a><span class="c">&lt;!-- fancy dates code --&gt;</span>
+<a name="rest_code_1199ada90bda4f109496e7be1b826b6a-6"></a><span class="nt">&lt;script&gt;</span>
+<a name="rest_code_1199ada90bda4f109496e7be1b826b6a-7"></a><span class="nx">moment</span><span class="p">.</span><span class="nx">locale</span><span class="p">(</span><span class="s2">"{{ momentjs_locales[lang] }}"</span><span class="p">);</span>
+<a name="rest_code_1199ada90bda4f109496e7be1b826b6a-8"></a><span class="nx">fancydates</span><span class="p">({{</span> <span class="nx">date_fanciness</span> <span class="p">}},</span> <span class="p">{{</span> <span class="nx">js_date_format</span> <span class="p">}});</span>
+<a name="rest_code_1199ada90bda4f109496e7be1b826b6a-9"></a><span class="nt">&lt;/script&gt;</span>
+<a name="rest_code_1199ada90bda4f109496e7be1b826b6a-10"></a><span class="c">&lt;!-- end fancy dates code --&gt;</span>
 </pre>
 </div>
 <div class="section" id="adding-files">
@@ -1298,14 +1298,14 @@ but it's probably more trouble than it's worth.</p>
 <p class="first admonition-title">Moot Support</p>
 <p>Moot doesn't support comment counts on index pages, and it requires adding
 this to your <tt class="docutils literal">conf.py</tt>:</p>
-<div class="last"><pre class="code python"><a name="rest_code_6a7ddddb27bd44a7b291d14e6e377278-1"></a><span class="n">BODY_END</span> <span class="o">=</span> <span class="s">"""</span>
-<a name="rest_code_6a7ddddb27bd44a7b291d14e6e377278-2"></a><span class="s">&lt;script src="//cdn.moot.it/1/moot.min.js"&gt;&lt;/script&gt;</span>
-<a name="rest_code_6a7ddddb27bd44a7b291d14e6e377278-3"></a><span class="s">"""</span>
-<a name="rest_code_6a7ddddb27bd44a7b291d14e6e377278-4"></a><span class="n">EXTRA_HEAD_DATA</span> <span class="o">=</span> <span class="s">"""</span>
-<a name="rest_code_6a7ddddb27bd44a7b291d14e6e377278-5"></a><span class="s">&lt;link rel="stylesheet" type="text/css" href="//cdn.moot.it/1/moot.css"&gt;</span>
-<a name="rest_code_6a7ddddb27bd44a7b291d14e6e377278-6"></a><span class="s">&lt;meta name="viewport" content="width=device-width"&gt;</span>
-<a name="rest_code_6a7ddddb27bd44a7b291d14e6e377278-7"></a><span class="s">&lt;meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"&gt;</span>
-<a name="rest_code_6a7ddddb27bd44a7b291d14e6e377278-8"></a><span class="s">"""</span>
+<div class="last"><pre class="code python"><a name="rest_code_46e08de51b0c44279ce86d453be16965-1"></a><span class="n">BODY_END</span> <span class="o">=</span> <span class="s">"""</span>
+<a name="rest_code_46e08de51b0c44279ce86d453be16965-2"></a><span class="s">&lt;script src="//cdn.moot.it/1/moot.min.js"&gt;&lt;/script&gt;</span>
+<a name="rest_code_46e08de51b0c44279ce86d453be16965-3"></a><span class="s">"""</span>
+<a name="rest_code_46e08de51b0c44279ce86d453be16965-4"></a><span class="n">EXTRA_HEAD_DATA</span> <span class="o">=</span> <span class="s">"""</span>
+<a name="rest_code_46e08de51b0c44279ce86d453be16965-5"></a><span class="s">&lt;link rel="stylesheet" type="text/css" href="//cdn.moot.it/1/moot.css"&gt;</span>
+<a name="rest_code_46e08de51b0c44279ce86d453be16965-6"></a><span class="s">&lt;meta name="viewport" content="width=device-width"&gt;</span>
+<a name="rest_code_46e08de51b0c44279ce86d453be16965-7"></a><span class="s">&lt;meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"&gt;</span>
+<a name="rest_code_46e08de51b0c44279ce86d453be16965-8"></a><span class="s">"""</span>
 </pre></div>
 </div>
 <div class="admonition-facebook-support admonition">
@@ -1395,17 +1395,17 @@ me and I will add it to the filters library so that more people use it.</p>
 and you can use arbitrary python functions as filters, too.</p>
 <p>If your program doesn't run in-place, then you can use Nikola's runinplace function.
 For example, this is how the yui_compressor filter is implemented:</p>
-<pre class="code python"><a name="rest_code_f94eb8b61b7f4ec7b946577f71837e49-1"></a><span class="k">def</span> <span class="nf">yui_compressor</span><span class="p">(</span><span class="n">infile</span><span class="p">):</span>
-<a name="rest_code_f94eb8b61b7f4ec7b946577f71837e49-2"></a>    <span class="k">return</span> <span class="n">runinplace</span><span class="p">(</span><span class="s">r'yui-compressor --nomunge %1 -o %2'</span><span class="p">,</span> <span class="n">infile</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_d88ae7b6601c4d96a8f104819f231423-1"></a><span class="k">def</span> <span class="nf">yui_compressor</span><span class="p">(</span><span class="n">infile</span><span class="p">):</span>
+<a name="rest_code_d88ae7b6601c4d96a8f104819f231423-2"></a>    <span class="k">return</span> <span class="n">runinplace</span><span class="p">(</span><span class="s">r'yui-compressor --nomunge %1 -o %2'</span><span class="p">,</span> <span class="n">infile</span><span class="p">)</span>
 </pre>
 <p>You can turn any function into a filter using <tt class="docutils literal">apply_to_file</tt>.
 As a silly example, this would make everything uppercase and totally break
 your website:</p>
-<div class="last"><pre class="code python"><a name="rest_code_fe96c833fc7247dfa6dc0b7219304280-1"></a><span class="kn">import</span> <span class="nn">string</span>
-<a name="rest_code_fe96c833fc7247dfa6dc0b7219304280-2"></a><span class="kn">from</span> <span class="nn">nikola.filters</span> <span class="kn">import</span> <span class="n">apply_to_file</span>
-<a name="rest_code_fe96c833fc7247dfa6dc0b7219304280-3"></a><span class="n">FILTERS</span> <span class="o">=</span> <span class="p">{</span>
-<a name="rest_code_fe96c833fc7247dfa6dc0b7219304280-4"></a>  <span class="s">".html"</span><span class="p">:</span> <span class="p">[</span><span class="n">apply_to_file</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">upper</span><span class="p">)]</span>
-<a name="rest_code_fe96c833fc7247dfa6dc0b7219304280-5"></a><span class="p">}</span>
+<div class="last"><pre class="code python"><a name="rest_code_3c52d07144b943c1a110ddaf526166a3-1"></a><span class="kn">import</span> <span class="nn">string</span>
+<a name="rest_code_3c52d07144b943c1a110ddaf526166a3-2"></a><span class="kn">from</span> <span class="nn">nikola.filters</span> <span class="kn">import</span> <span class="n">apply_to_file</span>
+<a name="rest_code_3c52d07144b943c1a110ddaf526166a3-3"></a><span class="n">FILTERS</span> <span class="o">=</span> <span class="p">{</span>
+<a name="rest_code_3c52d07144b943c1a110ddaf526166a3-4"></a>  <span class="s">".html"</span><span class="p">:</span> <span class="p">[</span><span class="n">apply_to_file</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">upper</span><span class="p">)]</span>
+<a name="rest_code_3c52d07144b943c1a110ddaf526166a3-5"></a><span class="p">}</span>
 </pre></div>
 </div>
 <dl class="docutils">
@@ -1908,13 +1908,13 @@ To do so, please visit <a class="reference external" href="https://cards-dev.twi
 <p>You can specify the card type by using the <cite>card</cite> parameter in TWITTER_CARD.</p>
 <p>To enable and configure your use of Twitter Cards, please modify the
 corresponding lines in your <tt class="docutils literal">conf.py</tt>:</p>
-<pre class="code python"><a name="rest_code_17242d689f0145eb875795b933ade22a-1"></a><span class="n">TWITTER_CARD</span> <span class="o">=</span> <span class="p">{</span>
-<a name="rest_code_17242d689f0145eb875795b933ade22a-2"></a>    <span class="s">'use_twitter_cards'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>  <span class="c"># enable Twitter Cards</span>
-<a name="rest_code_17242d689f0145eb875795b933ade22a-3"></a>    <span class="s">'card'</span><span class="p">:</span> <span class="s">'summary'</span><span class="p">,</span>          <span class="c"># Card type, you can also use 'summary_large_image',</span>
-<a name="rest_code_17242d689f0145eb875795b933ade22a-4"></a>                                <span class="c"># see https://dev.twitter.com/cards/types</span>
-<a name="rest_code_17242d689f0145eb875795b933ade22a-5"></a>    <span class="s">'site'</span><span class="p">:</span> <span class="s">'@website'</span><span class="p">,</span>         <span class="c"># twitter nick for the website</span>
-<a name="rest_code_17242d689f0145eb875795b933ade22a-6"></a>    <span class="s">'creator'</span><span class="p">:</span> <span class="s">'@username'</span><span class="p">,</span>     <span class="c"># Username for the content creator / author.</span>
-<a name="rest_code_17242d689f0145eb875795b933ade22a-7"></a><span class="p">}</span>
+<pre class="code python"><a name="rest_code_1896b131ac304d0487faebe857406c7e-1"></a><span class="n">TWITTER_CARD</span> <span class="o">=</span> <span class="p">{</span>
+<a name="rest_code_1896b131ac304d0487faebe857406c7e-2"></a>    <span class="s">'use_twitter_cards'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>  <span class="c"># enable Twitter Cards</span>
+<a name="rest_code_1896b131ac304d0487faebe857406c7e-3"></a>    <span class="s">'card'</span><span class="p">:</span> <span class="s">'summary'</span><span class="p">,</span>          <span class="c"># Card type, you can also use 'summary_large_image',</span>
+<a name="rest_code_1896b131ac304d0487faebe857406c7e-4"></a>                                <span class="c"># see https://dev.twitter.com/cards/types</span>
+<a name="rest_code_1896b131ac304d0487faebe857406c7e-5"></a>    <span class="s">'site'</span><span class="p">:</span> <span class="s">'@website'</span><span class="p">,</span>         <span class="c"># twitter nick for the website</span>
+<a name="rest_code_1896b131ac304d0487faebe857406c7e-6"></a>    <span class="s">'creator'</span><span class="p">:</span> <span class="s">'@username'</span><span class="p">,</span>     <span class="c"># Username for the content creator / author.</span>
+<a name="rest_code_1896b131ac304d0487faebe857406c7e-7"></a><span class="p">}</span>
 </pre>
 </div>
 <div class="section" id="custom-plugins">
