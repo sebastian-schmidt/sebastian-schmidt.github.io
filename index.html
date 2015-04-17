@@ -105,12 +105,12 @@ This is how i back up a the postgres database, copy it to my local computer, and
 rhc ssh myappname
 </pre>
 <p>executed the lines from this <a class="reference external" href="https://gist.github.com/skyebook/3407646">snippet</a>:</p>
-<pre class="code bash"><a name="rest_code_d934ad2288ec4d0783df4446a1232f06-1"></a><span class="c">#!/bin/bash</span>
-<a name="rest_code_d934ad2288ec4d0783df4446a1232f06-2"></a><span class="c"># Backs up the OpenShift PostgreSQL database for this application</span>
-<a name="rest_code_d934ad2288ec4d0783df4446a1232f06-3"></a><span class="c"># by Skye Book</span>
-<a name="rest_code_d934ad2288ec4d0783df4446a1232f06-4"></a><span class="nv">NOW</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>date +<span class="s2">"%Y-%m-%d"</span><span class="k">)</span><span class="s2">"</span>
-<a name="rest_code_d934ad2288ec4d0783df4446a1232f06-5"></a><span class="nv">FILENAME</span><span class="o">=</span><span class="s2">"</span><span class="nv">$OPENSHIFT_DATA_DIR</span><span class="s2">/</span><span class="nv">$OPENSHIFT_APP_NAME</span><span class="s2">.</span><span class="nv">$NOW</span><span class="s2">.backup.sql.gz"</span>
-<a name="rest_code_d934ad2288ec4d0783df4446a1232f06-6"></a>pg_dump <span class="nv">$OPENSHIFT_APP_NAME</span> <span class="p">|</span> gzip &gt; <span class="nv">$FILENAME</span>
+<pre class="code bash"><a name="rest_code_e1b9f5c1d824435693d7c2bc699e7c83-1"></a><span class="c">#!/bin/bash</span>
+<a name="rest_code_e1b9f5c1d824435693d7c2bc699e7c83-2"></a><span class="c"># Backs up the OpenShift PostgreSQL database for this application</span>
+<a name="rest_code_e1b9f5c1d824435693d7c2bc699e7c83-3"></a><span class="c"># by Skye Book</span>
+<a name="rest_code_e1b9f5c1d824435693d7c2bc699e7c83-4"></a><span class="nv">NOW</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>date +<span class="s2">"%Y-%m-%d"</span><span class="k">)</span><span class="s2">"</span>
+<a name="rest_code_e1b9f5c1d824435693d7c2bc699e7c83-5"></a><span class="nv">FILENAME</span><span class="o">=</span><span class="s2">"</span><span class="nv">$OPENSHIFT_DATA_DIR</span><span class="s2">/</span><span class="nv">$OPENSHIFT_APP_NAME</span><span class="s2">.</span><span class="nv">$NOW</span><span class="s2">.backup.sql.gz"</span>
+<a name="rest_code_e1b9f5c1d824435693d7c2bc699e7c83-6"></a>pg_dump <span class="nv">$OPENSHIFT_APP_NAME</span> <span class="p">|</span> gzip &gt; <span class="nv">$FILENAME</span>
 </pre>
 <p>Now you can copy the database to your local folder:</p>
 <pre class="literal-block">
@@ -122,49 +122,6 @@ Now create a new database in pgadmin and restore the data to it:</p>
 psql -d nameofnewdb -U username -f myappname.2015-03-27.backup.sql
 </pre>
 <p>Now you can connect the dhango app to your local database.</p>
-</div>
-    </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/first.html" class="u-url">first</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">Sebastian Schmidt</span></p>
-            <p class="dateline"><a href="posts/first.html" rel="bookmark"><time class="published dt-published" datetime="2015-04-13T18:08:27+02:00" title="2015-04-13 18:08">2015-04-13 18:08</time></a></p>
-        </div>
-    </header><div class="p-summary entry-summary">
-    <div>
-<p>test
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
-<p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also r</p>
-</div>
-    </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/welcome-to-nikola.html" class="u-url">Welcome to Nikola</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">Roberto Alsina</span></p>
-            <p class="dateline"><a href="posts/welcome-to-nikola.html" rel="bookmark"><time class="published dt-published" datetime="2012-03-30T23:00:00-03:00" title="2012-03-30 23:00">2012-03-30 23:00</time></a></p>
-        </div>
-    </header><div class="p-summary entry-summary">
-    <div>
-<div class="figure align-center">
-<a class="reference external image-reference" href="http://farm1.staticflickr.com/138/352972944_4f9d568680_z.jpg?zz=1"><img alt="Nikola Tesla Corner by nicwest, on Flickr" class="thumbnail" src="http://farm1.staticflickr.com/138/352972944_4f9d568680.jpg"></a>
-</div>
-<p>If you can see this in a web browser, it means you have managed to install Nikola,
-and build a site using it. Congratulations!</p>
-<ul class="simple">
-<li>You can read the manual <a class="reference external" href="stories/handbook.html">here</a>
-</li>
-<li>You can learn more about Nikola at <a class="reference external" href="http://getnikola.com">http://getnikola.com</a>
-</li>
-<li>You can see a demo photo gallery <a class="reference external" href="galleries/demo/index.html">here</a>
-</li>
-<li>Demo usage of listings <a class="reference external" href="stories/listings-demo.html">here</a>
-</li>
-<li>Demo of slideshows <a class="reference external" href="stories/slides-demo.html">here</a>
-</li>
-<li>Demo of Bootstrap <a class="reference external" href="stories/bootstrap-demo.html">here</a>
-</li>
-</ul>
-<p>Send feedback to <a class="reference external" href="mailto:ralsina@netmanagers.com.ar">ralsina@netmanagers.com.ar</a>!</p>
 </div>
     </div>
     </article>

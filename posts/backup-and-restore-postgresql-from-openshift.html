@@ -11,7 +11,6 @@ article: http://ogp.me/ns/article#
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
 <link rel="canonical" href="http://actin.io/posts/backup-and-restore-postgresql-from-openshift.html">
 <!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="Sebastian Schmidt">
-<link rel="prev" href="first.html" title="first" type="text/html">
 <link rel="next" href="adobe-password-leak-analyzed-with-pandas-and-python.html" title="Adobe password leak analyzed with pandas and Python" type="text/html">
 <meta property="og:site_name" content="actin.io">
 <meta property="og:title" content="Backup and Restore PostgreSQL from Openshift">
@@ -92,12 +91,12 @@ This is how i back up a the postgres database, copy it to my local computer, and
 rhc ssh myappname
 </pre>
 <p>executed the lines from this <a class="reference external" href="https://gist.github.com/skyebook/3407646">snippet</a>:</p>
-<pre class="code bash"><a name="rest_code_d934ad2288ec4d0783df4446a1232f06-1"></a><span class="c">#!/bin/bash</span>
-<a name="rest_code_d934ad2288ec4d0783df4446a1232f06-2"></a><span class="c"># Backs up the OpenShift PostgreSQL database for this application</span>
-<a name="rest_code_d934ad2288ec4d0783df4446a1232f06-3"></a><span class="c"># by Skye Book</span>
-<a name="rest_code_d934ad2288ec4d0783df4446a1232f06-4"></a><span class="nv">NOW</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>date +<span class="s2">"%Y-%m-%d"</span><span class="k">)</span><span class="s2">"</span>
-<a name="rest_code_d934ad2288ec4d0783df4446a1232f06-5"></a><span class="nv">FILENAME</span><span class="o">=</span><span class="s2">"</span><span class="nv">$OPENSHIFT_DATA_DIR</span><span class="s2">/</span><span class="nv">$OPENSHIFT_APP_NAME</span><span class="s2">.</span><span class="nv">$NOW</span><span class="s2">.backup.sql.gz"</span>
-<a name="rest_code_d934ad2288ec4d0783df4446a1232f06-6"></a>pg_dump <span class="nv">$OPENSHIFT_APP_NAME</span> <span class="p">|</span> gzip &gt; <span class="nv">$FILENAME</span>
+<pre class="code bash"><a name="rest_code_e1b9f5c1d824435693d7c2bc699e7c83-1"></a><span class="c">#!/bin/bash</span>
+<a name="rest_code_e1b9f5c1d824435693d7c2bc699e7c83-2"></a><span class="c"># Backs up the OpenShift PostgreSQL database for this application</span>
+<a name="rest_code_e1b9f5c1d824435693d7c2bc699e7c83-3"></a><span class="c"># by Skye Book</span>
+<a name="rest_code_e1b9f5c1d824435693d7c2bc699e7c83-4"></a><span class="nv">NOW</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>date +<span class="s2">"%Y-%m-%d"</span><span class="k">)</span><span class="s2">"</span>
+<a name="rest_code_e1b9f5c1d824435693d7c2bc699e7c83-5"></a><span class="nv">FILENAME</span><span class="o">=</span><span class="s2">"</span><span class="nv">$OPENSHIFT_DATA_DIR</span><span class="s2">/</span><span class="nv">$OPENSHIFT_APP_NAME</span><span class="s2">.</span><span class="nv">$NOW</span><span class="s2">.backup.sql.gz"</span>
+<a name="rest_code_e1b9f5c1d824435693d7c2bc699e7c83-6"></a>pg_dump <span class="nv">$OPENSHIFT_APP_NAME</span> <span class="p">|</span> gzip &gt; <span class="nv">$FILENAME</span>
 </pre>
 <p>Now you can copy the database to your local folder:</p>
 <pre class="literal-block">
@@ -112,10 +111,7 @@ psql -d nameofnewdb -U username -f myappname.2015-03-27.backup.sql
 </div>
     </div>
     <aside class="postpromonav"><nav><ul class="pager">
-<li class="previous">
-                <a href="first.html" rel="prev" title="first">Previous post</a>
-            </li>
-            <li class="next">
+<li class="next">
                 <a href="adobe-password-leak-analyzed-with-pandas-and-python.html" rel="next" title="Adobe password leak analyzed with pandas and Python">Next post</a>
             </li>
         </ul></nav></aside></article>
