@@ -121,11 +121,11 @@ jinja-based theme, upgrading is probably a bad idea right now.</dd>
 using a custom theme. Also, some templates have been tweaked, but nothing should
 break for you.</p>
 <p>Facebook comments support changed the HTML tag to:</p>
-<pre class="code mako"><a name="rest_code_bca815f2782e4a33ba74bb3a5d4ebcb4-1"></a><span class="x">&lt;html</span>
-<a name="rest_code_bca815f2782e4a33ba74bb3a5d4ebcb4-2"></a><span class="cp">%</span><span class="k">if</span> <span class="n">comment_system</span> <span class="o">==</span> <span class="s">'facebook'</span><span class="p">:</span><span class="x"></span>
-<a name="rest_code_bca815f2782e4a33ba74bb3a5d4ebcb4-3"></a><span class="x">xmlns:fb="http://ogp.me/ns/fb#"</span>
-<a name="rest_code_bca815f2782e4a33ba74bb3a5d4ebcb4-4"></a><span class="cp">%</span><span class="k">endif</span><span class="x"></span>
-<a name="rest_code_bca815f2782e4a33ba74bb3a5d4ebcb4-5"></a><span class="x">lang="</span><span class="cp">${</span><span class="n">lang</span><span class="cp">}</span><span class="x">"&gt;</span>
+<pre class="code mako"><a name="rest_code_8fe34918df1849c38e389b9c6a02aef8-1"></a><span class="x">&lt;html</span>
+<a name="rest_code_8fe34918df1849c38e389b9c6a02aef8-2"></a><span class="cp">%</span><span class="k">if</span> <span class="n">comment_system</span> <span class="o">==</span> <span class="s">'facebook'</span><span class="p">:</span><span class="x"></span>
+<a name="rest_code_8fe34918df1849c38e389b9c6a02aef8-3"></a><span class="x">xmlns:fb="http://ogp.me/ns/fb#"</span>
+<a name="rest_code_8fe34918df1849c38e389b9c6a02aef8-4"></a><span class="cp">%</span><span class="k">endif</span><span class="x"></span>
+<a name="rest_code_8fe34918df1849c38e389b9c6a02aef8-5"></a><span class="x">lang="</span><span class="cp">${</span><span class="n">lang</span><span class="cp">}</span><span class="x">"&gt;</span>
 </pre>
 <p>If you do not want to use Facebook comments, you can leave the old <tt class="docutils literal">&lt;html
 <span class="pre">lang="${lang}"&gt;</span></tt> tag in and it will work just fine.</p>
@@ -149,22 +149,22 @@ should be <strong>exactly</strong> as before.</p>
 story short, anything that had a <tt class="docutils literal">True</tt> as the <tt class="docutils literal">use_in_feeds</tt>
 (last) value goes to <tt class="docutils literal">POSTS</tt> and anything with <tt class="docutils literal">False</tt> goes to
 <tt class="docutils literal">PAGES</tt>.  For example:</p>
-<pre class="code python"><a name="rest_code_518b484bce0747658faaa542822527e9-1"></a><span class="n">post_pages</span> <span class="o">=</span> <span class="p">(</span>
-<a name="rest_code_518b484bce0747658faaa542822527e9-2"></a>    <span class="p">(</span><span class="s">"posts/*.txt"</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">"post.tmpl"</span><span class="p">,</span> <span class="bp">True</span><span class="p">),</span>
-<a name="rest_code_518b484bce0747658faaa542822527e9-3"></a>    <span class="p">(</span><span class="s">"stories/*.txt"</span><span class="p">,</span> <span class="s">"p"</span><span class="p">,</span> <span class="s">"story.tmpl"</span><span class="p">,</span> <span class="bp">False</span><span class="p">),</span>
-<a name="rest_code_518b484bce0747658faaa542822527e9-4"></a>    <span class="p">(</span><span class="s">"stories/*.html"</span><span class="p">,</span> <span class="s">"s"</span><span class="p">,</span> <span class="s">"story.tmpl"</span><span class="p">,</span> <span class="bp">False</span><span class="p">),</span>
-<a name="rest_code_518b484bce0747658faaa542822527e9-5"></a><span class="p">)</span>
-<a name="rest_code_518b484bce0747658faaa542822527e9-6"></a>
-<a name="rest_code_518b484bce0747658faaa542822527e9-7"></a><span class="c">### becomes ###</span>
-<a name="rest_code_518b484bce0747658faaa542822527e9-8"></a>
-<a name="rest_code_518b484bce0747658faaa542822527e9-9"></a><span class="n">POSTS</span> <span class="o">=</span> <span class="p">(</span>
-<a name="rest_code_518b484bce0747658faaa542822527e9-10"></a>    <span class="p">(</span><span class="s">"posts/*.txt"</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">"post.tmpl"</span><span class="p">),</span>
-<a name="rest_code_518b484bce0747658faaa542822527e9-11"></a><span class="p">)</span>
-<a name="rest_code_518b484bce0747658faaa542822527e9-12"></a>
-<a name="rest_code_518b484bce0747658faaa542822527e9-13"></a><span class="n">PAGES</span> <span class="o">=</span> <span class="p">(</span>
-<a name="rest_code_518b484bce0747658faaa542822527e9-14"></a>    <span class="p">(</span><span class="s">"stories/*.txt"</span><span class="p">,</span> <span class="s">"p"</span><span class="p">,</span> <span class="s">"story.tmpl"</span><span class="p">),</span>
-<a name="rest_code_518b484bce0747658faaa542822527e9-15"></a>    <span class="p">(</span><span class="s">"stories/*.html"</span><span class="p">,</span> <span class="s">"s"</span><span class="p">,</span> <span class="s">"story.tmpl"</span><span class="p">),</span>
-<a name="rest_code_518b484bce0747658faaa542822527e9-16"></a><span class="p">)</span>
+<pre class="code python"><a name="rest_code_f6477559220547f494b6569c9f9c9619-1"></a><span class="n">post_pages</span> <span class="o">=</span> <span class="p">(</span>
+<a name="rest_code_f6477559220547f494b6569c9f9c9619-2"></a>    <span class="p">(</span><span class="s">"posts/*.txt"</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">"post.tmpl"</span><span class="p">,</span> <span class="bp">True</span><span class="p">),</span>
+<a name="rest_code_f6477559220547f494b6569c9f9c9619-3"></a>    <span class="p">(</span><span class="s">"stories/*.txt"</span><span class="p">,</span> <span class="s">"p"</span><span class="p">,</span> <span class="s">"story.tmpl"</span><span class="p">,</span> <span class="bp">False</span><span class="p">),</span>
+<a name="rest_code_f6477559220547f494b6569c9f9c9619-4"></a>    <span class="p">(</span><span class="s">"stories/*.html"</span><span class="p">,</span> <span class="s">"s"</span><span class="p">,</span> <span class="s">"story.tmpl"</span><span class="p">,</span> <span class="bp">False</span><span class="p">),</span>
+<a name="rest_code_f6477559220547f494b6569c9f9c9619-5"></a><span class="p">)</span>
+<a name="rest_code_f6477559220547f494b6569c9f9c9619-6"></a>
+<a name="rest_code_f6477559220547f494b6569c9f9c9619-7"></a><span class="c">### becomes ###</span>
+<a name="rest_code_f6477559220547f494b6569c9f9c9619-8"></a>
+<a name="rest_code_f6477559220547f494b6569c9f9c9619-9"></a><span class="n">POSTS</span> <span class="o">=</span> <span class="p">(</span>
+<a name="rest_code_f6477559220547f494b6569c9f9c9619-10"></a>    <span class="p">(</span><span class="s">"posts/*.txt"</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">"post.tmpl"</span><span class="p">),</span>
+<a name="rest_code_f6477559220547f494b6569c9f9c9619-11"></a><span class="p">)</span>
+<a name="rest_code_f6477559220547f494b6569c9f9c9619-12"></a>
+<a name="rest_code_f6477559220547f494b6569c9f9c9619-13"></a><span class="n">PAGES</span> <span class="o">=</span> <span class="p">(</span>
+<a name="rest_code_f6477559220547f494b6569c9f9c9619-14"></a>    <span class="p">(</span><span class="s">"stories/*.txt"</span><span class="p">,</span> <span class="s">"p"</span><span class="p">,</span> <span class="s">"story.tmpl"</span><span class="p">),</span>
+<a name="rest_code_f6477559220547f494b6569c9f9c9619-15"></a>    <span class="p">(</span><span class="s">"stories/*.html"</span><span class="p">,</span> <span class="s">"s"</span><span class="p">,</span> <span class="s">"story.tmpl"</span><span class="p">),</span>
+<a name="rest_code_f6477559220547f494b6569c9f9c9619-16"></a><span class="p">)</span>
 </pre>
 <p>Also, you will get warnings. That doesn't mean things broke. They are
 there to inform you of what's happening, and that you need to tweak your
