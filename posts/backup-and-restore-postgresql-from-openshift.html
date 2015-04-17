@@ -84,8 +84,12 @@ This is how i back up a the postgres database, copy it to my local computer, and
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Sebastian Schmidt</span></p>
             <p class="dateline"><a href="#" rel="bookmark"><time class="published dt-published" datetime="2015-04-15T22:31:49+02:00" itemprop="datePublished" title="2015-04-15 22:31">2015-04-15 22:31</time></a></p>
+                <p class="commentline">            <a href="backup-and-restore-postgresql-from-openshift.html#disqus_thread" data-disqus-identifier="cache/posts/backup-and-restore-postgresql-from-openshift.html">Comments</a>
+
+
             
-        </div>
+        </p>
+</div>
         
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
@@ -95,12 +99,12 @@ This is how i back up a the postgres database, copy it to my local computer, and
 rhc ssh myappname
 </pre>
 <p>executed the lines from this <a class="reference external" href="https://gist.github.com/skyebook/3407646">snippet</a>:</p>
-<pre class="code bash"><a name="rest_code_7436d58088c64229bd26348c9740d4dd-1"></a><span class="c">#!/bin/bash</span>
-<a name="rest_code_7436d58088c64229bd26348c9740d4dd-2"></a><span class="c"># Backs up the OpenShift PostgreSQL database for this application</span>
-<a name="rest_code_7436d58088c64229bd26348c9740d4dd-3"></a><span class="c"># by Skye Book</span>
-<a name="rest_code_7436d58088c64229bd26348c9740d4dd-4"></a><span class="nv">NOW</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>date +<span class="s2">"%Y-%m-%d"</span><span class="k">)</span><span class="s2">"</span>
-<a name="rest_code_7436d58088c64229bd26348c9740d4dd-5"></a><span class="nv">FILENAME</span><span class="o">=</span><span class="s2">"</span><span class="nv">$OPENSHIFT_DATA_DIR</span><span class="s2">/</span><span class="nv">$OPENSHIFT_APP_NAME</span><span class="s2">.</span><span class="nv">$NOW</span><span class="s2">.backup.sql.gz"</span>
-<a name="rest_code_7436d58088c64229bd26348c9740d4dd-6"></a>pg_dump <span class="nv">$OPENSHIFT_APP_NAME</span> <span class="p">|</span> gzip &gt; <span class="nv">$FILENAME</span>
+<pre class="code bash"><a name="rest_code_2d41167b7a4f40c3a80cbc635782a1c1-1"></a><span class="c">#!/bin/bash</span>
+<a name="rest_code_2d41167b7a4f40c3a80cbc635782a1c1-2"></a><span class="c"># Backs up the OpenShift PostgreSQL database for this application</span>
+<a name="rest_code_2d41167b7a4f40c3a80cbc635782a1c1-3"></a><span class="c"># by Skye Book</span>
+<a name="rest_code_2d41167b7a4f40c3a80cbc635782a1c1-4"></a><span class="nv">NOW</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>date +<span class="s2">"%Y-%m-%d"</span><span class="k">)</span><span class="s2">"</span>
+<a name="rest_code_2d41167b7a4f40c3a80cbc635782a1c1-5"></a><span class="nv">FILENAME</span><span class="o">=</span><span class="s2">"</span><span class="nv">$OPENSHIFT_DATA_DIR</span><span class="s2">/</span><span class="nv">$OPENSHIFT_APP_NAME</span><span class="s2">.</span><span class="nv">$NOW</span><span class="s2">.backup.sql.gz"</span>
+<a name="rest_code_2d41167b7a4f40c3a80cbc635782a1c1-6"></a>pg_dump <span class="nv">$OPENSHIFT_APP_NAME</span> <span class="p">|</span> gzip &gt; <span class="nv">$FILENAME</span>
 </pre>
 <p>Now you can copy the database to your local folder:</p>
 <pre class="literal-block">
@@ -118,7 +122,27 @@ psql -d nameofnewdb -U username -f myappname.2015-03-27.backup.sql
 <li class="next">
                 <a href="adobe-password-leak-analyzed-with-pandas-and-python.html" rel="next" title="Adobe password leak analyzed with pandas and Python">Next post</a>
             </li>
-        </ul></nav></aside></article>
+        </ul></nav></aside><section class="comments"><h2>Comments</h2>
+                        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="actin-io",
+            disqus_url="http://actin.io/posts/backup-and-restore-postgresql-from-openshift.html",
+        disqus_title="Backup and Restore PostgreSQL from Openshift",
+        disqus_identifier="cache/posts/backup-and-restore-postgresql-from-openshift.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="actin-io";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
 </div>
           <div class="col-md-4 right">
           </div>
@@ -126,7 +150,7 @@ psql -d nameofnewdb -U username -f myappname.2015-03-27.backup.sql
         <!--End of body content-->
 
         <footer>
-            Contents © 2015         <a href="mailto:schmidt.sebi@gmail.com">Sebastian Schmidt</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         
+            Contents © 2015         <a href="mailto:info.actin.io@gmail.com">Sebastian Schmidt</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         
             
         </footer>
 </div>
