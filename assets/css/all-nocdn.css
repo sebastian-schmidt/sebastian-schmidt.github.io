@@ -1827,6 +1827,12 @@ table.codetable { width: 100%;} td.linenos {text-align: right; width: 4em;}
    height: 100px;
 }
 
+h1 a{
+    color:#5A321C !important;
+}
+
+
+
 pre.literal-block, pre.doctest-block, pre.math, pre.code {
   margin-left: 0em !important;
   margin-right: 0em !important;

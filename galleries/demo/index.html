@@ -56,8 +56,8 @@ article: http://ogp.me/ns/article#
                 
             </li>
 </ul>
-<!-- Custom search --><form method="get" id="search" action="//duckduckgo.com/" class="navbar-form pull-right">
-<input type="hidden" name="sites" value="http://actin.io/"><input type="hidden" name="k8" value="#444444"><input type="hidden" name="k9" value="#D51920"><input type="hidden" name="kt" value="h"><input type="text" name="q" maxlength="255" placeholder="Search…" class="span" style="margin-top: 4px;width:100px;"><input type="submit" value="Go">
+<!-- Custom search with Google--><form id="search" action="//www.google.com/search" method="get" class="navbar-form pull-right">
+<input type="hidden" name="q" value="site:http://actin.io/"><input type="text" name="q" maxlength="255" results="0" placeholder="Search" style="margin-top: 4px;width:100px;"><input type="submit" value="Go">
 </form>
 <!-- End of custom search -->
 
@@ -127,7 +127,7 @@ article: http://ogp.me/ns/article#
     moment.locale("");
     fancydates(0, "YYYY-MM-DD HH:mm");
     </script><!-- end fancy dates --><script src="../../assets/js/flowr.plugin.js"></script><script>
-jsonContent = [{"url_thumb": "tesla4_lg.thumbnail.jpg", "size": {"h": 180, "w": 128}, "title": "Tesla4 lg", "url": "tesla4_lg.jpg"}, {"url_thumb": "tesla_conducts_lg.thumbnail.jpg", "size": {"h": 180, "w": 128}, "title": "Tesla conducts lg", "url": "tesla_conducts_lg.jpg"}, {"url_thumb": "tesla_lightning1_lg.thumbnail.jpg", "size": {"h": 129, "w": 180}, "title": "Tesla lightning1 lg", "url": "tesla_lightning1_lg.jpg"}, {"url_thumb": "tesla_lightning2_lg.thumbnail.jpg", "size": {"h": 131, "w": 180}, "title": "Tesla lightning2 lg", "url": "tesla_lightning2_lg.jpg"}, {"url_thumb": "tesla_tower1_lg.thumbnail.jpg", "size": {"h": 125, "w": 180}, "title": "Tesla tower1 lg", "url": "tesla_tower1_lg.jpg"}];
+jsonContent = [{"url": "tesla4_lg.jpg", "size": {"w": 128, "h": 180}, "url_thumb": "tesla4_lg.thumbnail.jpg", "title": "Tesla4 lg"}, {"url": "tesla_conducts_lg.jpg", "size": {"w": 128, "h": 180}, "url_thumb": "tesla_conducts_lg.thumbnail.jpg", "title": "Tesla conducts lg"}, {"url": "tesla_lightning1_lg.jpg", "size": {"w": 180, "h": 129}, "url_thumb": "tesla_lightning1_lg.thumbnail.jpg", "title": "Tesla lightning1 lg"}, {"url": "tesla_lightning2_lg.jpg", "size": {"w": 180, "h": 131}, "url_thumb": "tesla_lightning2_lg.thumbnail.jpg", "title": "Tesla lightning2 lg"}, {"url": "tesla_tower1_lg.jpg", "size": {"w": 180, "h": 125}, "url_thumb": "tesla_tower1_lg.thumbnail.jpg", "title": "Tesla tower1 lg"}];
 $("#gallery_container").flowr({
         data : jsonContent,
         height : 180*.6,
