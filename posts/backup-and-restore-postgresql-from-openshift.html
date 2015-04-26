@@ -99,12 +99,12 @@ This is how i back up a the postgres database, copy it to my local computer, and
 rhc ssh myappname
 </pre>
 <p>executed the lines from this <a class="reference external" href="https://gist.github.com/skyebook/3407646">snippet</a>:</p>
-<pre class="code bash"><a name="rest_code_4807a9584ded4db4889595ca8691317d-1"></a><span class="c">#!/bin/bash</span>
-<a name="rest_code_4807a9584ded4db4889595ca8691317d-2"></a><span class="c"># Backs up the OpenShift PostgreSQL database for this application</span>
-<a name="rest_code_4807a9584ded4db4889595ca8691317d-3"></a><span class="c"># by Skye Book</span>
-<a name="rest_code_4807a9584ded4db4889595ca8691317d-4"></a><span class="nv">NOW</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>date +<span class="s2">"%Y-%m-%d"</span><span class="k">)</span><span class="s2">"</span>
-<a name="rest_code_4807a9584ded4db4889595ca8691317d-5"></a><span class="nv">FILENAME</span><span class="o">=</span><span class="s2">"</span><span class="nv">$OPENSHIFT_DATA_DIR</span><span class="s2">/</span><span class="nv">$OPENSHIFT_APP_NAME</span><span class="s2">.</span><span class="nv">$NOW</span><span class="s2">.backup.sql.gz"</span>
-<a name="rest_code_4807a9584ded4db4889595ca8691317d-6"></a>pg_dump <span class="nv">$OPENSHIFT_APP_NAME</span> <span class="p">|</span> gzip &gt; <span class="nv">$FILENAME</span>
+<pre class="code bash"><a name="rest_code_a760e7c56f5846d98c795852148a998b-1"></a><span class="c">#!/bin/bash</span>
+<a name="rest_code_a760e7c56f5846d98c795852148a998b-2"></a><span class="c"># Backs up the OpenShift PostgreSQL database for this application</span>
+<a name="rest_code_a760e7c56f5846d98c795852148a998b-3"></a><span class="c"># by Skye Book</span>
+<a name="rest_code_a760e7c56f5846d98c795852148a998b-4"></a><span class="nv">NOW</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>date +<span class="s2">"%Y-%m-%d"</span><span class="k">)</span><span class="s2">"</span>
+<a name="rest_code_a760e7c56f5846d98c795852148a998b-5"></a><span class="nv">FILENAME</span><span class="o">=</span><span class="s2">"</span><span class="nv">$OPENSHIFT_DATA_DIR</span><span class="s2">/</span><span class="nv">$OPENSHIFT_APP_NAME</span><span class="s2">.</span><span class="nv">$NOW</span><span class="s2">.backup.sql.gz"</span>
+<a name="rest_code_a760e7c56f5846d98c795852148a998b-6"></a>pg_dump <span class="nv">$OPENSHIFT_APP_NAME</span> <span class="p">|</span> gzip &gt; <span class="nv">$FILENAME</span>
 </pre>
 <p>Now you can copy the database to your local folder:</p>
 <pre class="literal-block">
@@ -115,7 +115,7 @@ Now create a new database in pgadmin and restore the data to it:</p>
 <pre class="literal-block">
 psql -d nameofnewdb -U username -f myappname.2015-03-27.backup.sql
 </pre>
-<p>Now you can connect the dhango app to your local database.</p>
+<p>Now you can connect the django app to your local database.</p>
 </div>
     </div>
     <aside class="postpromonav"><nav><ul class="pager">
