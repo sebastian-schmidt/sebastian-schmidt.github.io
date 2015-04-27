@@ -99,12 +99,12 @@ This is how i back up a the postgres database, copy it to my local computer, and
 rhc ssh myappname
 </pre>
 <p>executed the lines from this <a class="reference external" href="https://gist.github.com/skyebook/3407646">snippet</a>:</p>
-<pre class="code bash"><a name="rest_code_0e8cf4ab639b48718f3d6b5c42f385b5-1"></a><span class="c">#!/bin/bash</span>
-<a name="rest_code_0e8cf4ab639b48718f3d6b5c42f385b5-2"></a><span class="c"># Backs up the OpenShift PostgreSQL database for this application</span>
-<a name="rest_code_0e8cf4ab639b48718f3d6b5c42f385b5-3"></a><span class="c"># by Skye Book</span>
-<a name="rest_code_0e8cf4ab639b48718f3d6b5c42f385b5-4"></a><span class="nv">NOW</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>date +<span class="s2">"%Y-%m-%d"</span><span class="k">)</span><span class="s2">"</span>
-<a name="rest_code_0e8cf4ab639b48718f3d6b5c42f385b5-5"></a><span class="nv">FILENAME</span><span class="o">=</span><span class="s2">"</span><span class="nv">$OPENSHIFT_DATA_DIR</span><span class="s2">/</span><span class="nv">$OPENSHIFT_APP_NAME</span><span class="s2">.</span><span class="nv">$NOW</span><span class="s2">.backup.sql.gz"</span>
-<a name="rest_code_0e8cf4ab639b48718f3d6b5c42f385b5-6"></a>pg_dump <span class="nv">$OPENSHIFT_APP_NAME</span> <span class="p">|</span> gzip &gt; <span class="nv">$FILENAME</span>
+<pre class="code bash"><a name="rest_code_1c29a48177564251bb1108d7029d5517-1"></a><span class="c">#!/bin/bash</span>
+<a name="rest_code_1c29a48177564251bb1108d7029d5517-2"></a><span class="c"># Backs up the OpenShift PostgreSQL database for this application</span>
+<a name="rest_code_1c29a48177564251bb1108d7029d5517-3"></a><span class="c"># by Skye Book</span>
+<a name="rest_code_1c29a48177564251bb1108d7029d5517-4"></a><span class="nv">NOW</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>date +<span class="s2">"%Y-%m-%d"</span><span class="k">)</span><span class="s2">"</span>
+<a name="rest_code_1c29a48177564251bb1108d7029d5517-5"></a><span class="nv">FILENAME</span><span class="o">=</span><span class="s2">"</span><span class="nv">$OPENSHIFT_DATA_DIR</span><span class="s2">/</span><span class="nv">$OPENSHIFT_APP_NAME</span><span class="s2">.</span><span class="nv">$NOW</span><span class="s2">.backup.sql.gz"</span>
+<a name="rest_code_1c29a48177564251bb1108d7029d5517-6"></a>pg_dump <span class="nv">$OPENSHIFT_APP_NAME</span> <span class="p">|</span> gzip &gt; <span class="nv">$FILENAME</span>
 </pre>
 <p>Now you can copy the database to your local folder:</p>
 <pre class="literal-block">
