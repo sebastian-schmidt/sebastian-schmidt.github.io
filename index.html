@@ -73,7 +73,160 @@ article: http://ogp.me/ns/article#
           <div class="col-md-7 middle">
             
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/adobe-password-leak-analyzed-with-pandas-and-python.html" class="u-url">Adobe password leak analyzed with pandas and Python</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/line-width-detection-in-matlab.html" class="u-url">Line width detection in Matlab</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Sebastian Schmidt</span></p>
+            <p class="dateline"><a href="posts/line-width-detection-in-matlab.html" rel="bookmark"><time class="published dt-published" datetime="2015-04-28T21:23:54+02:00" title="2015-04-28 21:23">2015-04-28 21:23</time></a></p>
+                <p class="commentline">            <a href="posts/line-width-detection-in-matlab.html#disqus_thread" data-disqus-identifier="cache/posts/line-width-detection-in-matlab.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="p-summary entry-summary">
+    <div>
+<p>We wanted a simple line width estimation for a recent project. It was
+meant  to analyze the width of actin bundles. After some searching for
+an existing solution to the problem I only found <a class="reference external" href="http://www.ncbi.nlm.nih.gov/pubmed/17269626">this paper</a>.
+Usually I try to use existing programs in Matlab. It is very
+common for physicists to reinvent the wheel.</p>
+<p>I prepared a few images to show how the Matlab script works. I used two different line sizes for a gaussian type brush and 4 different widths for the hard edge pen tool. It should be fairly customizable to diffent approaches.</p>
+<div class="figure align-center">
+<img alt="Different strokes" src="images/lineswidth/lines_size20.png"><p class="caption">Differently oriented lines with brush size 20</p>
+</div>
+<p>I want to check different orientations. All theses lines should be the same size.</p>
+<blockquote>
+It should be mentioned that these drawn examples are pretty perfect
+compared to usual use cases. Commonly there would be filter applied
+to the image like gaussian blur, maybe background removal. Another
+important part is the adjustment of intensity if they differ between
+images.</blockquote>
+<p>The main trick of this image analysis is the <a class="reference external" href="http://en.wikipedia.org/wiki/Radon_transform">Radon transform</a>. It
+Creates radial projections along different angles. The same principles
+are used in computer tomography to
+calculate composite 3D visualizations from 2D images take from different angles.</p>
+<p>The most prominent peaks in the Radon transform are for the angles of
+the lines in an image. For that angle we look at the profile and fit a
+gaussian to measure the width. That is basically all we need. The rest
+of the script are a few extras to make it easier to input images.</p>
+<p>Lets look plot of the Radon transform of the first image:</p>
+<pre class="code Matlab"><a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-1"></a><span class="k">function</span><span class="w"> </span>f <span class="p">=</span><span class="w"> </span><span class="nf">linewidthofimage</span><span class="p">(</span>imagepath<span class="p">)</span><span class="w"></span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-2"></a><span class="n">bundleImage</span><span class="p">=</span><span class="n">imread</span><span class="p">(</span><span class="n">imagepath</span><span class="p">);</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-3"></a>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-4"></a><span class="c">% convert to greyscale if necessary</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-5"></a><span class="k">if</span>  <span class="nb">size</span><span class="p">(</span><span class="n">bundleImage</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-6"></a>    <span class="n">bundleImage</span> <span class="p">=</span> <span class="n">rgb2gray</span><span class="p">(</span><span class="n">bundleImage</span><span class="p">);</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-7"></a><span class="k">end</span><span class="p">;</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-8"></a>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-9"></a><span class="c">%crop</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-10"></a><span class="c">% if ~exist('cropRect')</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-11"></a><span class="c">%     cropRect=[10,10,size(bundleImage,2)-20,size(bundleImage,1)-20];</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-12"></a><span class="c">% end;</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-13"></a><span class="c">% f=figure;</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-14"></a><span class="c">%</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-15"></a><span class="c">% imshow(bundleImage,'Border','tight');</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-16"></a><span class="c">% set(gcf, 'units','normalized','outerposition',[0 0 1 1]);</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-17"></a><span class="c">% h=imrect(gca,cropRect)</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-18"></a><span class="c">% cropRect = wait(h);</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-19"></a><span class="c">% [bundleImage]=imcrop(bundleImage,cropRect);</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-20"></a><span class="c">% close(f)</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-21"></a>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-22"></a><span class="n">myfigure</span><span class="p">=</span><span class="n">figure</span><span class="p">(</span><span class="s">'Name'</span><span class="p">,</span><span class="n">imagepath</span><span class="p">,</span><span class="s">'NumberTitle'</span><span class="p">,</span> <span class="s">'off'</span><span class="p">);</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-23"></a><span class="n">bundleForPeakFinding</span><span class="p">=</span><span class="n">bundleImage</span><span class="p">;</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-24"></a>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-25"></a><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span> <span class="n">imshow</span><span class="p">(</span><span class="n">bundleImage</span><span class="p">);</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-26"></a>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-27"></a><span class="n">iptsetpref</span><span class="p">(</span><span class="s">'ImshowAxesVisible'</span><span class="p">,</span><span class="s">'on'</span><span class="p">)</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-28"></a><span class="n">theta</span> <span class="p">=</span> <span class="mi">0</span><span class="p">:</span><span class="mi">179</span><span class="p">;</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-29"></a><span class="p">[</span><span class="n">R</span><span class="p">,</span><span class="n">xp</span><span class="p">]</span> <span class="p">=</span> <span class="n">radon</span><span class="p">(</span><span class="n">bundleForPeakFinding</span><span class="p">,</span><span class="n">theta</span><span class="p">);</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-30"></a>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-31"></a><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span> <span class="n">imshow</span><span class="p">(</span><span class="n">R</span><span class="p">,[],</span><span class="s">'Xdata'</span><span class="p">,</span><span class="n">theta</span><span class="p">,</span><span class="s">'Ydata'</span><span class="p">,</span><span class="n">xp</span><span class="p">,</span><span class="s">'InitialMagnification'</span><span class="p">,</span><span class="s">'fit'</span><span class="p">)</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-32"></a><span class="n">xlabel</span><span class="p">(</span><span class="s">'\theta (degrees)'</span><span class="p">)</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-33"></a><span class="n">ylabel</span><span class="p">(</span><span class="s">'x'''</span><span class="p">)</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-34"></a><span class="n">colormap</span><span class="p">(</span><span class="n">hot</span><span class="p">),</span> <span class="n">colorbar</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-35"></a><span class="n">axis</span> <span class="n">normal</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-36"></a><span class="n">iptsetpref</span><span class="p">(</span><span class="s">'ImshowAxesVisible'</span><span class="p">,</span><span class="s">'off'</span><span class="p">)</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-37"></a>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-38"></a><span class="n">p</span><span class="p">=</span><span class="n">peakfit2d</span><span class="p">(</span><span class="n">R</span><span class="p">);</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-39"></a><span class="n">p</span><span class="p">=</span><span class="nb">round</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-40"></a>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-41"></a><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span> <span class="n">imagesc</span><span class="p">(</span><span class="n">R</span><span class="p">);</span> <span class="n">hold</span> <span class="n">on</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-42"></a><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span> <span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="n">p</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="s">'r+'</span><span class="p">)</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-43"></a><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span> <span class="n">plot</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">R</span><span class="p">(:,</span><span class="n">p</span><span class="p">(</span><span class="mi">2</span><span class="p">)));</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-44"></a><span class="n">title</span><span class="p">(</span><span class="s">'R_{0^o} (x\prime)'</span><span class="p">)</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-45"></a>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-46"></a><span class="p">[</span><span class="n">R</span><span class="p">,</span><span class="n">xp</span><span class="p">]</span> <span class="p">=</span> <span class="n">radon</span><span class="p">(</span><span class="n">bundleImage</span><span class="p">,</span><span class="n">p</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-47"></a><span class="n">width1</span><span class="p">=</span><span class="n">fwhm</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">R</span><span class="p">);</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-48"></a>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-49"></a><span class="n">stringout</span><span class="p">=</span><span class="n">sprintf</span><span class="p">(</span><span class="s">'Width:%0.2f'</span><span class="p">,</span><span class="n">width1</span><span class="p">);</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-50"></a><span class="nb">disp</span><span class="p">(</span><span class="n">stringout</span><span class="p">)</span>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-51"></a>
+<a name="rest_code_7da5ac9e42a34b13983907a58a5ef2f8-52"></a><span class="n">f</span><span class="p">=</span> <span class="n">width1</span><span class="p">;</span>
+</pre>
+<p>Two external function were used:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.mathworks.com/matlabcentral/fileexchange/10590-fwhm">fwhm</a></li>
+<li><a class="reference external" href="http://www.mathworks.com/matlabcentral/fileexchange/26504-sub-sample-peak-fitting-2d/content/peakfit2d.m">peakfit2d</a></li>
+</ul>
+<p>You can see 4 peaks corresponding to the 4 strokes (or five because one
+is going over from 0 to 180 degree). One peak is right
+over the borders at 0 and 179 degree. Another one is visible at 90
+degree. These two are the vertical one and horizontal one.</p>
+<div class="figure align-center">
+<img alt="Matlab output" src="images/lineswidth/output4lines.png"><p class="caption">Matlab plot of Radon transform</p>
+</div>
+<p>In the upper left we see the input image. In the upper right is the plotted radon transform from 0 to 179 degrees.
+In the lower left, we have a little plus plotted into the most prominent peak.
+This is the one that will be used. In the lower right, we have the slice of the
+transform for the angle marked by the +. Now we can use the half width full maximum as a
+measure of width for our <em>brush</em> size.</p>
+<p>Now we can put everything together and write a function that takes a
+path to an image file that has exactly one major line and gives the
+width of it as the result.</p>
+<pre class="code Matlab"><a name="rest_code_535e35681e70487983828f06d27e2855-1"></a><span class="n">close</span> <span class="n">all</span><span class="p">;</span>
+<a name="rest_code_535e35681e70487983828f06d27e2855-2"></a><span class="n">clear</span> <span class="n">all</span><span class="p">;</span>
+<a name="rest_code_535e35681e70487983828f06d27e2855-3"></a><span class="n">nFilesToLookAt</span><span class="p">=</span><span class="mi">0</span><span class="p">;</span> <span class="c">% 0 for all</span>
+<a name="rest_code_535e35681e70487983828f06d27e2855-4"></a><span class="n">folder_name</span> <span class="p">=</span> <span class="n">uigetdir</span><span class="p">;</span>
+<a name="rest_code_535e35681e70487983828f06d27e2855-5"></a><span class="c">% Get list of all *.png files in this directory</span>
+<a name="rest_code_535e35681e70487983828f06d27e2855-6"></a><span class="c">% DIR returns as a structure array.  You will need to use () and . to get</span>
+<a name="rest_code_535e35681e70487983828f06d27e2855-7"></a><span class="c">% the file names.</span>
+<a name="rest_code_535e35681e70487983828f06d27e2855-8"></a><span class="n">imagefiles</span> <span class="p">=</span> <span class="n">dir</span><span class="p">(</span><span class="n">fullfile</span><span class="p">(</span><span class="n">folder_name</span><span class="p">,</span><span class="s">'/*.png'</span><span class="p">));</span>
+<a name="rest_code_535e35681e70487983828f06d27e2855-9"></a><span class="n">nfiles</span> <span class="p">=</span> <span class="nb">length</span><span class="p">(</span><span class="n">imagefiles</span><span class="p">);</span>
+<a name="rest_code_535e35681e70487983828f06d27e2855-10"></a><span class="k">if</span> <span class="n">nFilesToLookAt</span><span class="o">==</span><span class="mi">0</span>
+<a name="rest_code_535e35681e70487983828f06d27e2855-11"></a>    <span class="n">nFilesToLookAt</span><span class="p">=</span><span class="n">nfiles</span><span class="p">;</span>
+<a name="rest_code_535e35681e70487983828f06d27e2855-12"></a><span class="k">end</span>
+<a name="rest_code_535e35681e70487983828f06d27e2855-13"></a>
+<a name="rest_code_535e35681e70487983828f06d27e2855-14"></a><span class="n">AllWidths</span><span class="p">=[];</span>
+<a name="rest_code_535e35681e70487983828f06d27e2855-15"></a><span class="k">for</span> <span class="nb">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="nb">round</span><span class="p">(</span><span class="n">nfiles</span><span class="o">/</span><span class="n">nFilesToLookAt</span><span class="p">):</span><span class="n">nfiles</span>
+<a name="rest_code_535e35681e70487983828f06d27e2855-16"></a>    <span class="n">currentfilename</span> <span class="p">=</span> <span class="n">fullfile</span><span class="p">(</span><span class="n">folder_name</span><span class="p">,</span><span class="n">imagefiles</span><span class="p">(</span><span class="nb">i</span><span class="p">).</span><span class="n">name</span><span class="p">);</span>
+<a name="rest_code_535e35681e70487983828f06d27e2855-17"></a>    <span class="n">w</span><span class="p">=</span><span class="n">linewidthofimages</span><span class="p">(</span><span class="n">currentfilename</span><span class="p">)</span>
+<a name="rest_code_535e35681e70487983828f06d27e2855-18"></a>    <span class="n">AllWidths</span><span class="p">=[</span><span class="n">AllWidths</span> <span class="n">w</span><span class="p">];</span>
+<a name="rest_code_535e35681e70487983828f06d27e2855-19"></a><span class="k">end</span>
+<a name="rest_code_535e35681e70487983828f06d27e2855-20"></a>
+<a name="rest_code_535e35681e70487983828f06d27e2855-21"></a><span class="n">figure</span><span class="p">;</span>
+<a name="rest_code_535e35681e70487983828f06d27e2855-22"></a><span class="n">plot</span><span class="p">(</span><span class="n">AllWidths</span><span class="p">);</span>
+<a name="rest_code_535e35681e70487983828f06d27e2855-23"></a>
+<a name="rest_code_535e35681e70487983828f06d27e2855-24"></a><span class="nb">disp</span><span class="p">(</span><span class="n">sprintf</span><span class="p">(</span><span class="s">'mean width:%0.2f'</span><span class="p">,</span><span class="n">mean</span><span class="p">(</span><span class="n">AllWidths</span><span class="p">)));</span>
+<a name="rest_code_535e35681e70487983828f06d27e2855-25"></a><span class="nb">disp</span><span class="p">(</span><span class="n">sprintf</span><span class="p">(</span><span class="s">'median width:%0.2f'</span><span class="p">,</span><span class="n">median</span><span class="p">(</span><span class="n">AllWidths</span><span class="p">)));</span>
+</pre>
+<p>This procedure queries a folder name and calculates the
+widths of all images inside. Afterwards it plots the resulting widths.
+I created a folder with single images of these lines:</p>
+<div class="figure align-center">
+<img alt="Matlab output" src="images/lineswidth/lines_pen.png"><p class="caption">different sizes</p>
+</div>
+<p>And this was the output:</p>
+<div class="figure align-center">
+<img alt="Matlab output" src="images/lineswidth/pens.png"><p class="caption">different sizes</p>
+</div>
+<p>This can be useful if you have a image series with timestamps
+and want to see if the object get wider.</p>
+<p>And that is all to it. Possible changes include opening a GUI to
+specifically select a line (currently commented out). One can also
+detect several peaks at one which is provided with the used peak
+finding function.</p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/adobe-password-leak-analyzed-with-pandas-and-python.html" class="u-url">Adobe password leak analyzed with pandas and Python</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Sebastian Schmidt</span></p>
             <p class="dateline"><a href="posts/adobe-password-leak-analyzed-with-pandas-and-python.html" rel="bookmark"><time class="published dt-published" datetime="2015-04-15T22:38:53+02:00" title="2015-04-15 22:38">2015-04-15 22:38</time></a></p>
@@ -99,70 +252,70 @@ article: http://ogp.me/ns/article#
 <img alt="xkcd encryptic" src="http://imgs.xkcd.com/comics/encryptic.png">
 </div>
 <p>I put a small script together to convert the file to a tab-separated file. This is probably not necessary, but I didn't have to think much about it and it would be easier later on. I do all this with in an <a class="reference external" href="http://docs.continuum.io/anaconda/">Anaconda 3.4</a> installation.</p>
-<pre class="code python"><a name="rest_code_39e2caf95fd540fbba7e646513e52285-1"></a><span class="kn">import</span> <span class="nn">csv</span>
-<a name="rest_code_39e2caf95fd540fbba7e646513e52285-2"></a><span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="nb">open</span>
-<a name="rest_code_39e2caf95fd540fbba7e646513e52285-3"></a><span class="n">filename</span> <span class="o">=</span> <span class="s">'cred.csv'</span>
-<a name="rest_code_39e2caf95fd540fbba7e646513e52285-4"></a><span class="n">userDict</span><span class="o">=</span><span class="p">{</span><span class="s">'idnumber'</span><span class="p">:[],</span>
-<a name="rest_code_39e2caf95fd540fbba7e646513e52285-5"></a>          <span class="s">'username'</span><span class="p">:[],</span>
-<a name="rest_code_39e2caf95fd540fbba7e646513e52285-6"></a>          <span class="s">'emailfront'</span><span class="p">:[],</span>
-<a name="rest_code_39e2caf95fd540fbba7e646513e52285-7"></a>          <span class="s">'emailprovider'</span><span class="p">:[],</span>
-<a name="rest_code_39e2caf95fd540fbba7e646513e52285-8"></a>          <span class="s">'passwordhash'</span><span class="p">:[],</span>
-<a name="rest_code_39e2caf95fd540fbba7e646513e52285-9"></a>          <span class="s">'hint'</span><span class="p">:[]}</span>
-<a name="rest_code_39e2caf95fd540fbba7e646513e52285-10"></a><span class="n">rowsList</span> <span class="o">=</span> <span class="p">[]</span>
-<a name="rest_code_39e2caf95fd540fbba7e646513e52285-11"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">"rt"</span><span class="p">)</span> <span class="k">as</span> <span class="n">in_file</span><span class="p">:</span>
-<a name="rest_code_39e2caf95fd540fbba7e646513e52285-12"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'converted.tsv'</span><span class="p">,</span><span class="s">'w'</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s">''</span><span class="p">)</span> <span class="k">as</span> <span class="n">out_file</span><span class="p">:</span>
-<a name="rest_code_39e2caf95fd540fbba7e646513e52285-13"></a>        <span class="n">csvwriter</span><span class="o">=</span><span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">out_file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">'</span><span class="se">\t</span><span class="s">'</span><span class="p">)</span>
-<a name="rest_code_39e2caf95fd540fbba7e646513e52285-14"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">in_file</span><span class="p">:</span>
-<a name="rest_code_39e2caf95fd540fbba7e646513e52285-15"></a>            <span class="k">try</span><span class="p">:</span>
-<a name="rest_code_39e2caf95fd540fbba7e646513e52285-16"></a>                <span class="n">text</span> <span class="o">=</span> <span class="n">in_file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
-<a name="rest_code_39e2caf95fd540fbba7e646513e52285-17"></a>                <span class="n">temp</span> <span class="o">=</span> <span class="p">[]</span>
-<a name="rest_code_39e2caf95fd540fbba7e646513e52285-18"></a>                <span class="k">if</span> <span class="n">text</span> <span class="o">!=</span> <span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">:</span>
-<a name="rest_code_39e2caf95fd540fbba7e646513e52285-19"></a>                    <span class="n">t</span><span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">'-|-'</span><span class="p">)</span>
-<a name="rest_code_39e2caf95fd540fbba7e646513e52285-20"></a>                    <span class="n">email</span><span class="o">=</span><span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">'@'</span><span class="p">)</span>
-<a name="rest_code_39e2caf95fd540fbba7e646513e52285-21"></a>                    <span class="n">temp</span><span class="p">[</span><span class="s">'idnumber'</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<a name="rest_code_39e2caf95fd540fbba7e646513e52285-22"></a>                    <span class="n">temp</span><span class="p">[</span><span class="s">'username'</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<a name="rest_code_39e2caf95fd540fbba7e646513e52285-23"></a>                    <span class="n">temp</span><span class="p">[</span><span class="s">'emailfront'</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">email</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<a name="rest_code_39e2caf95fd540fbba7e646513e52285-24"></a>                    <span class="n">temp</span><span class="p">[</span><span class="s">'emailprovider'</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">email</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<a name="rest_code_39e2caf95fd540fbba7e646513e52285-25"></a>                    <span class="n">temp</span><span class="p">[</span><span class="s">'passwordhash'</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s">'='</span><span class="p">))</span>
-<a name="rest_code_39e2caf95fd540fbba7e646513e52285-26"></a>                    <span class="n">temp</span><span class="p">[</span><span class="s">'hint'</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">4</span><span class="p">][:</span><span class="o">-</span><span class="mi">4</span><span class="p">])</span>
-<a name="rest_code_39e2caf95fd540fbba7e646513e52285-27"></a>                    <span class="n">temp</span><span class="o">=</span><span class="p">[</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">email</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">email</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">t</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s">'='</span><span class="p">),</span><span class="n">t</span><span class="p">[</span><span class="mi">4</span><span class="p">][:</span><span class="o">-</span><span class="mi">4</span><span class="p">]]</span>
-<a name="rest_code_39e2caf95fd540fbba7e646513e52285-28"></a>            <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
-<a name="rest_code_39e2caf95fd540fbba7e646513e52285-29"></a>                <span class="c">#print('oops', text)</span>
-<a name="rest_code_39e2caf95fd540fbba7e646513e52285-30"></a>                <span class="k">pass</span>
-<a name="rest_code_39e2caf95fd540fbba7e646513e52285-31"></a>            <span class="k">else</span><span class="p">:</span>
-<a name="rest_code_39e2caf95fd540fbba7e646513e52285-32"></a>                <span class="n">csvwriter</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_718019f2c93a483db39d2ed599faaa77-1"></a><span class="kn">import</span> <span class="nn">csv</span>
+<a name="rest_code_718019f2c93a483db39d2ed599faaa77-2"></a><span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="nb">open</span>
+<a name="rest_code_718019f2c93a483db39d2ed599faaa77-3"></a><span class="n">filename</span> <span class="o">=</span> <span class="s">'cred.csv'</span>
+<a name="rest_code_718019f2c93a483db39d2ed599faaa77-4"></a><span class="n">userDict</span><span class="o">=</span><span class="p">{</span><span class="s">'idnumber'</span><span class="p">:[],</span>
+<a name="rest_code_718019f2c93a483db39d2ed599faaa77-5"></a>          <span class="s">'username'</span><span class="p">:[],</span>
+<a name="rest_code_718019f2c93a483db39d2ed599faaa77-6"></a>          <span class="s">'emailfront'</span><span class="p">:[],</span>
+<a name="rest_code_718019f2c93a483db39d2ed599faaa77-7"></a>          <span class="s">'emailprovider'</span><span class="p">:[],</span>
+<a name="rest_code_718019f2c93a483db39d2ed599faaa77-8"></a>          <span class="s">'passwordhash'</span><span class="p">:[],</span>
+<a name="rest_code_718019f2c93a483db39d2ed599faaa77-9"></a>          <span class="s">'hint'</span><span class="p">:[]}</span>
+<a name="rest_code_718019f2c93a483db39d2ed599faaa77-10"></a><span class="n">rowsList</span> <span class="o">=</span> <span class="p">[]</span>
+<a name="rest_code_718019f2c93a483db39d2ed599faaa77-11"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">"rt"</span><span class="p">)</span> <span class="k">as</span> <span class="n">in_file</span><span class="p">:</span>
+<a name="rest_code_718019f2c93a483db39d2ed599faaa77-12"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'converted.tsv'</span><span class="p">,</span><span class="s">'w'</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s">''</span><span class="p">)</span> <span class="k">as</span> <span class="n">out_file</span><span class="p">:</span>
+<a name="rest_code_718019f2c93a483db39d2ed599faaa77-13"></a>        <span class="n">csvwriter</span><span class="o">=</span><span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">out_file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">'</span><span class="se">\t</span><span class="s">'</span><span class="p">)</span>
+<a name="rest_code_718019f2c93a483db39d2ed599faaa77-14"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">in_file</span><span class="p">:</span>
+<a name="rest_code_718019f2c93a483db39d2ed599faaa77-15"></a>            <span class="k">try</span><span class="p">:</span>
+<a name="rest_code_718019f2c93a483db39d2ed599faaa77-16"></a>                <span class="n">text</span> <span class="o">=</span> <span class="n">in_file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<a name="rest_code_718019f2c93a483db39d2ed599faaa77-17"></a>                <span class="n">temp</span> <span class="o">=</span> <span class="p">[]</span>
+<a name="rest_code_718019f2c93a483db39d2ed599faaa77-18"></a>                <span class="k">if</span> <span class="n">text</span> <span class="o">!=</span> <span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">:</span>
+<a name="rest_code_718019f2c93a483db39d2ed599faaa77-19"></a>                    <span class="n">t</span><span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">'-|-'</span><span class="p">)</span>
+<a name="rest_code_718019f2c93a483db39d2ed599faaa77-20"></a>                    <span class="n">email</span><span class="o">=</span><span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">'@'</span><span class="p">)</span>
+<a name="rest_code_718019f2c93a483db39d2ed599faaa77-21"></a>                    <span class="n">temp</span><span class="p">[</span><span class="s">'idnumber'</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<a name="rest_code_718019f2c93a483db39d2ed599faaa77-22"></a>                    <span class="n">temp</span><span class="p">[</span><span class="s">'username'</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<a name="rest_code_718019f2c93a483db39d2ed599faaa77-23"></a>                    <span class="n">temp</span><span class="p">[</span><span class="s">'emailfront'</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">email</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<a name="rest_code_718019f2c93a483db39d2ed599faaa77-24"></a>                    <span class="n">temp</span><span class="p">[</span><span class="s">'emailprovider'</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">email</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<a name="rest_code_718019f2c93a483db39d2ed599faaa77-25"></a>                    <span class="n">temp</span><span class="p">[</span><span class="s">'passwordhash'</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s">'='</span><span class="p">))</span>
+<a name="rest_code_718019f2c93a483db39d2ed599faaa77-26"></a>                    <span class="n">temp</span><span class="p">[</span><span class="s">'hint'</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">4</span><span class="p">][:</span><span class="o">-</span><span class="mi">4</span><span class="p">])</span>
+<a name="rest_code_718019f2c93a483db39d2ed599faaa77-27"></a>                    <span class="n">temp</span><span class="o">=</span><span class="p">[</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">email</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">email</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">t</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s">'='</span><span class="p">),</span><span class="n">t</span><span class="p">[</span><span class="mi">4</span><span class="p">][:</span><span class="o">-</span><span class="mi">4</span><span class="p">]]</span>
+<a name="rest_code_718019f2c93a483db39d2ed599faaa77-28"></a>            <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+<a name="rest_code_718019f2c93a483db39d2ed599faaa77-29"></a>                <span class="c">#print('oops', text)</span>
+<a name="rest_code_718019f2c93a483db39d2ed599faaa77-30"></a>                <span class="k">pass</span>
+<a name="rest_code_718019f2c93a483db39d2ed599faaa77-31"></a>            <span class="k">else</span><span class="p">:</span>
+<a name="rest_code_718019f2c93a483db39d2ed599faaa77-32"></a>                <span class="n">csvwriter</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
 </pre>
 <p>Next i wrote a small script to check for my email:</p>
-<pre class="code python"><a name="rest_code_1a1179ea99fe41f3885853dbb405424b-1"></a><span class="n">filename</span> <span class="o">=</span> <span class="s">'converted.tsv'</span>
-<a name="rest_code_1a1179ea99fe41f3885853dbb405424b-2"></a><span class="n">email</span> <span class="o">=</span> <span class="s">'test'</span>
-<a name="rest_code_1a1179ea99fe41f3885853dbb405424b-3"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="s">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">out_file</span><span class="p">:</span>
-<a name="rest_code_1a1179ea99fe41f3885853dbb405424b-4"></a>    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">out_file</span><span class="p">:</span>
-<a name="rest_code_1a1179ea99fe41f3885853dbb405424b-5"></a>        <span class="k">if</span> <span class="n">email</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
-<a name="rest_code_1a1179ea99fe41f3885853dbb405424b-6"></a>            <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_4e6d3d0819c64e4e8286153a032ce7e4-1"></a><span class="n">filename</span> <span class="o">=</span> <span class="s">'converted.tsv'</span>
+<a name="rest_code_4e6d3d0819c64e4e8286153a032ce7e4-2"></a><span class="n">email</span> <span class="o">=</span> <span class="s">'test'</span>
+<a name="rest_code_4e6d3d0819c64e4e8286153a032ce7e4-3"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="s">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">out_file</span><span class="p">:</span>
+<a name="rest_code_4e6d3d0819c64e4e8286153a032ce7e4-4"></a>    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">out_file</span><span class="p">:</span>
+<a name="rest_code_4e6d3d0819c64e4e8286153a032ce7e4-5"></a>        <span class="k">if</span> <span class="n">email</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+<a name="rest_code_4e6d3d0819c64e4e8286153a032ce7e4-6"></a>            <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </pre>
 <p>sample output:</p>
-<pre class="code text"><a name="rest_code_239b7dbad8e849c2941db067b7037e91-1"></a>12345990                name    gmail.com        sKZcyHioxGNzioxG6CfCw   dog
+<pre class="code text"><a name="rest_code_f6d7048d8e5a48a78bb288e5ef76c4d7-1"></a>12345990                name    gmail.com        sKZcyHioxGNzioxG6CfCw   dog
 </pre>
 <p>I like the pseudo code style of python :-). My password hint is dog and I can see my hash. Now my interest was peaked and I wanted to see what I can learn from this dataset. Here, I thought it is a good idea to learn a bit about pandas. I come from a Matlab environment for data wrangling and wanted to see what python has to offer.</p>
 <p>Using <a class="reference external" href="http://pandas.pydata.org/">pandas</a> this is pretty straightforward. Since my computer doesn't have enough memory I used only the first 10000000 entries. I will probably next look into ways to work faster with that much data. Here is the iphyton notebook used:</p>
-<pre class="code python"><a name="rest_code_7b50e8fda575459d9d88ffbf1b207e7b-1"></a><span class="kn">import</span> <span class="nn">time</span>
-<a name="rest_code_7b50e8fda575459d9d88ffbf1b207e7b-2"></a><span class="n">filename</span><span class="o">=</span> <span class="s">'converted.tsv'</span>
-<a name="rest_code_7b50e8fda575459d9d88ffbf1b207e7b-3"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<a name="rest_code_7b50e8fda575459d9d88ffbf1b207e7b-4"></a><span class="n">tic</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span>
-<a name="rest_code_7b50e8fda575459d9d88ffbf1b207e7b-5"></a><span class="n">adobeDataFrames</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">10000000</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">'</span><span class="se">\t</span><span class="s">'</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s">'emailfront'</span><span class="p">,</span><span class="s">'emailprovider'</span><span class="p">,</span><span class="s">'passwordhash'</span><span class="p">,</span><span class="s">'hint'</span><span class="p">])</span>
-<a name="rest_code_7b50e8fda575459d9d88ffbf1b207e7b-6"></a><span class="n">toc</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span>
-<a name="rest_code_7b50e8fda575459d9d88ffbf1b207e7b-7"></a><span class="k">print</span><span class="p">(</span><span class="s">'[*] Time to read data: '</span><span class="p">,</span><span class="n">toc</span><span class="o">-</span><span class="n">tic</span><span class="p">)</span>
+<pre class="code python"><a name="rest_code_a06898fc806447af8eec98f3d8a75ef5-1"></a><span class="kn">import</span> <span class="nn">time</span>
+<a name="rest_code_a06898fc806447af8eec98f3d8a75ef5-2"></a><span class="n">filename</span><span class="o">=</span> <span class="s">'converted.tsv'</span>
+<a name="rest_code_a06898fc806447af8eec98f3d8a75ef5-3"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<a name="rest_code_a06898fc806447af8eec98f3d8a75ef5-4"></a><span class="n">tic</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span>
+<a name="rest_code_a06898fc806447af8eec98f3d8a75ef5-5"></a><span class="n">adobeDataFrames</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">10000000</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">'</span><span class="se">\t</span><span class="s">'</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s">'emailfront'</span><span class="p">,</span><span class="s">'emailprovider'</span><span class="p">,</span><span class="s">'passwordhash'</span><span class="p">,</span><span class="s">'hint'</span><span class="p">])</span>
+<a name="rest_code_a06898fc806447af8eec98f3d8a75ef5-6"></a><span class="n">toc</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span>
+<a name="rest_code_a06898fc806447af8eec98f3d8a75ef5-7"></a><span class="k">print</span><span class="p">(</span><span class="s">'[*] Time to read data: '</span><span class="p">,</span><span class="n">toc</span><span class="o">-</span><span class="n">tic</span><span class="p">)</span>
 </pre>
 <pre class="literal-block">
 [*] Time to read data:  19.532169279833354
 </pre>
-<pre class="code python"><a name="rest_code_f0a30e32a8714e88be8ad0bb62ec7123-1"></a><span class="k">print</span><span class="p">(</span><span class="s">'[*] rowcount: '</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">adobeDataFrames</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
+<pre class="code python"><a name="rest_code_b57cff4fb8084649a575a6c2c21c2110-1"></a><span class="k">print</span><span class="p">(</span><span class="s">'[*] rowcount: '</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">adobeDataFrames</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
 </pre>
 <pre class="literal-block">
 [*] rowcount:  10000000
 </pre>
 <p>The top ten email providers:</p>
-<pre class="code python"><a name="rest_code_4673cc9edb2f495b998ee60db3dedd69-1"></a><span class="k">print</span><span class="p">(</span><span class="n">adobeDataFrames</span><span class="o">.</span><span class="n">emailprovider</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
+<pre class="code python"><a name="rest_code_ac2781fb84964ea6ad730a4ee5ecd458-1"></a><span class="k">print</span><span class="p">(</span><span class="n">adobeDataFrames</span><span class="o">.</span><span class="n">emailprovider</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
 </pre>
 <pre class="literal-block">
 yahoo.com        1285637
@@ -177,7 +330,7 @@ sbcglobal.net      64469
 dtype: int64
 </pre>
 <p>Top 20 password reminders, I was once a <tt class="docutils literal">usual</tt> :-):</p>
-<pre class="code python"><a name="rest_code_ddbbf9998b4b4b348db3d9e27af700dd-1"></a><span class="k">print</span><span class="p">(</span><span class="s">'[*] hints:</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span><span class="n">adobeDataFrames</span><span class="o">.</span><span class="n">hint</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="mi">1</span><span class="p">:</span><span class="mi">20</span><span class="p">])</span>
+<pre class="code python"><a name="rest_code_87ddbb33532f4184be9518624b935122-1"></a><span class="k">print</span><span class="p">(</span><span class="s">'[*] hints:</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span><span class="n">adobeDataFrames</span><span class="o">.</span><span class="n">hint</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="mi">1</span><span class="p">:</span><span class="mi">20</span><span class="p">])</span>
 </pre>
 <pre class="literal-block">
 [*] hints:
@@ -203,7 +356,7 @@ love        11381
 dtype: int64
 </pre>
 <p>Top 20 email names, notice the absence of female names on the list:</p>
-<pre class="code python"><a name="rest_code_8ff7a8f401d94e6d8da72814de2221b4-1"></a><span class="k">print</span><span class="p">(</span><span class="s">'[*] front of email:</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span><span class="n">adobeDataFrames</span><span class="o">.</span><span class="n">emailfront</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="mi">1</span><span class="p">:</span><span class="mi">20</span><span class="p">])</span>
+<pre class="code python"><a name="rest_code_f6d0a0a8b50347de89317697169184b5-1"></a><span class="k">print</span><span class="p">(</span><span class="s">'[*] front of email:</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span><span class="n">adobeDataFrames</span><span class="o">.</span><span class="n">emailfront</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="mi">1</span><span class="p">:</span><span class="mi">20</span><span class="p">])</span>
 </pre>
 <pre class="literal-block">
 [*] front of email:
@@ -229,7 +382,7 @@ dave          2447
 dtype: int64
 </pre>
 <p>Now we come to an interesting part. Adobe used always the same algorithm to calculate the hash and did not salt the stored hashes. This results in having the same hash for the same passwords. Here we have a list of the top 20 hashes that are connected to the 20 most common passwords.</p>
-<pre class="code python"><a name="rest_code_12783212a55444e2b6fb69860f4eeca4-1"></a><span class="k">print</span><span class="p">(</span><span class="s">'[*] passwordhashes:</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span><span class="n">adobeDataFrames</span><span class="o">.</span><span class="n">passwordhash</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="mi">1</span><span class="p">:</span><span class="mi">20</span><span class="p">])</span>
+<pre class="code python"><a name="rest_code_64c89f1596a347ba81fe4485300044ea-1"></a><span class="k">print</span><span class="p">(</span><span class="s">'[*] passwordhashes:</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span><span class="n">adobeDataFrames</span><span class="o">.</span><span class="n">passwordhash</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="mi">1</span><span class="p">:</span><span class="mi">20</span><span class="p">])</span>
 </pre>
 <pre class="literal-block">
 [*] passwordhashes:
@@ -255,10 +408,10 @@ j9p+HwtWWT8/HeZN+3oiCQ     4142
 dtype: int64
 </pre>
 <p>To come full circle to the xkcd comic, we pull the most common hints for the ten most common passwords(hashes). It is left to the reader to solve these.</p>
-<pre class="code python"><a name="rest_code_3f670372162a4cd8856181a30b99fc79-1"></a><span class="n">hash_list</span><span class="o">=</span><span class="n">hash_list</span><span class="o">=</span><span class="n">adobeDataFrames</span><span class="o">.</span><span class="n">passwordhash</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<a name="rest_code_3f670372162a4cd8856181a30b99fc79-2"></a><span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">hash_list</span><span class="p">:</span>
-<a name="rest_code_3f670372162a4cd8856181a30b99fc79-3"></a>    <span class="k">print</span><span class="p">(</span><span class="s">'[*] hash: '</span><span class="p">,</span><span class="n">h</span><span class="p">)</span>
-<a name="rest_code_3f670372162a4cd8856181a30b99fc79-4"></a>    <span class="k">print</span><span class="p">(</span><span class="n">adobeDataFrames</span><span class="o">.</span><span class="n">hint</span><span class="p">[</span><span class="n">adobeDataFrames</span><span class="p">[</span><span class="s">'passwordhash'</span><span class="p">]</span><span class="o">==</span><span class="n">h</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
+<pre class="code python"><a name="rest_code_54112f58e7a24857a67072e26877d93b-1"></a><span class="n">hash_list</span><span class="o">=</span><span class="n">hash_list</span><span class="o">=</span><span class="n">adobeDataFrames</span><span class="o">.</span><span class="n">passwordhash</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<a name="rest_code_54112f58e7a24857a67072e26877d93b-2"></a><span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">hash_list</span><span class="p">:</span>
+<a name="rest_code_54112f58e7a24857a67072e26877d93b-3"></a>    <span class="k">print</span><span class="p">(</span><span class="s">'[*] hash: '</span><span class="p">,</span><span class="n">h</span><span class="p">)</span>
+<a name="rest_code_54112f58e7a24857a67072e26877d93b-4"></a>    <span class="k">print</span><span class="p">(</span><span class="n">adobeDataFrames</span><span class="o">.</span><span class="n">hint</span><span class="p">[</span><span class="n">adobeDataFrames</span><span class="p">[</span><span class="s">'passwordhash'</span><span class="p">]</span><span class="o">==</span><span class="n">h</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
 </pre>
 <pre class="literal-block">
 [*] hash:  L8qbAD3jl3jioxG6CatHBw
@@ -372,12 +525,12 @@ This is how i back up a the postgres database, copy it to my local computer, and
 rhc ssh myappname
 </pre>
 <p>executed the lines from this <a class="reference external" href="https://gist.github.com/skyebook/3407646">snippet</a>:</p>
-<pre class="code bash"><a name="rest_code_61593ee222ab47fd9aa5b0b456cf386b-1"></a><span class="c">#!/bin/bash</span>
-<a name="rest_code_61593ee222ab47fd9aa5b0b456cf386b-2"></a><span class="c"># Backs up the OpenShift PostgreSQL database for this application</span>
-<a name="rest_code_61593ee222ab47fd9aa5b0b456cf386b-3"></a><span class="c"># by Skye Book</span>
-<a name="rest_code_61593ee222ab47fd9aa5b0b456cf386b-4"></a><span class="nv">NOW</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>date +<span class="s2">"%Y-%m-%d"</span><span class="k">)</span><span class="s2">"</span>
-<a name="rest_code_61593ee222ab47fd9aa5b0b456cf386b-5"></a><span class="nv">FILENAME</span><span class="o">=</span><span class="s2">"</span><span class="nv">$OPENSHIFT_DATA_DIR</span><span class="s2">/</span><span class="nv">$OPENSHIFT_APP_NAME</span><span class="s2">.</span><span class="nv">$NOW</span><span class="s2">.backup.sql.gz"</span>
-<a name="rest_code_61593ee222ab47fd9aa5b0b456cf386b-6"></a>pg_dump <span class="nv">$OPENSHIFT_APP_NAME</span> <span class="p">|</span> gzip &gt; <span class="nv">$FILENAME</span>
+<pre class="code bash"><a name="rest_code_e17853af8dd84f3da5e24318ab570da5-1"></a><span class="c">#!/bin/bash</span>
+<a name="rest_code_e17853af8dd84f3da5e24318ab570da5-2"></a><span class="c"># Backs up the OpenShift PostgreSQL database for this application</span>
+<a name="rest_code_e17853af8dd84f3da5e24318ab570da5-3"></a><span class="c"># by Skye Book</span>
+<a name="rest_code_e17853af8dd84f3da5e24318ab570da5-4"></a><span class="nv">NOW</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>date +<span class="s2">"%Y-%m-%d"</span><span class="k">)</span><span class="s2">"</span>
+<a name="rest_code_e17853af8dd84f3da5e24318ab570da5-5"></a><span class="nv">FILENAME</span><span class="o">=</span><span class="s2">"</span><span class="nv">$OPENSHIFT_DATA_DIR</span><span class="s2">/</span><span class="nv">$OPENSHIFT_APP_NAME</span><span class="s2">.</span><span class="nv">$NOW</span><span class="s2">.backup.sql.gz"</span>
+<a name="rest_code_e17853af8dd84f3da5e24318ab570da5-6"></a>pg_dump <span class="nv">$OPENSHIFT_APP_NAME</span> <span class="p">|</span> gzip &gt; <span class="nv">$FILENAME</span>
 </pre>
 <p>Now you can copy the database to your local folder:</p>
 <pre class="literal-block">
