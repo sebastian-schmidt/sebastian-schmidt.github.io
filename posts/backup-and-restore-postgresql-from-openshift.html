@@ -61,7 +61,7 @@ This is how i back up a the postgres database, copy it to my local computer, and
             </li>
 </ul>
 <!-- Custom search with Google--><form id="search" action="//www.google.com/search" method="get" class="navbar-form pull-right">
-<input type="hidden" name="q" value="site:http://actin.io/"><input type="text" name="q" maxlength="255" results="0" placeholder="Search" style="margin-top: 4px;width:100px;"><input type="submit" value="Go">
+<input type="hidden" name="sitesearch" value="actin.io"><input type="text" name="q" maxlength="255" results="0" placeholder="Search" style="margin-top: 4px;width:100px;"><input type="submit" value="Go">
 </form>
 <!-- End of custom search -->
 
@@ -100,12 +100,12 @@ rhc ssh myappname
 </pre>
 <p>executed the lines from this <a class="reference external" href="https://gist.github.com/skyebook/3407646">snippet</a>:</p>
 <!-- TEASER_END -->
-<pre class="code bash"><a name="rest_code_427758b546964591a75443f6dd38acb8-1"></a><span class="c">#!/bin/bash</span>
-<a name="rest_code_427758b546964591a75443f6dd38acb8-2"></a><span class="c"># Backs up the OpenShift PostgreSQL database for this application</span>
-<a name="rest_code_427758b546964591a75443f6dd38acb8-3"></a><span class="c"># by Skye Book</span>
-<a name="rest_code_427758b546964591a75443f6dd38acb8-4"></a><span class="nv">NOW</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>date +<span class="s2">"%Y-%m-%d"</span><span class="k">)</span><span class="s2">"</span>
-<a name="rest_code_427758b546964591a75443f6dd38acb8-5"></a><span class="nv">FILENAME</span><span class="o">=</span><span class="s2">"</span><span class="nv">$OPENSHIFT_DATA_DIR</span><span class="s2">/</span><span class="nv">$OPENSHIFT_APP_NAME</span><span class="s2">.</span><span class="nv">$NOW</span><span class="s2">.backup.sql.gz"</span>
-<a name="rest_code_427758b546964591a75443f6dd38acb8-6"></a>pg_dump <span class="nv">$OPENSHIFT_APP_NAME</span> <span class="p">|</span> gzip &gt; <span class="nv">$FILENAME</span>
+<pre class="code bash"><a name="rest_code_a0ec3304b8ab40a18c2d970db506b82c-1"></a><span class="c">#!/bin/bash</span>
+<a name="rest_code_a0ec3304b8ab40a18c2d970db506b82c-2"></a><span class="c"># Backs up the OpenShift PostgreSQL database for this application</span>
+<a name="rest_code_a0ec3304b8ab40a18c2d970db506b82c-3"></a><span class="c"># by Skye Book</span>
+<a name="rest_code_a0ec3304b8ab40a18c2d970db506b82c-4"></a><span class="nv">NOW</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>date +<span class="s2">"%Y-%m-%d"</span><span class="k">)</span><span class="s2">"</span>
+<a name="rest_code_a0ec3304b8ab40a18c2d970db506b82c-5"></a><span class="nv">FILENAME</span><span class="o">=</span><span class="s2">"</span><span class="nv">$OPENSHIFT_DATA_DIR</span><span class="s2">/</span><span class="nv">$OPENSHIFT_APP_NAME</span><span class="s2">.</span><span class="nv">$NOW</span><span class="s2">.backup.sql.gz"</span>
+<a name="rest_code_a0ec3304b8ab40a18c2d970db506b82c-6"></a>pg_dump <span class="nv">$OPENSHIFT_APP_NAME</span> <span class="p">|</span> gzip &gt; <span class="nv">$FILENAME</span>
 </pre>
 <p>Now you can copy the database to your local folder:</p>
 <pre class="literal-block">

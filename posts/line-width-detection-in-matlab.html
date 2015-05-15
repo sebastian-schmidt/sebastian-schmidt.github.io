@@ -64,7 +64,7 @@ an existing solution to the problem I only found this paper">
             </li>
 </ul>
 <!-- Custom search with Google--><form id="search" action="//www.google.com/search" method="get" class="navbar-form pull-right">
-<input type="hidden" name="q" value="site:http://actin.io/"><input type="text" name="q" maxlength="255" results="0" placeholder="Search" style="margin-top: 4px;width:100px;"><input type="submit" value="Go">
+<input type="hidden" name="sitesearch" value="actin.io"><input type="text" name="q" maxlength="255" results="0" placeholder="Search" style="margin-top: 4px;width:100px;"><input type="submit" value="Go">
 </form>
 <!-- End of custom search -->
 
@@ -122,58 +122,58 @@ the lines in an image. For that angle we look at the profile and fit a
 gaussian to measure the width. That is basically all we need. The rest
 of the script are a few extras to make it easier to input images.</p>
 <p>Lets look plot of the Radon transform of the first image:</p>
-<pre class="code Matlab"><a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-1"></a><span class="k">function</span><span class="w"> </span>f <span class="p">=</span><span class="w"> </span><span class="nf">linewidthofimage</span><span class="p">(</span>imagepath<span class="p">)</span><span class="w"></span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-2"></a><span class="n">bundleImage</span><span class="p">=</span><span class="n">imread</span><span class="p">(</span><span class="n">imagepath</span><span class="p">);</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-3"></a>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-4"></a><span class="c">% convert to greyscale if necessary</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-5"></a><span class="k">if</span>  <span class="nb">size</span><span class="p">(</span><span class="n">bundleImage</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-6"></a>    <span class="n">bundleImage</span> <span class="p">=</span> <span class="n">rgb2gray</span><span class="p">(</span><span class="n">bundleImage</span><span class="p">);</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-7"></a><span class="k">end</span><span class="p">;</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-8"></a>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-9"></a><span class="c">%crop</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-10"></a><span class="c">% if ~exist('cropRect')</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-11"></a><span class="c">%     cropRect=[10,10,size(bundleImage,2)-20,size(bundleImage,1)-20];</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-12"></a><span class="c">% end;</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-13"></a><span class="c">% f=figure;</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-14"></a><span class="c">%</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-15"></a><span class="c">% imshow(bundleImage,'Border','tight');</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-16"></a><span class="c">% set(gcf, 'units','normalized','outerposition',[0 0 1 1]);</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-17"></a><span class="c">% h=imrect(gca,cropRect)</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-18"></a><span class="c">% cropRect = wait(h);</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-19"></a><span class="c">% [bundleImage]=imcrop(bundleImage,cropRect);</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-20"></a><span class="c">% close(f)</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-21"></a>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-22"></a><span class="n">myfigure</span><span class="p">=</span><span class="n">figure</span><span class="p">(</span><span class="s">'Name'</span><span class="p">,</span><span class="n">imagepath</span><span class="p">,</span><span class="s">'NumberTitle'</span><span class="p">,</span> <span class="s">'off'</span><span class="p">);</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-23"></a><span class="n">bundleForPeakFinding</span><span class="p">=</span><span class="n">bundleImage</span><span class="p">;</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-24"></a>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-25"></a><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span> <span class="n">imshow</span><span class="p">(</span><span class="n">bundleImage</span><span class="p">);</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-26"></a>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-27"></a><span class="n">iptsetpref</span><span class="p">(</span><span class="s">'ImshowAxesVisible'</span><span class="p">,</span><span class="s">'on'</span><span class="p">)</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-28"></a><span class="n">theta</span> <span class="p">=</span> <span class="mi">0</span><span class="p">:</span><span class="mi">179</span><span class="p">;</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-29"></a><span class="p">[</span><span class="n">R</span><span class="p">,</span><span class="n">xp</span><span class="p">]</span> <span class="p">=</span> <span class="n">radon</span><span class="p">(</span><span class="n">bundleForPeakFinding</span><span class="p">,</span><span class="n">theta</span><span class="p">);</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-30"></a>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-31"></a><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span> <span class="n">imshow</span><span class="p">(</span><span class="n">R</span><span class="p">,[],</span><span class="s">'Xdata'</span><span class="p">,</span><span class="n">theta</span><span class="p">,</span><span class="s">'Ydata'</span><span class="p">,</span><span class="n">xp</span><span class="p">,</span><span class="s">'InitialMagnification'</span><span class="p">,</span><span class="s">'fit'</span><span class="p">)</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-32"></a><span class="n">xlabel</span><span class="p">(</span><span class="s">'\theta (degrees)'</span><span class="p">)</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-33"></a><span class="n">ylabel</span><span class="p">(</span><span class="s">'x'''</span><span class="p">)</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-34"></a><span class="n">colormap</span><span class="p">(</span><span class="n">hot</span><span class="p">),</span> <span class="n">colorbar</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-35"></a><span class="n">axis</span> <span class="n">normal</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-36"></a><span class="n">iptsetpref</span><span class="p">(</span><span class="s">'ImshowAxesVisible'</span><span class="p">,</span><span class="s">'off'</span><span class="p">)</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-37"></a>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-38"></a><span class="n">p</span><span class="p">=</span><span class="n">peakfit2d</span><span class="p">(</span><span class="n">R</span><span class="p">);</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-39"></a><span class="n">p</span><span class="p">=</span><span class="nb">round</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-40"></a>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-41"></a><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span> <span class="n">imagesc</span><span class="p">(</span><span class="n">R</span><span class="p">);</span> <span class="n">hold</span> <span class="n">on</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-42"></a><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span> <span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="n">p</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="s">'r+'</span><span class="p">)</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-43"></a><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span> <span class="n">plot</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">R</span><span class="p">(:,</span><span class="n">p</span><span class="p">(</span><span class="mi">2</span><span class="p">)));</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-44"></a><span class="n">title</span><span class="p">(</span><span class="s">'R_{0^o} (x\prime)'</span><span class="p">)</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-45"></a>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-46"></a><span class="p">[</span><span class="n">R</span><span class="p">,</span><span class="n">xp</span><span class="p">]</span> <span class="p">=</span> <span class="n">radon</span><span class="p">(</span><span class="n">bundleImage</span><span class="p">,</span><span class="n">p</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-47"></a><span class="n">width1</span><span class="p">=</span><span class="n">fwhm</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">R</span><span class="p">);</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-48"></a>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-49"></a><span class="n">stringout</span><span class="p">=</span><span class="n">sprintf</span><span class="p">(</span><span class="s">'Width:%0.2f'</span><span class="p">,</span><span class="n">width1</span><span class="p">);</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-50"></a><span class="nb">disp</span><span class="p">(</span><span class="n">stringout</span><span class="p">)</span>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-51"></a>
-<a name="rest_code_e41b5e0533e24fc9b0d65203f32b2640-52"></a><span class="n">f</span><span class="p">=</span> <span class="n">width1</span><span class="p">;</span>
+<pre class="code Matlab"><a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-1"></a><span class="k">function</span><span class="w"> </span>f <span class="p">=</span><span class="w"> </span><span class="nf">linewidthofimage</span><span class="p">(</span>imagepath<span class="p">)</span><span class="w"></span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-2"></a><span class="n">bundleImage</span><span class="p">=</span><span class="n">imread</span><span class="p">(</span><span class="n">imagepath</span><span class="p">);</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-3"></a>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-4"></a><span class="c">% convert to greyscale if necessary</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-5"></a><span class="k">if</span>  <span class="nb">size</span><span class="p">(</span><span class="n">bundleImage</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-6"></a>    <span class="n">bundleImage</span> <span class="p">=</span> <span class="n">rgb2gray</span><span class="p">(</span><span class="n">bundleImage</span><span class="p">);</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-7"></a><span class="k">end</span><span class="p">;</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-8"></a>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-9"></a><span class="c">%crop</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-10"></a><span class="c">% if ~exist('cropRect')</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-11"></a><span class="c">%     cropRect=[10,10,size(bundleImage,2)-20,size(bundleImage,1)-20];</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-12"></a><span class="c">% end;</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-13"></a><span class="c">% f=figure;</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-14"></a><span class="c">%</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-15"></a><span class="c">% imshow(bundleImage,'Border','tight');</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-16"></a><span class="c">% set(gcf, 'units','normalized','outerposition',[0 0 1 1]);</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-17"></a><span class="c">% h=imrect(gca,cropRect)</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-18"></a><span class="c">% cropRect = wait(h);</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-19"></a><span class="c">% [bundleImage]=imcrop(bundleImage,cropRect);</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-20"></a><span class="c">% close(f)</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-21"></a>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-22"></a><span class="n">myfigure</span><span class="p">=</span><span class="n">figure</span><span class="p">(</span><span class="s">'Name'</span><span class="p">,</span><span class="n">imagepath</span><span class="p">,</span><span class="s">'NumberTitle'</span><span class="p">,</span> <span class="s">'off'</span><span class="p">);</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-23"></a><span class="n">bundleForPeakFinding</span><span class="p">=</span><span class="n">bundleImage</span><span class="p">;</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-24"></a>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-25"></a><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span> <span class="n">imshow</span><span class="p">(</span><span class="n">bundleImage</span><span class="p">);</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-26"></a>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-27"></a><span class="n">iptsetpref</span><span class="p">(</span><span class="s">'ImshowAxesVisible'</span><span class="p">,</span><span class="s">'on'</span><span class="p">)</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-28"></a><span class="n">theta</span> <span class="p">=</span> <span class="mi">0</span><span class="p">:</span><span class="mi">179</span><span class="p">;</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-29"></a><span class="p">[</span><span class="n">R</span><span class="p">,</span><span class="n">xp</span><span class="p">]</span> <span class="p">=</span> <span class="n">radon</span><span class="p">(</span><span class="n">bundleForPeakFinding</span><span class="p">,</span><span class="n">theta</span><span class="p">);</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-30"></a>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-31"></a><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span> <span class="n">imshow</span><span class="p">(</span><span class="n">R</span><span class="p">,[],</span><span class="s">'Xdata'</span><span class="p">,</span><span class="n">theta</span><span class="p">,</span><span class="s">'Ydata'</span><span class="p">,</span><span class="n">xp</span><span class="p">,</span><span class="s">'InitialMagnification'</span><span class="p">,</span><span class="s">'fit'</span><span class="p">)</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-32"></a><span class="n">xlabel</span><span class="p">(</span><span class="s">'\theta (degrees)'</span><span class="p">)</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-33"></a><span class="n">ylabel</span><span class="p">(</span><span class="s">'x'''</span><span class="p">)</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-34"></a><span class="n">colormap</span><span class="p">(</span><span class="n">hot</span><span class="p">),</span> <span class="n">colorbar</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-35"></a><span class="n">axis</span> <span class="n">normal</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-36"></a><span class="n">iptsetpref</span><span class="p">(</span><span class="s">'ImshowAxesVisible'</span><span class="p">,</span><span class="s">'off'</span><span class="p">)</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-37"></a>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-38"></a><span class="n">p</span><span class="p">=</span><span class="n">peakfit2d</span><span class="p">(</span><span class="n">R</span><span class="p">);</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-39"></a><span class="n">p</span><span class="p">=</span><span class="nb">round</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-40"></a>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-41"></a><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span> <span class="n">imagesc</span><span class="p">(</span><span class="n">R</span><span class="p">);</span> <span class="n">hold</span> <span class="n">on</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-42"></a><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span> <span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="n">p</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="s">'r+'</span><span class="p">)</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-43"></a><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span> <span class="n">plot</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">R</span><span class="p">(:,</span><span class="n">p</span><span class="p">(</span><span class="mi">2</span><span class="p">)));</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-44"></a><span class="n">title</span><span class="p">(</span><span class="s">'R_{0^o} (x\prime)'</span><span class="p">)</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-45"></a>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-46"></a><span class="p">[</span><span class="n">R</span><span class="p">,</span><span class="n">xp</span><span class="p">]</span> <span class="p">=</span> <span class="n">radon</span><span class="p">(</span><span class="n">bundleImage</span><span class="p">,</span><span class="n">p</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-47"></a><span class="n">width1</span><span class="p">=</span><span class="n">fwhm</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">R</span><span class="p">);</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-48"></a>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-49"></a><span class="n">stringout</span><span class="p">=</span><span class="n">sprintf</span><span class="p">(</span><span class="s">'Width:%0.2f'</span><span class="p">,</span><span class="n">width1</span><span class="p">);</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-50"></a><span class="nb">disp</span><span class="p">(</span><span class="n">stringout</span><span class="p">)</span>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-51"></a>
+<a name="rest_code_f8bcc5681368419dba0d8459aa557cb2-52"></a><span class="n">f</span><span class="p">=</span> <span class="n">width1</span><span class="p">;</span>
 </pre>
 <p>Two external function were used:</p>
 <ul class="simple">
@@ -195,31 +195,31 @@ measure of width for our <em>brush</em> size.</p>
 <p>Now we can put everything together and write a function that takes a
 path to an image file that has exactly one major line and gives the
 width of it as the result.</p>
-<pre class="code Matlab"><a name="rest_code_d3c261d77ac642a4ac5bdb1d27321047-1"></a><span class="n">close</span> <span class="n">all</span><span class="p">;</span>
-<a name="rest_code_d3c261d77ac642a4ac5bdb1d27321047-2"></a><span class="n">clear</span> <span class="n">all</span><span class="p">;</span>
-<a name="rest_code_d3c261d77ac642a4ac5bdb1d27321047-3"></a><span class="n">nFilesToLookAt</span><span class="p">=</span><span class="mi">0</span><span class="p">;</span> <span class="c">% 0 for all</span>
-<a name="rest_code_d3c261d77ac642a4ac5bdb1d27321047-4"></a><span class="n">folder_name</span> <span class="p">=</span> <span class="n">uigetdir</span><span class="p">;</span>
-<a name="rest_code_d3c261d77ac642a4ac5bdb1d27321047-5"></a><span class="c">% Get list of all *.png files in this directory</span>
-<a name="rest_code_d3c261d77ac642a4ac5bdb1d27321047-6"></a><span class="c">% DIR returns as a structure array.  You will need to use () and . to get</span>
-<a name="rest_code_d3c261d77ac642a4ac5bdb1d27321047-7"></a><span class="c">% the file names.</span>
-<a name="rest_code_d3c261d77ac642a4ac5bdb1d27321047-8"></a><span class="n">imagefiles</span> <span class="p">=</span> <span class="n">dir</span><span class="p">(</span><span class="n">fullfile</span><span class="p">(</span><span class="n">folder_name</span><span class="p">,</span><span class="s">'/*.png'</span><span class="p">));</span>
-<a name="rest_code_d3c261d77ac642a4ac5bdb1d27321047-9"></a><span class="n">nfiles</span> <span class="p">=</span> <span class="nb">length</span><span class="p">(</span><span class="n">imagefiles</span><span class="p">);</span>
-<a name="rest_code_d3c261d77ac642a4ac5bdb1d27321047-10"></a><span class="k">if</span> <span class="n">nFilesToLookAt</span><span class="o">==</span><span class="mi">0</span>
-<a name="rest_code_d3c261d77ac642a4ac5bdb1d27321047-11"></a>    <span class="n">nFilesToLookAt</span><span class="p">=</span><span class="n">nfiles</span><span class="p">;</span>
-<a name="rest_code_d3c261d77ac642a4ac5bdb1d27321047-12"></a><span class="k">end</span>
-<a name="rest_code_d3c261d77ac642a4ac5bdb1d27321047-13"></a>
-<a name="rest_code_d3c261d77ac642a4ac5bdb1d27321047-14"></a><span class="n">AllWidths</span><span class="p">=[];</span>
-<a name="rest_code_d3c261d77ac642a4ac5bdb1d27321047-15"></a><span class="k">for</span> <span class="nb">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="nb">round</span><span class="p">(</span><span class="n">nfiles</span><span class="o">/</span><span class="n">nFilesToLookAt</span><span class="p">):</span><span class="n">nfiles</span>
-<a name="rest_code_d3c261d77ac642a4ac5bdb1d27321047-16"></a>    <span class="n">currentfilename</span> <span class="p">=</span> <span class="n">fullfile</span><span class="p">(</span><span class="n">folder_name</span><span class="p">,</span><span class="n">imagefiles</span><span class="p">(</span><span class="nb">i</span><span class="p">).</span><span class="n">name</span><span class="p">);</span>
-<a name="rest_code_d3c261d77ac642a4ac5bdb1d27321047-17"></a>    <span class="n">w</span><span class="p">=</span><span class="n">linewidthofimages</span><span class="p">(</span><span class="n">currentfilename</span><span class="p">)</span>
-<a name="rest_code_d3c261d77ac642a4ac5bdb1d27321047-18"></a>    <span class="n">AllWidths</span><span class="p">=[</span><span class="n">AllWidths</span> <span class="n">w</span><span class="p">];</span>
-<a name="rest_code_d3c261d77ac642a4ac5bdb1d27321047-19"></a><span class="k">end</span>
-<a name="rest_code_d3c261d77ac642a4ac5bdb1d27321047-20"></a>
-<a name="rest_code_d3c261d77ac642a4ac5bdb1d27321047-21"></a><span class="n">figure</span><span class="p">;</span>
-<a name="rest_code_d3c261d77ac642a4ac5bdb1d27321047-22"></a><span class="n">plot</span><span class="p">(</span><span class="n">AllWidths</span><span class="p">);</span>
-<a name="rest_code_d3c261d77ac642a4ac5bdb1d27321047-23"></a>
-<a name="rest_code_d3c261d77ac642a4ac5bdb1d27321047-24"></a><span class="nb">disp</span><span class="p">(</span><span class="n">sprintf</span><span class="p">(</span><span class="s">'mean width:%0.2f'</span><span class="p">,</span><span class="n">mean</span><span class="p">(</span><span class="n">AllWidths</span><span class="p">)));</span>
-<a name="rest_code_d3c261d77ac642a4ac5bdb1d27321047-25"></a><span class="nb">disp</span><span class="p">(</span><span class="n">sprintf</span><span class="p">(</span><span class="s">'median width:%0.2f'</span><span class="p">,</span><span class="n">median</span><span class="p">(</span><span class="n">AllWidths</span><span class="p">)));</span>
+<pre class="code Matlab"><a name="rest_code_57899a4613e14c25af599d231d5e88ae-1"></a><span class="n">close</span> <span class="n">all</span><span class="p">;</span>
+<a name="rest_code_57899a4613e14c25af599d231d5e88ae-2"></a><span class="n">clear</span> <span class="n">all</span><span class="p">;</span>
+<a name="rest_code_57899a4613e14c25af599d231d5e88ae-3"></a><span class="n">nFilesToLookAt</span><span class="p">=</span><span class="mi">0</span><span class="p">;</span> <span class="c">% 0 for all</span>
+<a name="rest_code_57899a4613e14c25af599d231d5e88ae-4"></a><span class="n">folder_name</span> <span class="p">=</span> <span class="n">uigetdir</span><span class="p">;</span>
+<a name="rest_code_57899a4613e14c25af599d231d5e88ae-5"></a><span class="c">% Get list of all *.png files in this directory</span>
+<a name="rest_code_57899a4613e14c25af599d231d5e88ae-6"></a><span class="c">% DIR returns as a structure array.  You will need to use () and . to get</span>
+<a name="rest_code_57899a4613e14c25af599d231d5e88ae-7"></a><span class="c">% the file names.</span>
+<a name="rest_code_57899a4613e14c25af599d231d5e88ae-8"></a><span class="n">imagefiles</span> <span class="p">=</span> <span class="n">dir</span><span class="p">(</span><span class="n">fullfile</span><span class="p">(</span><span class="n">folder_name</span><span class="p">,</span><span class="s">'/*.png'</span><span class="p">));</span>
+<a name="rest_code_57899a4613e14c25af599d231d5e88ae-9"></a><span class="n">nfiles</span> <span class="p">=</span> <span class="nb">length</span><span class="p">(</span><span class="n">imagefiles</span><span class="p">);</span>
+<a name="rest_code_57899a4613e14c25af599d231d5e88ae-10"></a><span class="k">if</span> <span class="n">nFilesToLookAt</span><span class="o">==</span><span class="mi">0</span>
+<a name="rest_code_57899a4613e14c25af599d231d5e88ae-11"></a>    <span class="n">nFilesToLookAt</span><span class="p">=</span><span class="n">nfiles</span><span class="p">;</span>
+<a name="rest_code_57899a4613e14c25af599d231d5e88ae-12"></a><span class="k">end</span>
+<a name="rest_code_57899a4613e14c25af599d231d5e88ae-13"></a>
+<a name="rest_code_57899a4613e14c25af599d231d5e88ae-14"></a><span class="n">AllWidths</span><span class="p">=[];</span>
+<a name="rest_code_57899a4613e14c25af599d231d5e88ae-15"></a><span class="k">for</span> <span class="nb">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="nb">round</span><span class="p">(</span><span class="n">nfiles</span><span class="o">/</span><span class="n">nFilesToLookAt</span><span class="p">):</span><span class="n">nfiles</span>
+<a name="rest_code_57899a4613e14c25af599d231d5e88ae-16"></a>    <span class="n">currentfilename</span> <span class="p">=</span> <span class="n">fullfile</span><span class="p">(</span><span class="n">folder_name</span><span class="p">,</span><span class="n">imagefiles</span><span class="p">(</span><span class="nb">i</span><span class="p">).</span><span class="n">name</span><span class="p">);</span>
+<a name="rest_code_57899a4613e14c25af599d231d5e88ae-17"></a>    <span class="n">w</span><span class="p">=</span><span class="n">linewidthofimages</span><span class="p">(</span><span class="n">currentfilename</span><span class="p">)</span>
+<a name="rest_code_57899a4613e14c25af599d231d5e88ae-18"></a>    <span class="n">AllWidths</span><span class="p">=[</span><span class="n">AllWidths</span> <span class="n">w</span><span class="p">];</span>
+<a name="rest_code_57899a4613e14c25af599d231d5e88ae-19"></a><span class="k">end</span>
+<a name="rest_code_57899a4613e14c25af599d231d5e88ae-20"></a>
+<a name="rest_code_57899a4613e14c25af599d231d5e88ae-21"></a><span class="n">figure</span><span class="p">;</span>
+<a name="rest_code_57899a4613e14c25af599d231d5e88ae-22"></a><span class="n">plot</span><span class="p">(</span><span class="n">AllWidths</span><span class="p">);</span>
+<a name="rest_code_57899a4613e14c25af599d231d5e88ae-23"></a>
+<a name="rest_code_57899a4613e14c25af599d231d5e88ae-24"></a><span class="nb">disp</span><span class="p">(</span><span class="n">sprintf</span><span class="p">(</span><span class="s">'mean width:%0.2f'</span><span class="p">,</span><span class="n">mean</span><span class="p">(</span><span class="n">AllWidths</span><span class="p">)));</span>
+<a name="rest_code_57899a4613e14c25af599d231d5e88ae-25"></a><span class="nb">disp</span><span class="p">(</span><span class="n">sprintf</span><span class="p">(</span><span class="s">'median width:%0.2f'</span><span class="p">,</span><span class="n">median</span><span class="p">(</span><span class="n">AllWidths</span><span class="p">)));</span>
 </pre>
 <p>This procedure queries a folder name and calculates the
 widths of all images inside. Afterwards it plots the resulting widths.
